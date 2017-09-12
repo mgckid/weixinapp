@@ -10,4 +10,7 @@
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+  <view class='test'>
+    <button>测试按钮</button>
+  </view>
 </view>
