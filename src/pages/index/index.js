@@ -1,4 +1,9 @@
 // pages/index/index.js
+var p = 1;
+var getLastestPost = function (p,) {
+
+}
+
 Page({
 
   /**
@@ -17,6 +22,8 @@ Page({
       url: 'http://api.houduanniu.me/?route=Post/hotPost', //仅为示例，并非真实的接口地址
       method: 'GET',
       data: {
+        dictionary_value: 'Post/latestPost',
+        p: 1,
         page_size: 3
       },
       header: {
@@ -24,7 +31,7 @@ Page({
       },
       success: function (res) {
         if (res.data.code == 200) {
-          that.data.latestPost = res.data.data;
+          that.setData({ latestPost: res.data.data });
           console.log(that.data.latestPost);
         }
       }
