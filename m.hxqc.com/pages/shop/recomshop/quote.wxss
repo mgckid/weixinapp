@@ -1,0 +1,433 @@
+.car-detailspage {
+  padding-bottom: 2.3rem;
+}
+
+/*车型报价详情页*/
+
+.car-detailspage {
+  background-color: #fff;
+}
+
+.car-topimg {
+  position: relative;
+}
+
+.car-topimg .a>image {
+  width: 100%;
+}
+
+.car-topimg .a .span {
+  position: absolute;
+  box-sizing: border-box;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.92rem;
+  line-height: 1.92rem;
+  font-size: 24rpx;
+  color: #fff;
+  padding: 0 0.5rem;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.car-topimg .imgmore {
+  float: right;
+  width: 0.85rem;
+  margin-top: 0.48rem;
+  height: 0.85rem;
+}
+
+.car-price {
+  background-color: #fcf7ea;
+  padding: 0 0.6rem;
+  line-height: 2.3rem;
+  height: 2.3rem;
+}
+
+.car-price .lcj {
+  float: left;
+  color: #e02c36;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+
+.car-price .ckj {
+  float: right;
+  font-size: 28rpx;
+  color: #fe8d6a;
+}
+
+.car-price image {
+  height: 0.8rem;
+  width: 0.8rem;
+  margin-left: 0.2rem;
+}
+
+.car-cstit {
+  padding: 0.68rem;
+  height: 1.02rem;
+  border-top: 1px solid #d5d5d5;
+  background-color: #f5f5f5;
+}
+
+.car-cstit .a {
+  display: block;
+  height: 100%;
+}
+
+.car-cstit>.a {
+  display: block;
+  overflow: hidden;
+}
+
+.car-cstit image:nth-child(1) {
+  float: left;
+  width: 1.1rem;
+  height: 1.1rem;
+}
+
+.car-cstit .span {
+  float: left;
+  line-height: 1rem;
+  color: #e02c36;
+  font-weight: bold;
+  font-size: 28rpx;
+  margin-left: 1.5rem;
+}
+
+.car-cstit image:nth-child(3) {
+  float: right;
+}
+
+.arrow_right {
+  height: 0.8rem;
+  width: 0.5rem;
+  margin-top: 0.1rem;
+}
+
+.arrow_top {
+  width: 0.78rem;
+  height: 0.5rem;
+  margin-top: 0.37rem;
+}
+
+.car-ptmain.on .arrow_top {
+  transform: rotate(180deg);
+}
+
+.car-ptmain .dd {
+  display: none;
+}
+
+.car-ptmain.on .dd {
+  display: block;
+}
+
+.car-ptmain .dd image {
+  width: 100%;
+}
+
+.car-cstit .b {
+  float: right;
+  color: #979797;
+  font-size: 0.6rem;
+  font-weight: normal;
+  margin-right: 0.6rem;
+}
+
+.car-param {
+  border-bottom: 4px solid #e7e7e7;
+  background-color: #fcf7ea;
+}
+
+.car-param .hx_price {
+  line-height: 2.5rem;
+  height: 2.5rem;
+  color: #e02c36;
+  font-size: 0.6rem;
+  border-bottom: 1px solid #eee6d3;
+  overflow: hidden;
+}
+
+.car-param .hx_price .uleft {
+  padding: 0 0.68rem;
+  display: block;
+  overflow: hidden;
+}
+
+.car-param .hx_price .uright {
+  float: right;
+  width: 3.4rem;
+  border-left: 1px solid #eee6d3;
+  text-align: center;
+}
+
+.car-param .hx_price .strong {
+  font-size: 0.85rem;
+}
+
+.car-param .hx_price .i {
+  font-size: 0.6rem;
+  float: right;
+}
+
+.car-param .hx_price .a {
+  float: right;
+  color: #2396ef;
+  font-size: 0.6rem;
+}
+
+.car-param .hx_price_c {
+  line-height: 1.07rem;
+  padding: 0.4rem 0.68rem;
+  overflow: hidden;
+}
+
+.car-param .hx_price_c>.p {
+  float: left;
+  width: 50%;
+  color: #98958d;
+  font-size: 0.6rem;
+}
+
+.car-param .hx_price_c .span {
+  color: #3f3e3a;
+}
+
+/*.car-param .hx_price_c u{color:#3f3e3a; text-decoration: line-through;}*/
+
+.car-param image.low {
+  height: 0.4rem;
+  margin-left: 5px;
+}
+
+/*.car-butie{clear:both;overflow: hidden; background-color: #fff; padding:.6rem .68rem;}
+.car-butie .span{float:left; width:50%; line-height: .85rem; font-size: .47rem; color:#3f3f3f;}*/
+
+.car-cstit {
+  border-bottom: 1px solid #bababa;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.car-colorList {
+  padding: 0.68rem 0.68rem 0.2rem;
+  overflow: hidden;
+}
+
+.car-colorList .title {
+  float: left;
+  font-size: 24rpx;
+  color: #9a9a9a;
+  width: 15%;
+}
+
+.car-colorList .box {
+  margin-left: 2.2rem;
+}
+
+.car-colorList .box .span {
+  display: inline-block;
+  width: 1.3rem;
+  height: 1.3rem;
+  box-shadow: 2px 2px 2px #d0d0d0;
+  margin-bottom: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+.buybottom {
+  height: 2.3rem;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.buybottom .a {
+  float: left;
+  height: 100%;
+  line-height: 2.3rem;
+  box-sizing: border-box;
+  width: 35%;
+  background-color: #e02c36;
+  text-align: center;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #fff;
+}
+
+.buybottom .a image {
+  height: 1.1rem;
+  width: 1.1rem;
+  position: relative;
+  top: 0.2rem;
+}
+
+.buybottom .a:nth-of-type(3) {
+  border-right: 1px solid #af000a;
+}
+
+.buybottom .buychat, .buybottom .buyshop {
+  box-sizing: border-box;
+  width: 15%;
+  background-color: #292929;
+  text-align: center;
+}
+
+.buybottom .buyshop {
+  border-right: 1px solid #6d6d6d;
+}
+
+.buybottom .buychat image, .buybottom .buyshop image {
+  height: 1.6rem;
+  width: 1.1rem;
+}
+
+.sideslipMask {
+  transition: all 300ms;
+  z-index: 9997;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  z-index: -1;
+}
+
+/*咨询弹出层*/
+
+.mychat {
+  width: 14rem;
+  left: 11%;
+  width: 78%;
+  position: fixed;
+  height: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  box-shadow: rgba(0, 0, 0, 0.2) -4px 0px 5px 2px;
+  box-sizing: border-box;
+  background-color: rgb(255, 255, 255);
+  transition: all 300ms;
+  transform: translateY(100%);
+  -webkit-transform: translateY(100%);
+  opacity: 0;
+  z-index: -1;
+}
+
+.mychat.on {
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  opacity: 1;
+  z-index: 9999;
+}
+
+.sideslipMask.on {
+  opacity: 1;
+  z-index: 9998;
+}
+
+.mychat-content {
+  background: #fff;
+  border-radius: 0.1rem;
+  padding: 0.3rem 0 0.9rem;
+}
+
+.mychat-header .mychat-title {
+  padding: 0 0.625rem;
+  font-size: 28rpx;
+  color: #ff7144;
+  height: 1.2rem;
+  line-height: 1.2rem;
+  font-weight: bold;
+  border-bottom: 1px solid #e3e3e3;
+}
+
+.mychat-header .mychat-close {
+  width: 0.6rem;
+  height: 0.6rem;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.7rem;
+  background: url(http://m.hxqc.com/wxapp/shop/buy/mychat-close.png) no-repeat;
+  background-size: 0.6rem;
+}
+
+.hx-chat-box {
+  color: #343434;
+  font-size: 26rpx;
+}
+
+.hx-chat-box .alert-content {
+  margin: 0.45rem 0.75rem 0.45rem;
+}
+
+.hx-chat-box .alert {
+  background-color: #e1efd9;
+  padding: 0.3rem 0.25rem;
+  color: #739c72;
+}
+
+.hx-chat-box .alert .span {
+  display: block;
+  line-height: 0.8rem;
+}
+
+.hx-chat-box .alert.hidden {
+  display: none;
+}
+
+.hx-chat-box .textarea {
+  width: 70%;
+  box-sizing: border-box;
+  height: 3.4rem;
+  border: 1px solid #d2d2d2;
+  float: right;
+  margin-right: 0.7rem;
+  outline: 0;
+  resize: none;
+}
+
+.hx-chat-box .hx-chat-info {
+  display: inline-block;
+  padding-top: 0.675rem;
+  padding-bottom: 1.8rem;
+  float: left;
+  font-size: 24rpx;
+  margin-left: 0.7rem;
+  color: #9a9a9a;
+}
+
+.hx-chat-box .hx-chat-submit:hover {
+  background-color: #ff636c;
+}
+
+.hx-chat-box .hx-chat-submit {
+  display: block;
+  padding: 0;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  width: 3.95rem;
+  border: 1px solid #d22c35;
+  background-color: #ed4851;
+  font-size: 28rpx;
+  color: #fff;
+  text-align: center;
+  cursor: pointer;
+  margin-left: 3rem;
+  float: left;
+}
+
+.hx-chat-box .buttons {
+  padding-top: 0.6rem;
+  clear: both;
+  overflow: hidden;
+}
+
+.hx-chat-box .wordage {
+  height: 1.5rem;
+  line-height: 1.5rem;
+  margin-left: 0.45rem;
+  float: left;
+}

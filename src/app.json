@@ -1,12 +1,12 @@
 {
   "pages":[
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/index/index"
   ],
+  "debug":true,
   "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor":"#007AFF",
+    "navigationBarTextStyle":"white",
+    "navigationBarTitleText":"恒信汽车",
+    "backgroundColor":"#F8F9FB"
   }
 }

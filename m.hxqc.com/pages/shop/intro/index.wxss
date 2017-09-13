@@ -1,0 +1,39 @@
+.aus_wrap{background-color: #fafafa; padding:0 .68rem 1rem ; margin-bottom: .65rem; border-top:1px solid #d5d5d5; border-bottom:1px solid #d5d5d5;}
+.aus_wrap:last-child{margin-bottom: 0;}
+.aus_webtop{line-height: 2rem; color:#e02c36; font-size: 31rpx; margin-top: .2rem; font-weight: bold;}
+.aus_img{text-align: center;}
+.aus_img image{width: 100%;}
+.aus_part4{padding-bottom: 0;}
+.aus_zycx{height:2.7rem;}
+.aus_zycx .cxLogo{float:left; height:2.7rem; width:2.7rem; text-align: center; background-color: #fff; box-shadow: 0 1px 2px 2px rgba(0,0,0,.1); border-radius:2px; }
+.aus_zycx .cxLogo image{width:1.9rem; height:1.9rem; margin-top: .4rem;}
+.aus_zycx .cxText{margin-left: 3.8rem; font-size: 31rpx; line-height: 3rem;}
+.aus_zycxLi{overflow: hidden; padding-bottom: 1rem;}
+.aus_zycxLi .a{float:left; line-height: 2rem; width:30%; margin-top: .64rem; margin-right: 5%; background-color: #ddd; 
+	color:#333; font-size: 30rpx; text-align: center; border-radius:.2rem;
+	 overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
+.aus_zycxLi .a:nth-child(3n){margin-right: 0;}
+/*5*/
+.aus_map{padding-bottom: .68rem; height:10rem;}
+.aus_intos{margin:0 -.68rem; border-top: 1px solid #d5d5d5; padding:.3rem .68rem 2rem;}
+.aus_intos .li{line-height: 1.2rem; padding:.4rem 0; overflow: hidden;}
+.aus_intos .li .imgT{float:left; height: 1rem;width: 1rem;}
+.aus_intos .li .span{display: block; margin-left: 1.3rem; font-size: 28rpx; color:#333; word-break:break-all;}
+.aus_intos .li .b{color:#e02c36; font-weight: normal;}
+.aus_intos .li .span image:nth-of-type(1){height:.65rem;width: .65rem;margin-left: .2rem;}
+.aus_intos .li .span image:nth-of-type(2){height:.65rem;width: 1.4rem;margin-left: .2rem;}
+.maskTel{position:fixed; bottom:0; left:0; box-sizing:border-box; border-top:1px solid #d5d5d5; box-shadow: 0 -3px 3px rgba(0,0,0,.1); width:100%; line-height: 2.3rem; font-size: 32rpx; font-weight: bold; font-family: "黑体"; color:#e02c36; background-color: #fff; text-align: center; z-index: 999;}
+.maskTel image{height:1rem;width: 1rem;}
+.aus_wrap scroll-view{display: flex;white-space: nowrap;}
+.aus_wrap scroll-view .li{display: inline-block;width: 10rem;height: 6rem;margin-right: .8rem;}
+.aus_wrap scroll-view .li image{width: 10rem;height: 6rem;}
+
+.ausp2_list{overflow: hidden;}
+.ausp2_list .dl{float:left; margin-right: 1.06rem; margin-bottom: 1.06rem;}
+.ausp2_list .dl:nth-child(2n){margin-right: 0;}
+.ausp2_list .dt{background-color: #efefef; height:10rem; width:10rem; vertical-align: middle; text-align: center; display: table-cell;}
+.ausp2_list .dt image{width:66%;height: 50%;}
+.ausp2_list .dd{line-height: .8rem; width:100%; height: 2rem; overflow: hidden; border-bottom: 1px solid #ccc; font-size: .52rem; color:#3d3d3d; position: relative;}
+.ausp2_list .dd .span{position:absolute; width:100%; position: absolute; top:50%; transform:translateY(-50%); -webkit-transform:translateY(-50%);}
+.aus_text .p{line-height: 1.6rem;padding: .4rem 0;}
+.aus_text image{width: 100%;}

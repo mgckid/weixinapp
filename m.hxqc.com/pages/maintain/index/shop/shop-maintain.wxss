@@ -1,0 +1,41 @@
+/*保养项目选择*/
+page{padding-bottom: 3.3rem;}
+.recommend_text{padding: .5rem .8rem;border-bottom: 2px solid #D5D5D5;border-top: 2px solid #D5D5D5;background-color: #FFF4E6;color: #3D3D3D;font-weight: bold;}
+.recommend_text .span{font-size: 28rpx;color: #9A9A9A;padding-left: .4rem;}
+.recommend_text.choose_item{background: #FFF4E6 url(http://www.tm.hxqc.com/wxapp/maintain/detail_up.png) no-repeat 95% center/1.4rem;}
+.recommend_text.choose_item.on{background: #FFF4E6 url(http://www.tm.hxqc.com/wxapp/maintain/detail_down.png) no-repeat 95% center/1.4rem;}
+.child_title{padding-top: .5rem;margin-left: .8rem;font-size: 32rpx;background-color: #FFFFFF;}
+.child_item{border-bottom: 1px dashed #D5D5D5;background-color: #FFFFFF;padding-top: .3rem;clear: both;overflow: hidden;}
+.child_item .child_name{margin-left: .8rem;margin-bottom: .2rem;margin-top:.3rem;font-size: 29rpx;background-color: #FFFFFF;color:#808080;}
+.child_item .cart_item{padding: .3rem .8rem .3rem 0;background-color: #FFFFFF;clear: both;overflow: hidden;}
+.child_item .cart_item .type_text{float: left;line-height: 1.3rem;margin-left: .8rem;font-size: 24rpx;color: #9A9A9A;width: 60%;}
+.child_item .cart_item .price{float: left; color: #AAAAAA; font-size: 28rpx; line-height: 1.3rem;}
+.child_item .cart_item .price .i{color: #E02C37;}
+.item_price{padding: .5rem .8rem;background-color: #FFFFFF;clear: both;overflow: hidden;}
+.item_price .p{float: left;font-size:28rpx; line-height: 1.3rem;}
+.item_price .set_price{color: #333;padding-left: 62%;}
+.item_price .set_price .i{color:#E02C37}
+.item_price .original_price{text-decoration: line-through;color: #AAAAAA;padding-left: 62%;}
+
+.count_item{padding: .5rem .8rem;}
+.count_item .p{line-height: 1.8rem;color:#404040;font-size:28rpx;float: left;}
+.count_item .p .span{color:#E4575D;}
+.count_item input[type=button]{width: 4rem; font-size: 28rpx; height: 1.5rem; border: 0; background: #ff7143; color: #fff; float: right; border-radius: .2rem; outline: none;}
+.cart_server{padding: 0 .8rem .5rem .8rem;background-color: #FFFFFF;}
+.cart_server scroll-view{display: flex;white-space:nowrap;}
+.cart_server.not_show{display: none;}
+.cart_server .server_box{display:inline-block;line-height: 1.4rem;border-radius:.1rem;color:#AAAAAA;width: 45%;font-size: 28rpx;text-align: center; background-color: #FFFFFF; border: 1px solid #DFDFDF; position: relative;}
+.cart_server .server_box .box_top{padding: .2rem .4rem;font-size: 13px;height:2rem;line-height: 1rem;align-items: center;display: flex;justify-content: center;box-sizing: border-box;}
+.cart_server .server_box .box_top .text{font-size: 24rpx;white-space: normal;}
+.cart_server .server_box .box_bottom{border-top: 1px dashed #D5D5D5}
+.cart_server .server_box .box_bottom .i{color:#E2454E;}
+.cart_server .server_box.choose{border: 1px solid #FF7043;}
+.cart_server .server_box .span{width: 1rem; height: 1rem; position: absolute; right: 0; bottom: 0;background-repeat: no-repeat;}
+.cart_server .server_box.choose .span{background-image: url("http://www.tm.hxqc.com/wxapp/maintain/check_1.png");background-size: 1rem;}
+.check_info{position: fixed; top: 30%; left: 1.2rem; width: 13.5rem; background-color: #FAFAFA; display: none; z-index: 12347;}
+.check_info .check_top{padding:1.3rem 0;text-align: center;border-bottom: 2px solid #D5D5D5;}
+.check_info .check_btn{background-color: #EEEEEE;line-height: 2.5rem;text-align: center;color:#E02C37;}
+.cart_name .type_name{width: 54%;}
+.cart_name .price{float: left;}
+.care_item{display: none;}
+.care_item.on{display: block;}

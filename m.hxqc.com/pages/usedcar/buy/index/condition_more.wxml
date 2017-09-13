@@ -1,0 +1,196 @@
+
+  <view class="filter-group1 filter-platform">
+    <view class="na" data-type="price" catchtap="onClickBack">
+      <view class="span">
+        <text class="point"></text>价格</view>
+      <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+      <text class="tips">{{filter_name_list.list_name.price_name ? filter_name_list.list_name.price_name : '不限'}}</text>
+      <text class="tb"></text>
+    </view>
+    <view class="na" data-type="brand" catchtap="onClickBack">
+      <view class="span">
+        <text class="point"></text>品牌</view>
+      <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+      <text class="tips">{{filter_name_list.list_name.brand_name ? filter_name_list.list_name.brand_name : '不限'}}</text>
+      <text class="tb"></text>
+    </view>
+    <view class="na" data-type="age_limit" catchtap="onClickBack">
+      <view class="span">
+        <text class="point"></text>车龄</view>
+      <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+      <text class="tips">{{filter_name_list.list_name.age_limit_name ? filter_name_list.list_name.age_limit_name : '不限'}}</text>
+      <text class="tb"></text>
+    </view>
+    <view class="na" data-type="level" catchtap="onClickBack">
+      <view class="span">
+        <text class="point"></text>级别</view>
+      <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+      <text class="tips">{{filter_name_list.list_name.level_name ? filter_name_list.list_name.level_name : '不限'}}</text>
+      <text class="tb"></text>
+    </view>
+    <view class="na" data-type="publish_from" catchtap="onClickBack">
+      <view class="span">
+        <text class="point"></text>来源</view>
+      <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+      <text class="tips">{{filter_name_list.list_name.publish_from_name ? filter_name_list.list_name.publish_from_name : '不限'}}</text>
+      <text class="tb"></text>
+    </view>
+    <view class="na" data-type="displacement" catchtap="onClickBack">
+      <view class="span">
+        <text class="point"></text>排量</view>
+      <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+      <text class="tips">{{filter_name_list.list_name.displacement_name ? filter_name_list.list_name.displacement_name : '不限'}}</text>
+      <text class="tb"></text>
+    </view>
+    <view class="na" data-type="gearbox" catchtap="onClickBack">
+      <view class="span">
+        <text class="point"></text>变速箱</view>
+      <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+      <text class="tips">{{filter_name_list.list_name.gearbox_name ? filter_name_list.list_name.gearbox_name : '不限'}}</text>
+      <text class="tb"></text>
+    </view>
+    <view class="na" data-type="mileage" catchtap="onClickBack">
+      <view class="span">
+        <text class="point"></text>里程</view>
+      <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+      <text class="tips">{{filter_name_list.list_name.mileage_name ? filter_name_list.list_name.mileage_name : '不限'}}</text>
+      <text class="tb"></text>
+    </view>
+  </view>
+  <view class="filter-box">
+    <view wx:if="{{carCount > 0}}" class="submit" bindtap="onClickSubmit">为您找到{{carCount}}个车型</view>
+    <view wx:else class="submit" style="background:#d5d5d5" >为您找到{{carCount}}个车型</view>
+  </view>
+
+<view class="ubespeak-mask {{switch_price_on}} {{switch_brand_on}} {{switch_age_on}} {{switch_level_on}} {{switch_source_on}} {{switch_volume_on}} {{switch_speed_on}} {{switch_length_on}}" bindtap="onClickHide"></view>
+
+<!-- 价格侧滑 -->
+<view class="caritems {{switch_price_on}}">
+  <scroll-view class="caritems_wrap" scroll-y="true">
+  <block wx:for="{{filter.price}}">
+      <view class="li " data-type="price" data-value="{{item.id}}" data-text="{{item.value}}" bindtap="onBuyOrder">
+        <view class="a clearfix">
+          <view class="info ">
+            <view class="name">{{item.value}}</view>
+          </view>
+        </view>
+      </view>
+  </block>
+  </scroll-view>
+</view>
+
+<!-- 品牌侧滑 -->
+<view class="caritems {{switch_brand_on}}">
+  <scroll-view class="caritems_wrap" scroll-y="true">
+      <view class="li ">
+        <view class="a clearfix">
+          <view class="info ">
+            <view class="name ">不限</view>
+          </view>
+        </view>
+      </view>
+      <block wx:for="{{filter.brand}}">
+          <view class="title">{{item.groupTag}}</view>
+          <block wx:for="{{item.group}}" wx:for-item="sub">
+            <view class="li" data-type="brand" data-value="{{sub.id}}" data-text="{{sub.brand_name}}" catchtap="onBuyOrder">
+              <view class="a clearfix">
+                <image src="{{sub.brand_logurl}}" class="carimg " />
+                <view class="info ">
+                  <view class="name ">{{sub.brand_name}}</view>
+                </view>
+              </view>
+            </view>
+          </block>
+      </block>
+  </scroll-view>
+</view>
+
+<!-- 车龄侧滑 -->
+<view class="caritems {{switch_age_on}}">
+  <scroll-view class="caritems_wrap" scroll-y="true">
+  <block wx:for="{{filter.age_limit}}">
+    <view class="li" data-type="age_limit" data-value="{{item.id}}" data-text="{{item.value}}" bindtap="onBuyOrder">
+      <view class="a clearfix">
+        <view class="info ">
+          <view class="name ">{{item.value}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  </scroll-view>
+</view>
+
+<!-- 级别侧滑 -->
+<view class="caritems {{switch_level_on}}">
+  <scroll-view class="caritems_wrap" scroll-y="true">
+    <block wx:for="{{filter.level}}">
+      <view class="li" data-type="level" data-value="{{item.id}}" data-text="{{item.value}}" bindtap="onBuyOrder">
+        <view class="a clearfix">
+          <view class="info ">
+            <view class="name ">{{item.value}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+<!-- 来源侧滑 -->
+<view class="caritems {{switch_source_on}}">
+  <scroll-view class="caritems_wrap" scroll-y="true">
+    <block wx:for="{{filter.publish_from}}">
+      <view class="li" data-type="publish_from" data-value="{{item.id}}" data-text="{{item.value}}" bindtap="onBuyOrder">
+        <view class="a clearfix">
+          <view class="info ">
+            <view class="name ">{{item.value}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+<!-- 排量侧滑 -->
+<view class="caritems {{switch_volume_on}}">
+  <scroll-view class="caritems_wrap" scroll-y="true">
+    <block wx:for="{{filter.displacement}}">
+      <view class="li" data-type="displacement" data-value="{{item.id}}" data-text="{{item.value}}" bindtap="onBuyOrder">
+        <view class="a clearfix">
+          <view class="info ">
+            <view class="name ">{{item.value}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+<!-- 变速箱侧滑 -->
+<view class="caritems {{switch_speed_on}}">
+  <scroll-view class="caritems_wrap" scroll-y="true">
+    <block wx:for="{{filter.gearbox}}">
+      <view class="li" data-type="gearbox" data-value="{{item.id}}" data-text="{{item.value}}" bindtap="onBuyOrder">
+        <view class="a clearfix">
+          <view class="info ">
+            <view class="name ">{{item.value}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>
+
+<!-- 里程侧滑 -->
+<view class="caritems {{switch_length_on}}">
+  <scroll-view class="caritems_wrap" scroll-y="true">
+    <block wx:for="{{filter.mileage}}">
+      <view class="li" data-type="mileage" data-value="{{item.id}}" data-text="{{item.value}}" bindtap="onBuyOrder">
+        <view class="a clearfix">
+          <view class="info ">
+            <view class="name ">{{item.value}}</view>
+          </view>
+        </view>
+      </view>
+    </block>
+  </scroll-view>
+</view>

@@ -1,0 +1,39 @@
+<view class="detailPage">
+    <view class="detLists ul">
+        <view class="text clearfix">
+            <view class="p yeText">本次消费金额</view>
+            <view class="p riText"><b>{{detailData.amountToPay}}</b>元</view>
+        </view>
+        <view class="text clearfix">
+            <view class="p yeText">交易信息</view>
+            <view class="p riText"><span>{{detailData.description?detailData.description:'-'}}</span></view>
+        </view>
+        <view class="text clearfix">
+            <view class="p yeText">订单单号</view>
+            <view class="p riText">
+                <!-- <view class="a jumpUri">601014848123806630</view>-->
+                <view class="p yeText">{{detailData.orderID?detailData.orderID:'-'}}</view>
+            </view>
+        </view>
+        
+        <view class="text clearfix">
+            <view class="p yeText">支付方式</view>
+            <view class="p riText">{{detailData.paymentID}}</view>
+        </view>
+        
+        <view class="text clearfix">
+            <view class="p yeText">交易单号</view>
+            <view class="p riText"><span>{{detailData.tradeID?detailData.tradeID:'-'}}</span></view>
+        </view>
+        
+         <view class="text clearfix">
+            <view class="p yeText">门店</view>
+            <view class="p riText">{{detailData.shopName?detailData.shopName:'-'}}</view>
+        </view>        
+        
+        <view class="text clearfix">
+            <view class="p yeText">交易时间</view>
+            <view class="p riText">{{detailData.payTime?detailData.payTime:'-'}}</view>
+        </view>
+    </view>
+</view>

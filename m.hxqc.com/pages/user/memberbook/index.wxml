@@ -1,0 +1,41 @@
+<view class="list pagetop">
+    <view class="top-banner">
+        <image src="http://m.hxqc.com/wxapp/index/memberbook/memberHandbook_top.jpg"></image>
+    </view>
+    <view class="articles">
+        <!--版块-->
+        <navigator url="/pages/user/memberbook/book1">
+            <view class="block">
+                <view class="h4">1. 会员的定义</view>
+                <view class="a">会员的定义</view>
+            </view>
+        </navigator>
+        <navigator url="/pages/user/memberbook/book2">
+            <view class="block">
+                <view class="h4">2. 积分怎么积</view>
+                <view class="a">积分怎么积</view>
+            </view>
+        </navigator>
+        <navigator url="/pages/user/memberbook/book3">
+            <view class="block">
+                <view class="h4">3. 积分怎么用</view>
+                <view class="a">积分怎么用</view>
+            </view>
+        </navigator>
+        <navigator url="/pages/user/memberbook/book4">
+            <view class="block">
+                <view class="h4">4. 会员管理</view>
+                <view class="a">会员管理</view>
+            </view>
+        </navigator>
+        <navigator url="/pages/user/memberbook/book5">
+            <view class="block">
+                <view class="h4">5. 其他</view>
+                <view class="a">其他</view>
+            </view>
+        </navigator>
+    </view>
+    <view class="bottom-radius">
+        <image src="http://m.hxqc.com/wxapp/index/memberbook/artical_bottom.jpg"></image>
+    </view>
+</view>

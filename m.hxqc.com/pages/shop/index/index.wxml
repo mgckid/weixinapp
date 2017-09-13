@@ -1,0 +1,118 @@
+<!-- 导入loading模板 -->
+<import src="/template/loading.wxml" />
+<template is="pageLoading" data="{{pageLoading}}" />
+
+<import src="swiper.wxml" />
+<template is="swiper" data="{{imgUrls}}" />
+<view class="ecarMenu">
+  <navigator class="menu_in" url="/pages/shop/newcar/index">
+    <image src="http://m.hxqc.com/wxapp/shop/menu-icon2.png"></image>
+    <text>新车销售</text>
+  </navigator>
+  <navigator class="menu_in" url="/pages/shop/recomshop/index">
+    <image src="http://m.hxqc.com/wxapp/shop/menu-icon3.png"></image>
+    <text>推荐店铺</text>
+  </navigator>
+  <navigator class="menu_in" url="" bindtap="onClickWait">
+    <image src="http://m.hxqc.com/wxapp/shop/menu-icon4.png"></image>
+    <text>限时特价车</text>
+  </navigator>
+  <navigator class="menu_in" url="" bindtap="onClickWait">
+    <image src="http://m.hxqc.com/wxapp/shop/menu-icon5.png"></image>
+    <text>团购汇</text>
+  </navigator>
+</view>
+<view class="body">
+
+  <!-- 资讯 start -->
+  <view class="">
+    <view class="com_title">
+      <text class="s">资讯</text>
+      <navigator url="/pages/shop/news/index" class="more">全部
+        <image src="http://m.hxqc.com/wxapp/shop/icons/more_icon.png"></image>
+      </navigator>
+    </view>
+    <view class="sArticleList">
+      <block wx:for="{{newsList}}">
+        <view bindtap='onClickInfo' data-news-type="{{item.newsKind}}" data-shop-id="{{item.newAuto.shopID}}" data-item-id="{{item.newAuto.itemID}}" data-promotion-id="{{item.newsID}}" class="vi_a">
+          <view >
+            <image src="{{item.thumb}}" class="img defaultImg" />
+            <view class="detail">
+              <view class="hname">{{item.title}}</view>
+              <view class="time">{{item.date}} 
+              <!--距离促销结束：
+                <b>26</b> 天-->
+                </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 资讯 end -->
+
+  <!-- 新车销售 start -->
+  <view class="">
+    <view class="com_title">
+      <text class="s">新车销售</text>
+      <navigator url="../newcar/list" class="more">全部
+        <image src="http://m.hxqc.com/wxapp/shop/icons/more_icon.png"></image>
+      </navigator>
+    </view>
+    <view class="sArticleList">
+      <block wx:for="{{newCarList}}">
+        <navigator url="/pages/shop/newcar/detail?brand={{item.brand}}&serie={{item.seriesName}}">
+          <view class="vi_a">
+            <view>
+              <image src="{{item.seriesThumb}}" class="img defaultImg" />
+              <view class="detail">
+                <view class="hname">{{item.seriesName}}系列车型</view>
+                <view class="price">4S店参考价：
+                  <text class="ele">￥{{item.priceRange}}</text>
+                </view>
+                <view class="price">厂商指导价：
+                  <text class="ele">￥{{item.originPrice}}</text>
+                </view>
+              </view>
+            </view>
+          </view>
+          </navigator>
+      </block>
+    </view>
+  </view>
+
+  <!-- 新车销售 end -->
+
+  <!-- 推荐4s店 start -->
+  <view class="">
+    <view class="com_title">
+      <text class="s">推荐4S店</text>
+      <navigator url="../recomshop/index" class="more">全部
+        <image src="http://m.hxqc.com/wxapp/shop/icons/more_icon.png"></image>
+      </navigator>
+    </view>
+    <view class="shopvList-wrap">
+      <block wx:for="{{shopList}}">
+        <view class="shopvList">
+          <navigator url="/pages/shop/recomshop/detail?shopID={{item.shopID}}" class="vLeft">
+            <image src="{{item.shopPhoto}}" class="img defaultImg"></image>
+            <view class="signBlock">
+              <image src="{{item.brandThumb}}" class="sign"></image>
+            </view>
+          </navigator>
+          <view class="vRight">
+            <navigator class="vName ellipsis" url="/pages/shop/recomshop/detail?shopID={{item.shopID}}">{{item.shopTitle}}</navigator>
+            <view class="vNews">
+              <block wx:for="{{item.promotionList}}" wx:for-item="ele" wx:for-index="ele_i">
+                <navigator url="/pages/shop/recomshop/detail?shopID={{item.shopID}}" class="a {{0 == ele_i ?'hot':''}}">{{ele.title}}</navigator>
+              </block>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 推荐4s店 end -->
+</view>

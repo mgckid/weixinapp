@@ -1,0 +1,122 @@
+
+<!--pages/usedcar/sale/index/index.wxml-->
+<view class="content mainbuy">
+  <view class="buycar_box">
+    <view class="buycar_top clearfix">
+      <image mode="scaleToFill" src="http://www.tm.hxqc.com/wxapp/usedcar/help_sale.png" />
+      <view class="sale_type">
+        <text class="sale_info">平台帮卖</text>
+        <text class="sale_text">专业的检测评估师上门检测，全程免费，一对一服务</text>
+      </view>
+      <navigator url="/pages/usedcar/sale/index/platform" class="sale_btn">平台帮卖</navigator> 
+    </view>
+    <text class="process_type">帮卖流程</text>
+    <view class="process_table">
+      <view class="tbody">
+        <view class="tr">
+          <view class="td">
+            <view class="process_num">1</view>
+            <text>填写信息表</text>
+          </view>
+          <view class="td">
+            <view class="process_num">2</view>
+            <text>免费预约车辆评估</text>
+          </view>
+        </view>
+        <view class="tr">
+          <view class="td">
+            <view class="process_num">3</view>
+            <text>车辆检测认证</text>
+          </view>
+          <view class="td">
+            <view class="process_num">4</view>
+            <text>网站发布</text>
+          </view>
+        </view>
+        <view class="tr">
+          <view class="td">
+            <view class="process_num">5</view>
+            <text>买家上门看车</text>
+          </view>
+          <view class="td">
+            <view class="process_num">6</view>
+            <text>车辆交易成功</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="buycar_bottom">
+      <view class="bottom_cell clearfix">
+        <image mode="scaleToFill" src="http://www.tm.hxqc.com/wxapp/usedcar/icon_process04.png" />
+        <text class="process_title">免费评估</text>
+        <text class="bottom_info">专业团队免费对车辆进行全方位评估，保证品质</text>
+      </view>
+      <view class="bottom_cell clearfix">
+        <image mode="scaleToFill" src="http://www.tm.hxqc.com/wxapp/usedcar/icon_process05.png" />
+        <text class="process_title">免费棚拍录入</text>
+        <text class="bottom_info">专业摄影人员360°拍照，完美展示提示竞争力</text>
+      </view>
+      <view class="bottom_cell clearfix">
+        <image mode="scaleToFill" src="http://www.tm.hxqc.com/wxapp/usedcar/icon_process06.png" />
+        <text class="process_title">快速交易</text>
+        <text class="bottom_info">全程帮卖,一对一服务</text>
+      </view>
+    </view>
+  </view>
+  <view class="buycar_box">
+    <view class="buycar_top clearfix">
+      <image mode="scaleToFill" src="http://www.tm.hxqc.com/wxapp/usedcar/free_release.png" />
+      <view class="sale_type">
+        <text class="sale_info">自由发布</text>
+        <text class="sale_text">编辑爱车基本信息，快速发布卖车</text>
+      </view>
+      <navigator url="/pages/usedcar/sale/index/publish" class="sale_btn">自由发布</navigator> 
+    </view>
+    <text class="process_type">发布流程</text>
+    <view class="process_table">
+      <view class="tbody">
+        <view class="tr">
+          <view class="td">
+            <view class="process_num">1</view>
+            <text>填写信息表</text>
+          </view>
+          <view class="td">
+            <view class="process_num">2</view>
+            <text>自行上传车辆信息</text>
+          </view>
+        </view>
+        <view class="tr">
+          <view class="td">
+            <view class="process_num">3</view>
+            <text>网站审核发布</text>
+          </view>
+          <view class="td">
+            <view class="process_num">4</view>
+            <text>买卖双方自行交易</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="buycar_bottom">
+      <view class="bottom_cell clearfix">
+        <image mode="scaleToFill" src="http://www.tm.hxqc.com/wxapp/usedcar/icon_process07.png" />
+        <text class="process_title">快捷发布</text>
+        <text class="bottom_info">便捷发帖,快速审核上线</text>
+      </view>
+      <view class="bottom_cell clearfix">
+        <image mode="scaleToFill" src="http://www.tm.hxqc.com/wxapp/usedcar/icon_process08.png" />
+        <text class="process_title">自行交易</text>
+        <text class="bottom_info">线下自行交易,方便快捷</text>
+      </view>
+      <view class="bottom_cell clearfix">
+        <image mode="scaleToFill" src="http://www.tm.hxqc.com/wxapp/usedcar/icon_process09.png" />
+        <text class="process_title">个人商家不限</text>
+        <text class="bottom_info">不设门槛,免费发布</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="footer">
+    <navigator url="/pages/usedcar/sale/index/platform" class="sale_btn">平台帮卖</navigator>
+    <navigator url="/pages/usedcar/sale/index/publish" class="sale_btn">自由发布</navigator>
+</view>

@@ -1,0 +1,283 @@
+  <!-- 导入loading模板 -->
+<import src="/template/loading.wxml" />
+<template is="pageLoading" data="{{pageLoading}}" />
+
+<view class="body">
+
+  <!--车辆配置-->
+  <view class="product_info">
+
+    <!--基本信息-->
+    <view class="{{ul_open_info}}">
+      <view class="title" bindtap="ul_show" data-filter-type="info">基本信息
+        <view class="arrow-down"></view>
+      </view>
+      <view class="ul">
+        <view class="li">
+          <view class="infos">车款</view>
+          <view class="infos">{{configData.carDetail.detail.car_name}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">车辆品牌</view>
+          <view class="infos">{{configData.carDetail.detail.brand_name}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">车辆型号</view>
+          <view class="infos">{{configData.carDetail.detail.serie_name}} {{configData.carDetail.detail.model_name}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">发 动 机</view>
+          <view class="infos">{{configData.carconfig['发动机']}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">环保标准</view>
+          <view class="infos">{{configData.carconfig['环保标准']}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">车辆级别</view>
+          <view class="infos">{{configData.carconfig['级别']}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">变 速 箱</view>
+          <view class="infos">{{configData.carconfig['变速箱']}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">驱动方式</view>
+          <view class="infos">{{configData.carconfig['驱动方式']}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">车辆颜色</view>
+          <view class="infos">{{configData.carDetail.detail.carcolor}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">上牌地点</view>
+          <view class="infos">{{configData.carDetail.detail.car_license_locate}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">上牌时间</view>
+          <view class="infos">{{configData.carDetail.detail.first_on_card}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">车 龄</view>
+          <view class="infos">{{configData.carDetail.detail.carAge}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">行驶里程</view>
+          <view class="infos">{{configData.carDetail.detail.car_mileage ? configData.carDetail.detail.car_mileage+'万公里' : '-'}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">年检到期</view>
+          <view class="infos">{{configData.carDetail.detail.inspection_date}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">商险到期</view>
+          <view class="infos">{{configData.carDetail.detail.insurance_date}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">交险到期</view>
+          <view class="infos">{{configData.carDetail.detail.sali_date}}</view>
+        </view>
+        <view class="li">
+          <view class="infos">质保到期</view>
+          <view class="infos">{{configData.carDetail.detail.warranty_date}}</view>
+        </view>
+      </view>
+    </view>
+
+    <!--车辆配置-->
+    <view class="{{ul_open_conf}}">
+        <view class="title" bindtap="ul_show" data-filter-type="conf">车辆配置
+        <view class="arrow-down"></view>
+        </view>
+        <view class="ul">
+        <view class="li">
+            <view class="infos">电动天窗</view>
+            <view class="infos">{{configData.carconfig['电动天窗'] != '-' ? '标配' : '-'}}</view>
+        </view>
+        <view class="li">
+            <view class="infos">多功能方向盘</view>
+            <view class="infos">{{configData.carconfig['多功能方向盘'] != '-' ? '标配' : '-'}}</view>
+        </view>
+        <view class="li">
+            <view class="infos">驾驶座椅电动调节</view>
+            <view class="infos">{{configData.carconfig['主/副驾驶座电动调节'] != '-' ? '标配' : '-'}}</view>
+        </view>
+        <view class="li">
+            <view class="infos">座椅外面材质</view>
+            <view class="infos">{{configData.carconfig['座椅外面材质'] ? configData.carconfig['座椅外面材质'] : '标配'}}</view>
+        </view>
+        <view class="li">
+            <view class="infos">自动空调</view>
+            <view class="infos">{{configData.carconfig['空调控制方式'] == '手动' ? '手动' : '自动'}}</view>
+        </view>
+        <view class="li">
+            <view class="infos">车窗防夹手</view>
+            <view class="infos">{{configData.carconfig['车窗防夹手'] != '-' ? '标配' : '-'}}</view>
+        </view>
+        <view class="li">
+            <view class="infos">后座出风口</view>
+            <view class="infos">{{configData.carconfig['后座出风口'] != '-' ? '标配' : '-'}}</view>
+        </view>
+        <view class="li">
+            <view class="infos">门锁控制</view>
+            <view class="infos">{{configData.carconfig.zk}}</view>
+        </view>
+        <view class="li">
+            <view class="infos">MP3</view>
+            <view class="infos">{{configData.carconfig['MP3'] != '-' ? '标配' : '-'}}</view>
+        </view>
+        <view class="li">
+            <view class="infos">音响数量</view>
+            <view class="infos">{{configData.carconfig['音响数量'] != '-' && configData.carconfig['音响数量'] != null ? '标配' : '-'}}</view>
+        </view>
+        </view>
+    </view>
+
+    <!--发动机-->
+    <view class="{{ul_open_engine}}">
+    <view class="title" bindtap="ul_show" data-filter-type="engine">发动机
+      <view class="arrow-down"></view>
+    </view>
+    <view class="ul">
+      <view class="li">
+        <view class="infos">最大扭矩</view>
+        <view class="infos">{{configData.carconfig['最大扭矩(N·m)'] != '-' ? configData.carconfig['最大扭矩(N·m)'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">最大功率</view>
+        <view class="infos">{{configData.carconfig['最大功率(kW)'] != '-' ? configData.carconfig['最大功率(kW)'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">气缸数</view>
+        <view class="infos">{{configData.carconfig['气缸数(个)'] != '-' ? configData.carconfig['气缸数(个)'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">气缸排列形式</view>
+        <view class="infos">{{configData.carconfig['气缸排列形式'] != '-' ? configData.carconfig['气缸排列形式'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">燃油供给方式</view>
+        <view class="infos">{{configData.carconfig['供油方式'] != '-' ? configData.carconfig['供油方式'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">燃油种类</view>
+        <view class="infos">{{configData.carconfig['燃料形式'] != '-' ? configData.carconfig['燃料形式'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">燃油标号</view>
+        <view class="infos">{{configData.carconfig['燃油标号'] != '-' ? configData.carconfig['燃油标号'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">最高车速</view>
+        <view class="infos">{{configData.carconfig['最高车速(km/h)'] != '-' ? configData.carconfig['最高车速(km/h)'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">百公里加速时间</view>
+        <view class="infos">{{configData.carconfig['百公里加速时间'] != '-' && configData.carconfig['百公里加速时间'] != null ? configData.carconfig['百公里加速时间'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">排放标准</view>
+        <view class="infos">{{configData.carconfig['环保标准'] != '-' ? configData.carconfig['环保标准'] : '-'}}</view>
+      </view>
+    </view>
+    </view>
+
+    <!--车身及结构-->
+    <view class="{{ul_open_carb}}">
+    <view class="title" bindtap="ul_show" data-filter-type="carb">车身及结构
+      <view class="arrow-down"></view>
+    </view>
+    <view class="ul">
+      <view class="li">
+        <view class="infos">车身结构</view>
+        <view class="infos">{{configData.carconfig['车身结构'] != '-' ? configData.carconfig['车身结构'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">长/宽/高</view>
+        <view class="infos">{{configData.carconfig['长*宽*高(mm)'] != '-' ? configData.carconfig['长*宽*高(mm)'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">轴距</view>
+        <view class="infos">{{configData.carconfig['轴距(mm)'] != '-' ? configData.carconfig['轴距(mm)'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">行李箱容积</view>
+        <view class="infos">{{configData.carconfig['货箱尺寸(mm)'] != '-' && configData.carconfig['货箱尺寸(mm)'] != null ? configData.carconfig['货箱尺寸(mm)'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">前悬架</view>
+        <view class="infos">{{configData.carconfig['前悬架类型'] != '-' ? configData.carconfig['前悬架类型'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">后悬架</view>
+        <view class="infos">{{configData.carconfig['后悬架类型'] != '-' ? configData.carconfig['后悬架类型'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">油箱容积</view>
+        <view class="infos">{{configData.carconfig['油箱容积(L)'] != '-' ? configData.carconfig['油箱容积(L)'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">座位数</view>
+        <view class="infos">{{configData.carconfig['座位数(个)'] != '-' ? configData.carconfig['座位数(个)'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">驱动方式</view>
+        <view class="infos">{{configData.carconfig['驱动方式'] != '-' ? configData.carconfig['驱动方式'] : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">整车整备质量</view>
+        <view class="infos">{{configData.carconfig['整备质量(kg)'] != '-' ? configData.carconfig['整备质量(kg)'] : '-'}}</view>
+      </view>
+    </view>
+    </view>
+
+    <!--安全及操控-->
+    <view class="{{ul_open_save}}">
+    <view class="title" bindtap="ul_show" data-filter-type="save">安全及操控
+      <view class="arrow-down"></view>
+    </view>
+    <view class="ul">
+      <view class="li">
+        <view class="infos">驾驶位气囊</view>
+        <view class="infos">{{configData.carconfig.zhu}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">副驾驶位气囊</view>
+        <view class="infos">{{configData.carconfig.fu}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">安全带未系警告</view>
+        <view class="infos">{{configData.carconfig['安全带未系警告'] != '-' ? '标配' : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">第二排头部气囊</view>
+        <view class="infos">{{configData.carconfig['前/后排侧气囊'] != '-' ? '标配' : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">电子制动力分配</view>
+        <view class="infos">{{configData.carconfig['制动力分配(EBD/CBC等)'] != '-' ? '标配' : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">刹车防抱死</view>
+        <view class="infos">{{configData.carconfig['ABS防抱死'] != '-' ? '标配' : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">电子稳定程序</view>
+        <view class="infos">{{configData.carconfig['车身稳定控制(ESP/DSC/VSC等)'] != '-' ? '标配' : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">定速巡航</view>
+        <view class="infos">{{configData.carconfig['定速巡航'] != '-' ? '标配' : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">电子防盗系统</view>
+        <view class="infos">{{configData.carconfig['发动机电子防盗'] != '-' ? '标配' : '-'}}</view>
+      </view>
+      <view class="li">
+        <view class="infos">倒车雷达</view>
+        <view class="infos">{{configData.carconfig['后倒车雷达'] != '-' ? '标配' : '-'}}</view>
+      </view>
+    </view>
+    </view>
+  </view>
+</view>

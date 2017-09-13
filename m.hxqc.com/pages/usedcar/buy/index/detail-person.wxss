@@ -1,0 +1,55 @@
+/*头部图片*/
+.ucar-pic{clear: both;overflow:hidden;position: relative;}
+.ucar-pic .pic{width: 100%;}
+.ucar-pic .picIcon{position: absolute;right: .5rem;bottom: .8rem;width: 4rem;}
+.ucar-pic .number{position: absolute;left:0;bottom:1.3rem;padding-left:.65rem;padding-right:.3rem;height: 1.8rem;line-height: 1.8rem;font-size: 32rpx;color: #fff;background-color:rgba(0,0,0,.6);}
+.ucar-pic .text{position: absolute;right:.7rem;bottom:.9rem;width: 3rem;height: 3rem;line-height:3rem;text-align:center;border-radius: 50%;background-color:rgba(0,0,0,.65);font-size: 32rpx;color: #fff;}
+/*车辆详细信息*/
+.ucar-detail{padding: 0 .72rem;border-bottom: 1px solid #d5d5d5;}
+.ucar-detail .title{font-size: 32rpx;color: #222;font-weight: bold;line-height: 1.3rem;margin-top: .4rem;}
+.ucar-detail .price{font-size: 32rpx;color: #f60000;font-weight: bold;line-height: 1.8rem;}
+.ucar-detail .detail{background-color: #efefef;padding: .3rem .44rem;position: relative;}
+.ucar-detail .text{clear: both;overflow:hidden;}
+.ucar-detail .detail{margin-top: .35rem;}
+.ucar-detail .detail span{float: left;width: 50%;line-height: 1.8rem;font-size: 32rpx;color: #666;}
+.parameter-wrap{padding: .3rem .5rem;}
+.parameter{clear: both;overflow:hidden;padding: .4rem 0;}
+.parameter .span{float: left;width:50%;font-size: 32rpx;color: #999;}
+.car-servise .parameter .span{color: #707070;font-size: 30rpx;line-height:1.8rem;}
+.car-servise{border-bottom: 1px solid #d5d5d5;box-shadow: 0 2px 2px rgba(0,0,0,.1);clear: both;}
+.car-servise .servise-titile{clear: both;overflow: hidden;padding: .68rem;background-color: #f5f5f5;}
+.car-servise .servise-titile.borderbt{border-bottom: 1px solid #d5d5d5;}
+.car-servise .servise-titile .pic {float: left;width: 1rem;height: 1.2rem;}
+.car-servise .servise-titile .span {float: left;line-height: 1.02rem;color: #e02c36;font-weight: bold;font-size: 32rpx;margin-left: 1.5rem;}
+/*卖家信息*/
+.personalCar-info{padding-left: .5rem;padding-top: .25rem;clear: both;overflow: hidden;}
+.personalCar-info .pic{float: left;width: 1.8rem;height: 1.8rem;border-radius: 50%;overflow: hidden;margin-top:0.2rem;}
+.personalCar-info .img{width: 100%;height: 100%}
+.personalCar-info .rinfo{margin-left: 2rem;}
+.personalCar-info .rinfo text{font-size: 32rpx;color: #1d1d1d;line-height: 2rem;text-indent: .4rem;display: block;}
+.personalCar-info .rinfo text:nth-of-type(1){border-bottom: 1px solid #eaeaea;}
+.personalCar-text{padding: .6rem .4rem;border-top: 1px solid #eaeaea;}
+.personalCar-text text{font-size: 32rpx;color: #080808;line-height: 1.25rem;display: block;}
+.personalCar-text text:nth-of-type(1){margin-bottom: .3rem;}
+/*车源推荐*/
+.ucarlist .ul .li .na{display: block;padding: .7rem .3rem;background-color: #fff;border-bottom: 1px solid #d9d9d9;clear: both;overflow: hidden;}
+.ucarlist .leftImg{float: left;position: relative;width: 4.3rem;max-height: 3.4rem;}
+.ucarlist .img{width: 7rem;max-height: 4rem;margin-top: .23rem;}
+.ucarlist .desc{margin-left:7.4rem;}
+.ucarlist .desc .h5{font-size: 30rpx;color: #333;font-weight: bold;line-height: 1rem;max-height: 2rem;overflow: hidden;}
+.ucarlist .desc .model{font-size: 32rpx;color: #6b6b6b;line-height: 1rem;margin-top: .3rem;}
+.ucarlist .desc .detail1{margin-top: .2rem;overflow:hidden;}
+.ucarlist .desc .detail2{margin-top: .2rem;}
+.ucarlist .desc .info{float:left;font-size: 28rpx;color: #757575;line-height: 1.06rem;}
+.ucarlist .desc .type{float: right;width: 2.7rem;height:1.06rem;text-align:right;font-size: 28rpx;color: #757575;line-height: 1.06rem;background: url('http://www.tm.hxqc.com/wxapp/usedcar/ucarlist.png') no-repeat;background-size: 1.06rem;}
+.ucarlist .desc .type.person{background-position: 0 0;}
+.ucarlist .desc .type.ident{background-position: 0 -1.38rem;}
+.ucarlist .desc .type.self{background-position: 0 -2.078rem;}
+.ucarlist .desc .type.time{background-position: 0 -3.7rem;width: 1.2rem;background-size:1.06rem;}
+.ucarlist .desc .text{float: right;font-size: 28rpx;color: #757575;line-height: 1.06rem;}
+.ucarlist .desc .price{float: left;font-size: 32rpx;color: #ff1919;line-height: 1.1rem;}
+.ucarlist .desc .time{float: right;width: 2.54rem;height:1.1rem;text-align:right;font-size: 28rpx;color: #757575;line-height: 1.1rem;background: url('http://www.tm.hxqc.com/wxapp/usedcar/ucarlist.png') no-repeat 0 -2.25rem/.66rem;}
+/*底部按钮*/
+.ufooter{position: fixed;bottom: 0;left: 0;width: 100%;height: 2.5rem;clear: both;overflow:hidden;}
+.ufooter .telBtn{float: left;width: 50%;line-height: 2.5rem;text-align: center;font-size: 32rpx;color: #fff;letter-spacing: 2px;}
+.ufooter .telBtn .img{width: 1rem;height:1.4rem;margin-right: .2rem;border:none;vertical-align:middle;}

@@ -1,0 +1,48 @@
+
+<!-- 新车销售列表 -->
+<view class="ftr_showbrand">
+  <image src="http://m.hxqc.com/wxapp/shop/xpp.jpg" width="100%" class="pic"></image>
+</view>
+<view class="ftr-list">
+  <scroll-view class="ftr-list-wrap" scroll-y="true">
+    <block wx:for="{{brandList}}">
+      <view class="li letter">
+        <text>{{item.groupTag}}</text>
+      </view>
+      <block wx:for="{{item.group}}" wx:for-item="r">
+        <view class="li" bindtap="onClickBrand" data-brand="{{r.brandName}}">
+          <view>
+            <image src="{{r.brandThumb}}" />
+            <text>{{r.brandName}}</text>
+          </view>
+        </view>
+      </block>
+    </block>
+  </scroll-view>
+</view>
+
+<!-- 侧滑 -->
+<view class="caritems {{switch_slide_on}}"  style="{{com_slide_display}}" >
+  <scroll-view class="caritems_wrap" scroll-y="true">
+    <block wx:for="{{serieList}}">
+      <view class="title">{{item.brandName}}</view>
+      <block wx:for="{{item.series}}" wx:for-item="r">
+        <view class="li ">
+          <navigator  url="/pages/shop/newcar/detail?brand={{r.brand}}&serie={{r.seriesName}}">
+            <view class="a ">
+              <image src="{{r.seriesThumb}}" class="carimg " />
+              <view class="info ">
+                <view class="name ">{{r.seriesName}}系列车型</view>
+                <view class="cgp ">
+                  <view>
+                    <text class="price ">{{r.priceRange}}</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </view>
+      </block>
+    </block>
+  </scroll-view>
+</view>

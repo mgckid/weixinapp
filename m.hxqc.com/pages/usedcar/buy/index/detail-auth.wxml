@@ -1,0 +1,590 @@
+<!-- 导入loading模板 -->
+<import src="/template/loading.wxml" />
+<template is="pageLoading" data="{{pageLoading}}" />
+
+<view class="body" style="padding-bottom:2.5rem;background-color: #fff;">
+
+  <!-- 头部图片 -->
+  <view class="ucar-pic">
+    <navigator url="/pages/usedcar/buy/index/detail-image?car_source_no={{detailInfo.car_source_no}}">
+      <image class="pic" src="{{detailInfo.cover}}" alt=""></image>
+    </navigator>
+    <view class="number">车源编号：{{detailInfo.car_source_no}}</view>
+    <view class="text">
+      <view url="" style="color:white;display:inline;margin-right:.1rem;">{{detailInfo.img_length}} </view>张</view>
+  </view>
+
+  <!-- 车辆详细信息 -->
+  <view class="ucar-detail">
+    <view class="title">{{detailInfo.car_name}}</view>
+    <view class="price">销售价：¥<span id="estimate_price">{{detailInfo.estimate_price}}</span>  万</view>
+    <view class="detail">
+      <view class="text">
+        <span class="carPrice"><i style="letter-spacing: .34em;">新车价</i>：{{detailInfo.new_car_price}}万</span> 
+        <span class="carPrice"><i style="letter-spacing: .34em;">购置税</i>：{{detailInfo.purchase}}万</span> 
+        <span class="carPrice" id="total_price">新车总价：{{detailInfo.tax_price}}万</span> 
+        <span class="save" id="total_save" style="color:#f60000;">为您节省：{{detailInfo.economize}}万</span> 
+      </view>
+      <i></i>
+    </view>
+    <view class="parameter">
+      <span>上牌时间：{{detailInfo.first_on_card}}</span> 
+      <span>行驶里程：{{detailInfo.car_mileage}}万公里</span> 
+      <span><i style="letter-spacing: .57em;">车     龄</i>：{{detailInfo.first_on_card_age}}</span> 
+      <span>看车地点：{{detailInfo.look_address}}</span> 
+    </view>
+  </view>
+
+  <!-- 特色服务 -->
+  <view class="car-servise">
+    <view class="servise-title">
+      <image class="pic" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-special.png"></image>
+      <view class="servise-type">特色服务</view>
+    </view>
+    <view class="uspecial">
+      <navigator url="/pages/usedcar/buy/index/installment-car?car_source_no={{detailInfo.car_source_no}}" class="buyBtn {{serviceStatus.fenqi ? 'select' : ''}}">分期购车</navigator>
+      <navigator url="/pages/usedcar/buy/index/quality-assurance?car_source_no={{detailInfo.car_source_no}}" class="buyBtn {{serviceStatus.zhibao ? 'select' : ''}}">恒信质保</navigator>
+    </view>
+  </view>
+  <view class="new_base_info">
+
+    <!--车辆信息-->
+    <view class="show_area">
+      <view class="title">
+        <image class="icon_img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-search.png"></image>车辆检测报告</view>
+      <view class="clearfix titleCheck">
+        <view class="checkReport">恒信车辆检测报告</view>
+        <view class="reportText">
+          <view class="reportImg">{{detailButtonInfo.carDetail.detail.car_level}}</view>
+          <block wx:if="{{detailButtonInfo.carDetail.detail.car_level == 'A'}}">车况极好</block>
+          <block wx:if="{{detailButtonInfo.carDetail.detail.car_level == 'B'}}">车况一般</block>
+          <block wx:if="{{detailButtonInfo.carDetail.detail.car_level == 'C'}}">车况较差</block>
+          <block wx:if="{{detailButtonInfo.carDetail.detail.car_level == 'E'}}">车况极差</block>
+        </view>
+      </view>
+      <view class="clearfix checkInfo">
+        <view class="checkLeft">检测时间</view>
+        <view class="checkRight">{{detailButtonInfo.carDetail.detail.judge_level_time ? detailButtonInfo.carDetail.detail.judge_level_time : ''}}</view>
+      </view>
+      <view class="clearfix checkInfo">
+        <view class="checkLeft">检测对象</view>
+        <view class="checkRight">{{detailButtonInfo.carDetail.detail.car_name}}</view>
+      </view>
+      <view class="clearfix checkInfo">
+        <view class="checkLeft">检测项目</view>
+        <view class="checkRight">157项国家标准检测及132项专项检测</view>
+      </view>
+      <view class="clearfix checkInfo" wx:if="{{detailButtonInfo.carDetail.detail.comments}}">
+        <view class="checkLeft">检测结果</view>
+        <view class="checkRight">{{detailButtonInfo.carDetail.detail.comments}}</view>
+      </view>
+    </view>
+
+    <!--证书-->
+    <view class="hegezheng">
+      <view class="pass_icon"></view>
+      <view class="title">恒信汽车质量检测合格证</view>
+      <view class="object clearfix">
+        <view class="checkAll title">检测对象：</view>
+        <view class="checkAll">{{detailButtonInfo.carDetail.detail.car_name}}</view>
+      </view>
+      <view class="object clearfix">
+        <view class="checkAll title">检测项目：</view>
+        <view class="checkAll">157项国家标准检测及132项专项检测</view>
+      </view>
+      <view>
+        <view class="checkItem" wx:for="{{detailButtonInfo.zljc}}">
+          <block wx:for="{{item}}" wx:for-index="liindex" wx:for-item="li">
+          <view class="checkTitle">{{liindex}}</view>
+            <view class="itemName" wx:for="{{li}}" wx:for-item="sub">
+              <view class="itemLeft">{{sub.text}}</view>
+              <view class="itemRight yes">{{sub.deval}}</view>
+              <view class="itemRight no" wx:if="{{sub.value}}">{{sub.value}}项</view>
+            </view>
+          </block>
+        </view>
+      </view>
+      <view class="logo_show">
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/logo_150.png"></image>
+      </view>
+      <view class="zero">
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/zhengshu_icon_03.png"></image>
+        <view class="tipText">全方位289项检测确保杜绝火烧车、水浸车及重大事故车辆，让您安心选车，放心购车</view>
+      </view>
+    </view>
+
+    <!--车辆图片-->
+    <view class="show_area border_top">
+      <view class="title">
+        <image class="icon_img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-image.png"></image>车辆图片 </view>
+      <view class="img_list">
+        <block wx:for="{{detailButtonInfo.carDetail.img_20}}">
+          <view class="img_box">
+            <image class="img" src="{{item.path}}"></image>
+            <view class="pic_text">
+              <block wx:if="{{index == 10}}"> 左前45°</block>
+              <block wx:if="{{index == 20}}"> 侧面</block>
+              <block wx:if="{{index == 30}}"> 正前</block>
+              <block wx:if="{{index == 40}}"> 正后</block>
+              <block wx:if="{{index == 50}}"> 车灯</block>
+              <block wx:if="{{index == 60}}"> 轮胎</block>
+              <block wx:if="{{index == 70}}"> 中控台</block>
+              <block wx:if="{{index == 80}}">后备箱</block>
+              <block wx:if="{{index == 90}}"> 仪表盘</block>
+              <block wx:if="{{index == 100}}"> 前排</block>
+              <block wx:if="{{index == 110}}"> 后排</block>
+              <block wx:if="{{index == 120}}"> 车门内饰</block>
+              <block wx:if="{{index == 130}}"> 车门顶棚</block>
+              <block wx:if="{{index == 140}}"> 变速杆</block>
+              <block wx:if="{{index == 150}}"> 发动机舱</block>
+              <block wx:if="{{index == 160}}"> 发动机舱-左</block>
+              <block wx:if="{{index == 170}}"> 发动机舱-右</block>
+              <block wx:if="{{index == 200}}"> 轮毂</block>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+
+    <!--基本车况-->
+    <view class="show_area border_top">
+      <view class="title">
+        <image class="icon_img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-car.png"></image>事故排查 </view>
+      <view class="clear-Trouble-pic">
+        <view class="trouble-car-bg"></view>
+        <view wx:for="{{detailButtonInfo.sgpc}}" class="clearline clearline-type{{item.type}}" id="clearline_{{item.line}}">
+          <span class="num">{{item.line}}</span>  <span class="dot"></span>
+        </view>
+      </view>
+      <view class="paramtable clear-Trouble-tab clearfix">
+        <view class="excludeTitle">排除重大碰撞</view>
+        <view class="table">
+          <view class="tr">
+            <view class="th wid7"></view>
+            <view class="th wid22">检查项</view>
+            <view class="th wid13">结果</view>
+            <view class="th wid7"></view>
+            <view class="th wid22">检查项</view>
+            <view class="th wid13">结果</view>
+          </view>
+          <block wx:for="{{pc_len}}">
+          <view class="tr">
+            <view class="td index_num wid7">{{2*index+1}}</view>
+            <view class="td wid22">{{detailButtonInfo.pczdpz[2*index].text}}</view>
+            <view class="td show_point wid13 {{detailButtonInfo.pczdpz[2*index].value ? 'icon-no' : 'icon-yes' }}" data-tip="{{detailButtonInfo.pczdpz[2*index].value ? detailButtonInfo.pczdpz[2*index].value : '' }}" bindtap="onClickNo"></view>
+            <block wx:if="{{2*index+2 > detailButtonInfo.pczdpz.length}}"> 
+              <view class="td index_num wid7 "></view>
+              <view class="td wid22 "></view>
+              <view class="td wid13 "></view>
+            </block>
+            <block wx:else>
+              <view class="td index_num wid7">{{2*index+2}}</view>
+              <view class="td wid22">{{detailButtonInfo.pczdpz[2*index+1].text}}</view>
+              <view class="td {{detailButtonInfo.pczdpz[2*index+1].value ? 'icon-no' : 'icon-yes' }} show_point wid13" data-tip="{{detailButtonInfo.pczdpz[2*index].value ? detailButtonInfo.pczdpz[2*index+1].value : '' }}" bindtap="onClickNo"></view>
+            </block>
+          </view>
+          </block>
+        </view>
+        <view class="excludeTitle">排除火烧</view>
+        <view class="table">
+          <view class="tr">
+            <view class="th wid7"></view>
+            <view class="th wid22">检查项</view>
+            <view class="th wid13">结果</view>
+            <view class="th wid7"></view>
+            <view class="th wid22">检查项</view>
+            <view class="th wid13">结果</view>
+          </view>
+          <view class="tr" wx:for="{{hs_len}}">
+            <view class="td index_num wid7">{{2*index+1}}</view>
+            <view class="td wid22">{{detailButtonInfo.pchs[2*index].text}}</view>
+            <view class="td show_point wid13 {{detailButtonInfo.pchs[2*index].value ? 'icon-no' : 'icon-yes' }} " data-tip="{{detailButtonInfo.pchs[2*index].value ? detailButtonInfo.pchs[2*index].value : '' }}" bindtap="onClickNo"></view>
+            <block wx:if="{{2*index+2 > detailButtonInfo.pchs.length}}">
+              <view class="td index_num wid7"></view>
+              <view class="td wid22"></view>
+              <view class="td wid13"></view>
+            </block>
+            <block wx:else>
+            <view class="td index_num wid7">{{2*index+2}}</view>
+              <view class="td wid22">{{detailButtonInfo.pchs[2*index+1].text}}</view>
+              <view class="td {{detailButtonInfo.pchs[2*index+1].value ? 'icon-no' : 'icon-yes' }} show_point wid13" data-tip="{{detailButtonInfo.pchs[2*index+1].value ? detailButtonInfo.pchs[2*index+1].value : '' }}" bindtap="onClickNo"></view>
+            </block>
+          </view>
+        </view>
+        <view class="excludeTitle">排除泡水</view>
+        <view class="table">
+          <view class="tr">
+            <view class="th wid32">检查项</view>
+            <view class="th wid13">结果</view>
+            <view class="th wid32">检查项</view>
+            <view class="th wid13">结果</view>
+          </view>
+          <view class="tr" wx:for="{{ps_len}}">
+            <view class="td wid32">{{detailButtonInfo.pcps[2*index].text}}</view>
+            <view class="td {{detailButtonInfo.pcps[2*index].value ? 'icon-no' : 'icon-yes' }} show_point wid13" data-tip="{{detailButtonInfo.pcps[2*index].value ? detailButtonInfo.pcps[2*index].value : '' }}" bindtap="onClickNo"></view>
+            <block wx:if="{{2*index+2 > detailButtonInfo.pcps.length}}">
+              <view class="td wid32"></view>
+              <view class="td show_point wid13"></view>
+            </block>
+            <block wx:else>
+              <view class="td wid32">{{detailButtonInfo.pcps[2*index+1].text}}</view>
+              <view class="td {{detailButtonInfo.pcps[2*index+1].value ? 'icon-no' : 'icon-yes' }} show_point wid13" data-tip="{{detailButtonInfo.pcps[2*index+1].value ? detailButtonInfo.pcps[2*index+1].value : '' }}" bindtap="onClickNo"></view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!--外观内饰检测-->
+    <view class="product_info {{ul_open_look}}">
+      <view class="title" bindtap="ul_show" data-filter-type="look">外观内饰检测
+        <view class="itemNum">(
+          <text>26项</text>)</view>
+          <view class="result_show" wx:if="{{detailButtonInfo.detinfo_count2 == 0}}">全部正常 •</view>
+          <view class="result_show error" wx:else>{{detailButtonInfo.detinfo_count2}}项异常</view>
+        <view class="arrow-down"></view>
+      </view>
+      <view class="paramtable">
+        <view class="caption-bd clearfix">
+          <view class="span"><i class="gray-rd"></i>原厂漆</view>
+          <view class="span"><i class="gray-rd2"></i>漆面修复</view>
+          <view class="span"><i class="blue-rd"></i>钣金修复</view>
+          <view class="span"><i class="red-rd"></i>外观件更换</view>
+        </view>
+        <view class="test-outview">
+
+          <!--外观标记点循环-->
+          <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/carmould-pic1.jpg"></image>
+        </view>
+        <view id="wrapper" wx:if="{{detailButtonInfo.imglist.length > 0}}">
+          <view class="callbacks_container">
+              <swiper class="callbacks_swiper" autoplay="true" interval="6000" duration="1000" current="{{current}}">
+                <swiper-item wx:for="{{detailButtonInfo.imglist}}">
+                  <image mode="aspectFill" src="{{item.img}}" class="slide-image" width="100%" />
+                  <view class="caption">{{item.desc}}</view>
+                </swiper-item>
+              </swiper>
+            <button class="callbacks_nav callbacks1_nav prev" bindtap="onClickPrev">Previous</button>
+            <button class="callbacks_nav callbacks1_nav next" bindtap="onClickNext">Next</button>
+          </view>
+        </view>
+        <view class="test-inview">
+
+          <!--内饰标记点循环-->
+          <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/carmould-pic2.jpg"></image>
+        </view>
+        <view style="clear:both;"></view>
+      </view>
+    </view>
+
+    <!--系统设备检测-->
+    <view class="product_info {{ul_open_system}}">
+      <view class="title" bindtap="ul_show" data-filter-type="system">系统设备检测
+        <view class="itemNum">(
+          <text>47项</text>)</view>
+          <view class="result_show" wx:if="{{detailButtonInfo.detinfo_count3 == 0}}">全部正常 •</view>
+          <view class="result_show error" wx:else>{{detailButtonInfo.detinfo_count3}}项异常</view>
+        <view class="arrow-down"></view>
+      </view>
+      <view class="paramtable">
+      <block wx:for="{{detailButtonInfo.xtsbjc}}">
+        <view class="excludeTitle">{{item.title}}</view>
+        <view class="table">
+          <view class="tr">
+            <view class="th wid32">检查项</view>
+            <view class="th wid13">结果</view>
+            <view class="th wid32">检查项</view>
+            <view class="th wid13">结果</view>
+          </view>
+          <view class="tr" wx:for="{{item.row}}" wx:for-index="liindex" wx:for-item="lival">
+            <view class="td wid32">{{item.list[2*liindex].text}}</view>
+            <view class="td {{item.list[2*liindex].value ? 'icon-no' : 'icon-yes' }} show_point wid13" data-tip="{{item.list[2*liindex].value}}" bindtap="onClickNo"></view>
+            <block wx:if="{{2*liindex+2 > item.list.length}}">
+              <view class="td wid32"></view>
+              <view class="td show_point wid13" ></view>
+            </block>
+            <block wx:else>
+              <view class="td wid32">{{item.list[2*liindex+1].text}}</view>
+              <view class="td {{item.list[2*liindex+1].value ? 'icon-no' : 'icon-yes' }} show_point wid13" data-tip="{{item.list[2*liindex+1].value}}" bindtap="onClickNo"></view>
+            </block>
+          </view>
+        </view>
+      </block>
+      </view>
+    </view>
+
+    <!--驾驶检测-->
+    <view class="product_info {{ul_open_drive}}">
+      <view class="title" bindtap="ul_show" data-filter-type="drive">驾驶检测
+        <view class="itemNum">(
+          <text>28项</text>)</view>
+          <view class="result_show" wx:if="{{detailButtonInfo.detinfo_count4 == 0}}">全部正常 •</view>
+          <view class="result_show error" wx:else>{{detailButtonInfo.detinfo_count4}}项异常</view>
+        <view class="arrow-down"></view>
+      </view>
+      <view class="paramtable">
+        <view class="test-drive clearfix">
+          <view class="dl" wx:for="{{detailButtonInfo.jsjc}}">
+            <block wx:for="{{item}}" wx:for-index="subindex" wx:for-item="sub">
+              <view class="dt">{{subindex}}</view>
+              <block wx:for="{{sub}}" wx:for-item="subsub">
+                  <view class="dd {{subsub.value ? 'icon-no' : 'icon-yes' }}" data-tip="{{subsub.value}}" bindtap="onClickNo">{{subsub.text}}</view>
+              </block>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!--参数配置-->
+    <view class="show_area border_top">
+      <view class="title">
+        <image class="icon_img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-parameter.png"></image>参数配置 </view>
+
+      <!--车辆配置-->
+      <view class="product_info {{ul_open_conf}}">
+        <view class="title2" bindtap="ul_show" data-filter-type="conf">车辆配置
+          <view class="arrow-down"></view>
+        </view>
+        <view class="ul">
+          <view class="li">
+            <view class="infos">电动天窗</view>
+            <view class="infos">{{detailButtonInfo.carconfig['电动天窗'] != null && detailButtonInfo.carconfig['电动天窗'] != '-' ? '标配' : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">多功能方向盘</view>
+            <view class="infos">{{detailButtonInfo.carconfig['多功能方向盘'] != null && detailButtonInfo.carconfig['多功能方向盘'] != '-' ? '标配' : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">驾驶座椅电动调节</view>
+            <view class="infos">{{detailButtonInfo.carconfig['主/副驾驶座电动调节'] != null && detailButtonInfo.carconfig['主/副驾驶座电动调节'] != '-' ? '标配' : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">座椅外面材质</view>
+            <view class="infos">{{detailButtonInfo.carconfig['座椅外面材质'] && detailButtonInfo.carconfig['座椅外面材质'] != null ? detailButtonInfo.detinfo['座椅外面材质'] : '标配'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">自动空调</view>
+            <view class="infos">{{detailButtonInfo.carconfig['空调控制方式'] == '手动' ? '手动' : '自动'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">车窗防夹手</view>
+            <view class="infos">{{detailButtonInfo.carconfig['车窗防夹手'] != null && detailButtonInfo.carconfig['车窗防夹手'] != '-' ? '标配' : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">后座出风口</view>
+            <view class="infos">{{detailButtonInfo.carconfig['后座出风口'] != null && detailButtonInfo.carconfig['后座出风口'] != '-' ? '标配' : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">门锁控制</view>
+            <view class="infos">{{detailButtonInfo.carconfig['zk']}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">MP3</view>
+            <view class="infos">{{detailButtonInfo.carconfig['MP3'] != null && detailButtonInfo.carconfig['MP3'] != '-' ? '标配' : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">音响数量</view>
+            <view class="infos">{{detailButtonInfo.carconfig['音响数量'] != null && detailButtonInfo.carconfig['音响数量'] != '-' ? '标配' : '-'}}</view>
+          </view>
+        </view>
+      </view>
+
+      <!--发动机-->
+      <view class="product_info {{ul_open_engine}}">
+        <view class="title2" bindtap="ul_show" data-filter-type="engine">发动机
+          <view class="arrow-down"></view>
+        </view>
+        <view class="ul">
+          <view class="li">
+            <view class="infos">最大扭矩</view>
+            <view class="infos">{{detailButtonInfo.carconfig['最大扭矩(N·m)'] != null && detailButtonInfo.carconfig['最大扭矩(N·m)'] != '-' ? detailButtonInfo.carconfig['最大扭矩(N·m)'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">最大功率</view>
+            <view class="infos">{{detailButtonInfo.carconfig['最大功率(kW)'] != null && detailButtonInfo.carconfig['最大功率(kW)'] != '-' ? detailButtonInfo.carconfig['最大功率(kW)'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">气缸数</view>
+            <view class="infos">{{detailButtonInfo.carconfig['气缸数(个)'] != null && detailButtonInfo.carconfig['气缸数(个)'] != '-' ? detailButtonInfo.carconfig['气缸数(个)'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">气缸排列形式</view>
+            <view class="infos">{{detailButtonInfo.carconfig['气缸排列形式'] != null && detailButtonInfo.carconfig['气缸排列形式'] != '-' ? detailButtonInfo.carconfig['气缸排列形式'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">燃油供给方式</view>
+            <view class="infos">{{detailButtonInfo.carconfig['供油方式'] != null && detailButtonInfo.carconfig['供油方式'] != '-' ? detailButtonInfo.carconfig['供油方式'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">燃油种类</view>
+            <view class="infos">{{detailButtonInfo.carconfig['燃料形式'] != null && detailButtonInfo.carconfig['燃料形式'] != '-' ? detailButtonInfo.carconfig['燃料形式'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">燃油标号</view>
+            <view class="infos">{{detailButtonInfo.carconfig['燃油标号'] != null && detailButtonInfo.carconfig['燃油标号'] != '-' ? detailButtonInfo.carconfig['燃油标号'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">最高车速</view>
+            <view class="infos">{{detailButtonInfo.carconfig['最高车速(km/h)'] != null && detailButtonInfo.carconfig['最高车速(km/h)'] != '-' ? detailButtonInfo.carconfig['最高车速(km/h)'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">百公里加速时间</view>
+            <view class="infos">{{detailButtonInfo.carconfig['百公里加速时间'] != null && detailButtonInfo.carconfig['百公里加速时间'] != '-' ? detailButtonInfo.carconfig['百公里加速时间'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">排放标准</view>
+            <view class="infos">{{detailButtonInfo.carconfig['环保标准'] != null && detailButtonInfo.carconfig['环保标准'] != '-' ? detailButtonInfo.carconfig['环保标准'] : '-'}}</view>
+          </view>
+        </view>
+      </view>
+
+      <!--车身及结构-->
+      <view class="product_info {{ul_open_carb}}">
+        <view class="title2" bindtap="ul_show" data-filter-type="carb">车身及结构
+          <view class="arrow-down"></view>
+        </view>
+        <view class="ul">
+          <view class="li">
+            <view class="infos">车身结构</view>
+            <view class="infos">{{detailButtonInfo.carconfig['车身结构'] != null && detailButtonInfo.carconfig['车身结构'] != '-' ? detailButtonInfo.carconfig['车身结构'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">长/宽/高</view>
+            <view class="infos">{{detailButtonInfo.carconfig['长*宽*高(mm)'] != null && detailButtonInfo.carconfig['长*宽*高(mm)'] != '-' ? detailButtonInfo.carconfig['长*宽*高(mm)'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">轴距</view>
+            <view class="infos">{{detailButtonInfo.carconfig['轴距(mm)'] != null && detailButtonInfo.carconfig['轴距(mm)'] != '-' ? detailButtonInfo.carconfig['轴距(mm)'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">行李箱容积</view>
+            <view class="infos">{{detailButtonInfo.carconfig['货箱尺寸(mm)'] != null && detailButtonInfo.carconfig['货箱尺寸(mm)'] != '-' ? detailButtonInfo.carconfig['货箱尺寸(mm)'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">前悬架</view>
+            <view class="infos">{{detailButtonInfo.carconfig['前悬架类型'] != null && detailButtonInfo.carconfig['前悬架类型'] != '-' ? detailButtonInfo.carconfig['前悬架类型'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">后悬架</view>
+            <view class="infos">{{detailButtonInfo.carconfig['后悬架类型'] != null && detailButtonInfo.carconfig['后悬架类型'] != '-' ? detailButtonInfo.carconfig['后悬架类型'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">油箱容积</view>
+            <view class="infos">{{detailButtonInfo.carconfig['油箱容积(L)'] != null && detailButtonInfo.carconfig['油箱容积(L)'] != '-' ? detailButtonInfo.carconfig['油箱容积(L)'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">座位数</view>
+            <view class="infos">{{detailButtonInfo.carconfig['座位数(个)'] != null && detailButtonInfo.carconfig['座位数(个)'] != '-' ? detailButtonInfo.carconfig['座位数(个)'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">驱动方式</view>
+            <view class="infos">{{detailButtonInfo.carconfig['驱动方式'] != null && detailButtonInfo.carconfig['驱动方式'] != '-' ? detailButtonInfo.carconfig['驱动方式'] : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">整车整备质量</view>
+            <view class="infos">{{detailButtonInfo.carconfig['整备质量(kg)'] != null && detailButtonInfo.carconfig['整备质量(kg)'] != '-' ? detailButtonInfo.carconfig['整备质量(kg)'] : '-'}}</view>
+          </view>
+        </view>
+      </view>
+
+      <!--安全及操控-->
+      <view class="product_info {{ul_open_save}}">
+        <view class="title2" bindtap="ul_show" data-filter-type="save">安全及操控
+          <view class="arrow-down"></view>
+        </view>
+        <view class="ul">
+          <view class="li">
+            <view class="infos">驾驶位气囊</view>
+            <view class="infos">{{detailButtonInfo.carconfig['zhu']}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">副驾驶位气囊</view>
+            <view class="infos">{{detailButtonInfo.carconfig['fu']}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">安全带未系警告</view>
+            <view class="infos">{{detailButtonInfo.carconfig['安全带未系警告'] != null && detailButtonInfo.carconfig['安全带未系警告'] != '-' ? '标配' : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">第二排头部气囊</view>
+            <view class="infos">{{detailButtonInfo.carconfig['前/后排侧气囊'] != null && detailButtonInfo.carconfig['前/后排侧气囊'] != '-' ? '标配' : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">电子制动力分配</view>
+            <view class="infos">{{detailButtonInfo.carconfig['制动力分配(EBD/CBC等)'] != null && detailButtonInfo.carconfig['制动力分配(EBD/CBC等)'] != '-' ? '标配' : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">刹车防抱死</view>
+            <view class="infos">{{detailButtonInfo.carconfig['ABS防抱死'] != null && detailButtonInfo.carconfig['ABS防抱死'] != '-' ? '标配' : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">电子稳定程序</view>
+            <view class="infos">{{detailButtonInfo.carconfig['车身稳定控制(ESP/DSC/VSC等)'] != null && detailButtonInfo.carconfig['车身稳定控制(ESP/DSC/VSC等)'] != '-' ? '标配' : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">定速巡航</view>
+            <view class="infos">{{detailButtonInfo.carconfig['定速巡航'] != null && detailButtonInfo.carconfig['定速巡航'] != '-' ? '标配' : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">电子防盗系统</view>
+            <view class="infos">{{detailButtonInfo.carconfig['发动机电子防盗'] != null && detailButtonInfo.carconfig['发动机电子防盗'] != '-' ? '标配' : '-'}}</view>
+          </view>
+          <view class="li">
+            <view class="infos">倒车雷达</view>
+            <view class="infos">{{detailButtonInfo.carconfig['后倒车雷达'] != null && detailButtonInfo.carconfig['后倒车雷达'] != '-' ? '标配' : '-'}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 预约看车弹窗 -->
+<view class="ubespeak-mask {{switch_show}}" bindtap="onClickClose"></view>
+<view class="ubespeak-cover {{switch_show}}" id="ubespeak-cover">
+  <form style="margin-bottom:1rem;" bindsubmit="onSubmit">
+    <view class="tips">填写手机、预约时间，我们的客服将尽快与您联系</view>
+    <view class="inputbox">
+      <input type="hidden" placeholder="车源编号" name="carSourceId" value="{{detailInfo.car_source_no}}" style="display:none" />
+      <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/inputbox1.jpg" alt=""></image>
+      <input type="number" placeholder="请输入手机号" name="mobile" focus="{{focusMobile}}" maxlength="11" id="mobile_no" bindblur="mobileBlur" />
+      <span class="push_clear"></span> 
+      <span id="getmCode" class="sms_verify" data-sendtype="10" bindtap="onSendVerify">发送验证码</span> 
+    </view>
+    <view class="inputbox" id="verify">
+      <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/inputbox3.png" alt=""></image>
+      <input type="text" placeholder="验证码" name="captcha" style="width: 50%;" maxlength="6" />
+    </view>
+    <view class="inputbox">
+      <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/inputbox2.jpg" alt=""></image>
+
+      <!--<input type="text" placeholder="预约时间" name="look_datetime" class="yy_time" id="beginTime1" onfocus="look_datetime.blur()"/>     -->
+      <picker mode="date" value="{{time}}" start="2017-01-01" end="2017-09-01" bindchange="bindTimeChange" style="line-height:1.9rem;font-size:32rpx;color:#989898;">
+        <view class="yy_time">
+          <block wx:if='{{time == null}}'>预约时间</block>
+          <block wx:else>{{time}}</block>
+        </view>
+      </picker>
+      <span class="push_clear"></span> 
+    </view>
+    <button type="button" form-type="submit" class="submit" id="buycar" style="margin-bottom: .2rem;">预约</button>
+    <view class="yu_verify">收不到短信？需要
+      <text class="voice_code" data-sendtype="20" bindtap="onSendVerify">语音验证码</text><span id="send_again"></span>  </view>
+  </form>
+</view>
+
+<!--检测异常弹窗-->
+<view class="td_tips_show {{tip_no}}">{{tip}}</view>
+<view class="td_tips_bg {{tip_no}}" bindtap="onClickHide"></view>
+
+<!--底部按钮-->
+<view class="ufooter">
+  <block wx:if="{{detailButtonInfo.carDetail.detail.car_on_sale == 1}}">
+    <view class="ubespeak" bindtap="onClickChoose">预约看车</view>
+  </block>
+  <block wx:else>
+    <view class="ubespeak" style="background-color: #AAAAAA">{{detailButtonInfo.carDetail.detail.car_on_sale_name}}</view>
+  </block>
+  <view class="call" catchtap='onCall' data-tel="400-186-8555">客服电话</view>
+</view>

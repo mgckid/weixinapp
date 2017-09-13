@@ -1,0 +1,10 @@
+/*声明*/
+.reg_baseTip2{border:0; border-top:1px solid #e5e5e5; padding:0 .6rem .6rem; background-color: #fff;}
+.reg_baseTip2 .dt{ line-height: 1.36rem; margin-top: .9rem;}
+.reg_baseTip2 .dt span{float:left; text-align: center; width:1.36rem; height:1.36rem; background: url(http://m.hxqc.com/wxapp/shop/icon-bg2.png) no-repeat; background-size:100% auto; margin-right:.24rem; font:italic bold .68rem/1.36rem arial; color:#999; }
+.reg_baseTip2 .dt strong{color:#333; font-size: 30rpx;font-weight: bold;}
+.reg_baseTip2 .dd{line-height: 1.3rem; margin-bottom: .3rem; color:#333; font-size: 26rpx; overflow: hidden;}
+.reg_baseTip2 .dd i{display: inline-block; width:1.1rem; height:1.1rem; line-height: 1.1rem; text-align: center; margin-right: 10px; font-family: arial; font-style: italic; color:#c0c0c0; border:1px solid #c0c0c0; border-radius:50%;}
+.reg_baseTip2 .dd span{font-size: 28rpx; line-height: 1.3rem; margin-top: -3px; color:#333;}
+.reg_baseTip2 .dd .em{color:#999; font-style: normal;display: block;}
+.reg_baseTip2 .dd b{color:#e02c36; font-weight: bold;}

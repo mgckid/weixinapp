@@ -1,0 +1,81 @@
+
+<!--pages/shop/recomshop/askprice.wxml-->
+<view class="pagetop">
+  <view class="askTopTip">简单填写以下信息，轻松了解车型底价
+    <text class="i">（您的私人信息将会得到严格保密）</text>
+  </view>
+  <form style="margin-bottom:1rem;" bindsubmit="onSubmit">
+    <view class="formrow askrow">
+      <view class="rowLeft">
+        <text class="i">*</text>意向车型</view>
+      <view class="rowRight">
+        <view class="square">{{itemName}}</view>
+      </view>
+    </view>
+    <view class="formrow askrow" bindtap="showDatePicker">
+      <view class="rowLeft">
+        <text class="i">*</text>您的城市</view>
+      <view class="rowRight">
+        <view class="square" id="setArea">
+          <text>{{sliderConfig.value}}</text>
+        </view>
+        <image src="http://m.hxqc.com/wxapp/shop/icon-rjt.png" class="inputarrow"></image>
+      </view>
+    </view>
+    <view class="formrow askrow">
+      <view class="rowLeft">
+        <text class="i">*</text>您的姓名</view>
+      <view class="rowRight">
+        <input class="input" name="name" focus="{{focusName}}" placeholder="请输入姓名" value="" />
+      </view>
+    </view>
+    <view class="formrow askrow">
+      <view class="rowLeft">
+        <text class="i">*</text>手机号码</view>
+      <view class="rowRight">
+        <input class="input" name="mobile" focus="{{focusMobile}}" type="number" maxlength="11" placeholder="请输入手机" value="" />
+      </view>
+    </view>
+    <view class="formrow askrow">
+      <view class="rowLeft">
+        <text class="i">*</text>您的性别</view>
+      <view class="rowRight">
+        <view class="radiobox-group clearfix">
+          <radio-group name="radio_gender" bindchange="onRadioChange">
+            <radio color="#ff7043" checked value="10">先生</radio>
+            <radio color="#ff7043" value="20">女士</radio>
+          </radio-group>
+        </view>
+      </view>
+    </view>
+    <block wx:if="{{1 == askPrice}}">
+      <view class="formrow askrow">
+        <view class="rowLeft">
+          <text class="i">*</text>申请置换</view>
+        <view class="rowRight">
+          <checkbox-group name="chk_exchange">
+            <checkbox color="#ff7043" value="1"></checkbox>
+            <text class="span ck_display">用旧车置换新车</text>
+          </checkbox-group>
+        </view>
+      </view>
+    </block>
+    <view class="formrow askrow">
+      <view>
+        <button type="default" form-type="submit" class="btn_submit">提交申请</button>
+      </view>
+    </view>
+    <view class="formrow askrow tac">
+      <checkbox-group name="chk_agree">
+        <checkbox color="#ff7043" checked value="1"></checkbox>
+        <text class="span ck_display">我同意</text>
+        <navigator url="/pages/shop/common/statement">
+          <text class="urlForDec">《个人信息保护声明》</text>
+        </navigator>
+      </checkbox-group>
+    </view>
+  </form>
+</view>
+
+<!-- 侧滑模板 -->
+<include src="/utils/citySlider/slider.wxml" />

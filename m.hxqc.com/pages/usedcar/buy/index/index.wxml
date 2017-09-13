@@ -1,0 +1,131 @@
+  <!-- 导入loading模板 -->
+<import src="/template/loading.wxml" />
+<template is="pageLoading" data="{{pageLoading}}" />
+
+  <!-- 顶部筛选框 -->
+  <view class="second-menu">
+    <view data-name="sm-sort" class="second-menu-a" style="{{filter_bg_sort}}" bindtap="onClickChoose" data-filter-type="sort">排序
+      <i class="arrow"></i>
+    </view>
+    <view data-name="sm-price" class="second-menu-a" style="{{filter_bg_price}}" bindtap="onClickChoose" data-filter-type="price">价格
+      <i class="arrow"></i>
+    </view>
+    <view data-name="sm-brand" class="second-menu-a" style="{{filter_bg_brand}}" bindtap="onClickChoose" data-filter-type="brand">品牌
+      <i class="arrow"></i>
+    </view>
+    <navigator class="second-menu-a" id="condition_more" style="{{filter_bg_filter}}" url="/pages/usedcar/buy/index/condition_more?brand={{filter_teg.list_key.brand}}&price={{filter_teg.list_key.price}}">筛选
+      <i class="arrow"></i>
+    </navigator>
+  </view>
+  <view class="second-menu-ul" style="{{switch_show}}">
+    <view class="lay" bindtap="onClickHide"></view>
+
+    <!--排序筛选框弹出层-->
+    <view class="slist {{switch_slide_sort}}">
+      <view class="menu">
+        <view class="condition_li" data-type="sort" data-order_key="" data-order_value="" bindtap="onBuyOrder">默认排序</view>
+        <view class="condition_li" data-type="sort" data-order_key="publish_time" data-order_value="desc" bindtap="onBuyOrder">最新发布</view>
+        <view class="condition_li" data-type="sort" data-order_key="estimate_price" data-order_value="desc" bindtap="onBuyOrder">价格最高</view>
+        <view class="condition_li" data-type="sort" data-order_key="estimate_price" data-order_value="asc" bindtap="onBuyOrder">价格最低</view>
+        <view class="condition_li" data-type="sort" data-order_key="first_on_card" data-order_value="desc" bindtap="onBuyOrder">车龄最短</view>
+        <view class="condition_li" data-type="sort" data-order_key="car_mileage" data-order_value="asc" bindtap="onBuyOrder">里程最少</view>
+      </view>
+    </view>
+
+    <!--价格筛选框弹出层-->
+    <view class="slist {{switch_slide_price}}">
+      <view class="menu">
+        <block wx:for="{{filter.price}}">
+          <view class="condition_li" data-type="price" data-value="{{item.id}}" data-text="{{item.value}}" bindtap="onBuyOrder">{{item.value}}</view>
+        </block>
+      </view>
+    </view>
+
+    <!--品牌筛选框弹出层-->
+    <view class="slist {{switch_slide_brand}}">
+      <view class="menu">
+        <view class="ftr-list" id="ftr-brand" style="position:relative;">
+          <block wx:for="{{filter.brand}}">
+            <ul>
+              <li class="letter" data-name="{{item.groupTag}}">
+                <b>{{item.groupTag}}</b>
+              </li>
+              <block wx:for="{{item.group}}">
+                <li class="condition_li" filterkey="{{item.id}}" brand_country="" tsrc="brand/6">
+                  <view class="ftr_cell" data-type="brand" data-value="{{item.id}}" data-text="{{item.brand_name}}" catchtap="onBuyOrder">
+                    <image class="img defaultImg" src="{{item.brand_logurl}}"></image>
+                    <span class="ml">{{item.brand_name}}</span> 
+                  </view>
+                </li>
+              </block>
+            </ul>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分页数据 -->
+  <scroll-view scroll-y="true" style="height:calc(100%);" bindscrolltolower="onWaterFall">
+    <view class="{{ufilterStyle}}">
+      <block wx:for="{{filter_teg.list_name}}">
+        <text>{{item}}</text>
+      </block>
+      <view class="i" bindtap="onFilterOff"></view>
+    </view>
+    <block wx:if="{{buyCarList}}">
+      <view class="ucarlist">
+        <block wx:for="{{buyCarList}}">
+          <navigator url="/pages/usedcar/buy/index/{{item.detail_url}}?car_source_no={{item.car_source_no}}">
+            <view class="leftImg">
+              <block wx:if="{{item.small_path == ''}}">
+                <image src="" class="img defaultImg"></image>
+              </block>
+              <block wx:else>
+                <image src="{{item.small_path}}" alt="" class="img defaultImg"></image>
+              </block>
+              <view class="{{item.car_on_sale == 3 ? 'selled' : ''}}">
+                <span></span> 
+              </view>
+            </view>
+            <view class="desc">
+              <view class="carName">{{item.car_name}}</view>
+              <view class="detail1 clearfix">
+                <view class="info">{{item.first_on_card}}/{{item.car_mileage}}万公里</view>
+              </view>
+              <view class="detail2 clearfix">
+                <view class="price">￥{{item.estimate_price}}万</view>
+                <block wx:if="{{item.publish_from == 2}}">
+                  <view class="type">个人</view>
+                </block>
+                <block wx:else>
+                  <view class="type ident">认证</view>
+                </block>
+              </view>
+            </view>
+          </navigator>
+        </block>
+        <view wx:if='{{carEnd}}' style="padding:10px 0; text-align:center">已经是最后一页...</view>
+      </view>
+    </block>
+    <view wx:if='{{noCar}}'>
+      <view class="nodata">
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/notdata.png" />
+        <view class="h4">没有数据</view>
+        <!--<view class="goback" bindtap="onBack">返回</view>-->
+        <navigator url="/pages/usedcar/buy/index/index">返回</navigator>
+      </view>
+      <view class="hot-search">
+        <view class="h5">
+          <view class="i"></view>
+          <text>热搜</text>
+        </view>
+        <view class="recommend">
+        <block wx:for="{{tagList}}">
+          <!--<text>{{index}}{{item}}</text>-->
+          <navigator url="/pages/usedcar/buy/index/index?brand={{index}}&brand_name={{item}}">{{item}}</navigator>
+        </block>
+        </view>
+      </view>
+    </view>
+  </scroll-view>

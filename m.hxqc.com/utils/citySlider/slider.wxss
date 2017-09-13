@@ -1,0 +1,68 @@
+.ubespeak-mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: all 0.3s;
+  opacity: 0;
+  z-index: -1;
+}
+
+.ubespeak-mask.on {
+  opacity: 1;
+  z-index: 9998;
+}
+
+/*侧滑*/
+
+.citySlider {
+  background-color: #fff;
+  right: -89%;
+  width: 86%;
+  z-index: 9998;
+  transition: all 300ms;
+  position: fixed;
+  top: 0;
+  box-shadow: rgba(0, 0, 0, 0.2) -4px 0px 5px 2px;
+  box-sizing: border-box;
+  opacity: 1;
+  transform: translateX(0);
+  -webkit-transform: translateX(0);
+}
+
+.citySlider.on {
+  transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+}
+
+.content {
+  padding: 0.5rem;
+  background: ghostwhite;
+  margin-top: 0.5rem;
+}
+
+.citySlider-ftr .ul {
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.citySlider-ftr .btn_submit {
+  display: block;
+  background-color: #ff7043;
+  color: #fff;
+  text-align: center;
+  border: none;
+  font-size: 32rpx;
+  line-height: 2.2rem;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);
+  float: right;
+  width: 40%;
+  margin-top: 0.8rem;
+}
+
+.citySlider, .citySlider_wrap {
+  height: 100%;
+}

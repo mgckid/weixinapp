@@ -1,0 +1,191 @@
+<!-- 导入loading模板 -->
+<import src="/template/loading.wxml" />
+<template is="pageLoading" data="{{pageLoading}}" />
+
+<view class="bg">
+  <view class="homeTop2">
+    <view class="ht_infos clearfix">
+      <view class="img">
+        <image src="{{info.shopInfo.shopLogoThumb}}"></image>
+      </view>
+      <view class="text">
+        <view class="name ellipsis">{{info.shopInfo.shopName}}</view>
+        <view class="address">{{info.shopInfo.shopLocation.address}}</view>
+        <view class="tel">咨询电话: {{info.shopInfo.shopTel}}</view>
+        <view class="tel">售后电话: {{info.shopInfo.serviceHotline}}</view>
+      </view>
+    </view>
+    <view class="ht_handles2">
+      <view class="hd_map" catchtap="onNav" data-lat="{{info.shopInfo.shopLocation.latitude}}" data-lng="{{info.shopInfo.shopLocation.longitude}}">
+        <image src="http://m.hxqc.com/wxapp/shop/icons/h_map.png"></image>
+        <view>
+          店铺地址
+        </view>
+      </view>
+      <view class="hd_skip">
+      <navigator url="/pages/shop/intro/index?shopID={{info.shopInfo.shopID}}">
+        <image src="http://m.hxqc.com/wxapp/shop/icons/h_intro.png"></image>
+        <view>公司介绍</view>
+           </navigator>
+      </view>
+
+    </view>
+    <view class="menu_list clearfix open" style="position: static;">
+      <view class="fisrt clearfix">
+        <navigator url="/pages/shop/recomshop/detail?shopID={{info.shopInfo.shopID}}" open-type="redirect">
+          <view class="a t1 active">
+            <text class="span"></text>首页
+          </view>
+        </navigator>
+        <navigator url="/pages/shop/recomshop/shop-quotation?shopID={{info.shopInfo.shopID}}" open-type="redirect">
+          <view class="a t2">
+            <text class="span"></text>车型报价
+          </view>
+        </navigator>
+        <navigator url="/pages/shop/news/shopnews?shopID={{info.shopInfo.shopID}}" open-type="redirect">
+          <view class="a t4 ">
+            <text class="span"></text>促销信息
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+  <!-- 最新促销活动 -->
+  <block wx:if="{{info.shopPromotion.length>0}}">
+    <view class="home_promotion mt5">
+      <view class="com_title">
+        <text class="strong">最新促销活动</text>
+        <navigator url="/pages/shop/news/shopnews?shopID={{info.shopInfo.shopID}}">
+          <text class="a more">全部</text>
+        </navigator>
+      </view>
+      <view class="home_pmtBox">
+        <block wx:for="{{info.shopPromotion}}">
+          <block wx:if="{{index<3}}">
+            <navigator url="/pages/shop/news/detail?promotionid={{item.promotionID}}">
+              <view class="a hotact">
+                <image src="{{item.thumb}}" class="defaultImg"></image>
+                <view class="text">
+                  <view class="name">{{item.title}}</view>
+                  <view class="time">{{item.publishDate}}</view>
+                </view>
+              </view>
+            </navigator>
+          </block>
+        </block>
+      </view>
+    </view>
+  </block>
+
+  <!-- 主推车型 -->
+  <block wx:if="{{info.items.length>0}}">
+    <view class="home_cmbox2">
+      <view class="com_title">
+        <text class="strong">主推车型</text>
+        <navigator url="/pages/shop/recomshop/shop-quotation?shopID={{info.shopInfo.shopID}}">
+          <text class="a more">全部</text>
+        </navigator>
+      </view>
+      <view class="chooseCar_list">
+        <block wx:for="{{info.items}}">
+          <navigator url="/pages/shop/recomshop/quote?shopID={{shopID}}&itemID={{item.itemID}}">
+            <view class="li">
+              <view class="a img">
+                <image mode="aspectFit" src="{{item.itemThumb}}" />
+              </view>
+              <view class="param">
+                <navigator url="/pages/shop/recomshop/quote?shopID={{shopID}}&itemID={{item.itemID}}">
+                  <view class="name">
+                    <text class="a">{{item.itemName}}</text>
+                  </view>
+                  <view class="price">店铺参考价：
+                    <text class="span">￥{{item.itemPrice}}</text>
+                  </view>
+                </navigator>
+                <view class="type">厂商指导价：￥{{item.itemOrigPrice}}</view>
+                <view class="handle">
+                  <navigator  catchtap="shopPass" class="a" url="/pages/shop/recomshop/askprice?itemName={{item.itemName}}&itemID={{item.itemID}}&shopID={{shopID}}&askPrice=1">
+                    询价
+                  </navigator>
+                  <navigator  catchtap="shopPass" class="a" url="/pages/shop/recomshop/askprice?itemName={{item.itemName}}&itemID={{item.itemID}}&shopID={{shopID}}&askPrice=0">
+                    试驾
+                  </navigator>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </block>
+      </view>
+    </view>
+  </block>
+
+  <!-- 主营系列 -->
+  <block wx:if="{{info.series.length>0}}">
+    <view class="home_cmbox2">
+      <view class="com_title">
+        <text class="strong">主营系列</text>
+      </view>
+      <block wx:for="{{info.series}}">
+        <view>
+          <view class="majorBrand">{{item.brandName}}</view>
+          <view class="majorSeries">
+            <block wx:for="{{item.series}}" wx:for-item="r">
+              <text class="a">{{r.seriesName}}</text>
+            </block>
+          </view>
+        </view>
+      </block>
+    </view>
+  </block>
+
+  <!-- 金牌顾问 -->
+  <block wx:if="{{info.sellers.length >0 }}">
+    <view class="home_cmbox2">
+      <view class="com_title">
+        <text class="strong">金牌顾问</text>
+      </view>
+      <view class="goldCounselor">
+        <scroll-view scroll-x="true">
+          <block wx:for="{{info.sellers}}">
+            <view class="li scroll-view-item">
+              <view class="a clearfix">
+                <view class="img">
+                  <image mode="aspectFit" src="{{item.sellerPhoto}}" width="100%"></image>
+                </view>
+                <view class="detail">
+                  <view class="name">{{item.sellerName}}</view>
+                  <view class="leix">{{item.sellerTitle}}</view>
+                  <view class="tel" catchtap="onCall" data-tel="{{item.sellerTel}}">{{item.sellerTel}}</view>
+                </view>
+              </view>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </view>
+  </block>
+
+  
+  <!-- 公司地址 -->
+  <!-- data里面的pageLoading为空隐藏地图，此时显示pageLoading -->
+  <block wx:if="{{pageLoading !== ''}}">
+    <view class="home_cmbox2 nob">
+      <view class="com_title">
+        <text class="strong">公司地址</text>
+      </view>
+      <map id="map" class="companyMap" longitude="{{longitude}}" latitude="{{latitude}}" scale="16" show-location="true" markers="{{markers}}"></map>
+
+      <!--百度地图：-->
+      <view class="map_btn_list">
+        <view class="a" bindtap="moveToLocation">
+          <image src="http://m.hxqc.com/wxapp/shop/yp/icon_location.png"></image>当前位置</view>
+        <view class="a" catchtap="onNav" data-lat="{{info.shopInfo.shopLocation.latitude}}" data-lng="{{info.shopInfo.shopLocation.longitude}}">
+          <image src="http://m.hxqc.com/wxapp/shop/yp/icon_navigation.png"></image>一键导航</view>
+      </view>
+    </view>
+  </block>
+
+</view>
+<view class="maskTel" bindtap="onCall" data-tel="{{info.shopInfo.shopTel}}">
+<image src="http://m.hxqc.com/wxapp/shop/but_tel1.png"></image>咨询电话 {{info.shopInfo.shopTel}}</view>

@@ -1,0 +1,3 @@
+<template name="commentTab">
+	<view class="commentTab"><navigator>口碑评价</navigator><navigator>口碑评价</navigator><navigator>口碑评价</navigator></view>
+</template>

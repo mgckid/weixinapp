@@ -1,0 +1,45 @@
+/*我的车辆列表 16-11-23*/
+page{background-color:#fff;height: 100%;}
+.uMycarList{height: 100%;}
+.uMycarList scroll-view{height:calc(100% - 0.5rem);}
+.uMycarList .ul{background-color: #f4ebe2;padding-bottom: .1rem;}
+.uMycarList .li{position: relative; margin-bottom: .5rem; border-bottom: 1px solid #dac2a8; background-color: #fff; overflow: hidden;}
+.uMycarList .li>.a{display: block;}
+.uMycarList .li>.a:nth-of-type(1){padding: 0;}
+.listSlide{clear: both;overflow: hidden;padding:0 0 .2rem;}
+.listSlide_left{position: relative;left:0;transition: all .3s ease 0.3s;-webkit-transition: all .3s ease 0.3s;display: block;}
+.listSlide_right{position: absolute;bottom: 0;right: -4.75rem;transition: all .3s ease 0.3s;-webkit-transition: all .3s ease 0.3s;}
+.listSlide.on .listSlide_left{left: -4.75rem;}
+.listSlide.on .listSlide_right{right: 0;}
+.listSlide_right .a{width: 2.375rem;float: left;line-height: 3.8rem;text-align: center;font-size: 32rpx;color: #fff;
+	-webkit-display:box;display: flex;-webkit-display:flex;-webkit-box-align:center;align-items: center;-webkit-box-pack:center;justify-content: center;}
+.listSlide_right .a:nth-of-type(1){background-color: #ff734d;}
+.listSlide_right .a:nth-of-type(2){background-color: #e02c36;}
+.listSlide_status{position: absolute;right: .5rem;line-height: 2.2rem;font-weight: normal;top:0;font-size: 28rpx;}
+.uMycarList .inner_wrap{clear: both;overflow: hidden;display: -webkit-box;display: flex;-webkit-display:flex;padding: 0 .5rem;}
+.uMycarList .pic{float: left;width:2.6rem; height:2.6rem; border:1px solid #eeeeee;align-self: center;}
+.uMycarList .pic>image{width:1.8rem; height: 1.8rem; margin:.4rem;}
+.uMycarList .inner{margin-left: .8rem;width: 100%}
+.uMycarList .top{display: block; border-bottom: 1px dotted #d5d5d5;}
+.uMycarList .name{font-weight:bold;font-size: 28rpx; color:#333; line-height: 2.2rem; border-bottom: 1px solid #dfdfdf;padding-left: 3.9rem;margin-bottom: .4rem;}
+.uMycarList .name image{width: .9rem;height: .9rem;margin-top: -.15rem;margin-left: .2rem;}
+.uMycarList .name span{display:inline-block;margin-left:.25rem;width: .95rem;height: .95rem;background: url(../images/uMycarList.jpg) no-repeat 0 0/100%;}
+.uMycarList .name .stext{display:inline-block;margin-left: .3rem;border-radius: .43rem;padding:0 .3rem;background-color: #26995c;color: #fff;font-size: 28rpx;line-height: 1.06rem;
+font-weight: normal;text-align: center;}
+.uMycarList .content{clear: both;overflow: hidden;}
+.uMycarList .sec{height: 1.2rem; line-height: 1.1rem; font-size: 28rpx; color:#999; }
+.uMycarList .sec span{color: #252525;}
+.uMycarList .sec .sfen{float: right; line-height: .95rem; padding:0 .2rem; background-color: #ff734d; color:#fff; font-size: 24rpx; margin-left: .2rem;}
+.uMycarList .cent{display: block; border-bottom: 1px dotted #d5d5d5; padding: .2rem 0;}
+.uMycarList .ct_list{height: 1rem; line-height: 1rem; font-size: 26rpx; color:#333;}
+.uMycarList .kind{font-size: 26rpx; color:#999; padding:.3rem 0; line-height: .95rem; overflow: hidden;}
+.uMycarList .kind .p{float: left; width:65%;}
+.uMycarList .kind .a.hd{float: right; background-color: #ff734d; padding:0 .4rem; color:#fff; font-size: 24rpx; line-height: 1.2rem; border-radius:.1rem; margin-top: .2rem;}
+.order-cancel{width:75%; height:80%; position:fixed; top:50%; left:12.5%; background-color: #fff; box-shadow: 0 2px 12px 0 rgba(0,0,0,.3); z-index: -1;opacity: 0; box-sizing:border-box;  overflow: hidden; transition:all .25s; -webkit-transition:all .25s; transform:translateY(-200%); -webkit-transform:translateY(-200%); }
+.order-cancel.on{ transform:translateY(-50%); -webkit-transform:translateY(-50%); opacity: 1;z-index: 9999;}
+.order-cancel .box{overflow-y:auto; height:100%; padding-bottom: 2rem; padding:0 5%;}
+.order-cancel .h4{line-height: 1.36rem; font-size: 30rpx; color:#3f3f3f; font-weight: normal; margin: .8rem 0;}
+.ocel-foot{position:absolute; bottom:0; width:100%; left:0; background-color: #fff; padding: .5rem 0; box-sizing:border-box;}
+.ocel-foot .a{float:right; font-size: 28rpx; line-height: 1rem; width:25%; text-align: center;}
+.ocel-foot .a.cb{color:#979797;}
+.ocel-foot .a.VehiclePop{color: #2196f5;}

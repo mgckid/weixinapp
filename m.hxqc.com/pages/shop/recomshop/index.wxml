@@ -1,0 +1,56 @@
+<!-- 导入loading模板 -->
+<import src="/template/loading.wxml" />
+<template is="pageLoading" data="{{pageLoading}}" />
+
+<view class="zoomSearch">
+  <view class="headSearch">
+    <form bindsubmit="btnSearch">
+      <picker bindchange="bindPickerModel" value="{{searchType}}" range="{{searchModel}}" class="hSelectBox">
+        <view class="picker">{{searchModel[searchType]}}</view>
+        <image src="http://m.hxqc.com/wxapp/shop/icon-bottomarrow.png" class="bolt"></image>
+      </picker>
+      <view class="hSinputBox">
+        <input type="text" name="keyword" placeholder="请输入需要搜索的内容"></input>
+        <button class="searchBtn" form-type="submit">
+          <image src="http://m.hxqc.com/wxapp/shop/hSearch.png"></image>
+        </button>
+      </view>
+    </form>
+  </view>
+</view>
+<view class="filter-group">
+  <picker bindchange="ddlSelBrand" value="{{brandIndex}}" range="{{brandList}}">
+    <view class="a">
+      <block class="b">品 牌</block>
+      <image src="http://m.hxqc.com/wxapp/shop/icon-rjt.png" class="i"></image>
+      <text class="t">{{brandList[brandIndex]}}</text>
+    </view>
+  </picker>
+  <picker bindchange="ddlSelSerie" value="{{serieIndex}}" range="{{serieList}}">
+    <view class="a">
+      <block class="b">车 系</block>
+      <image src="http://m.hxqc.com/wxapp/shop/icon-rjt.png" class="i"></image>
+      <text class="t">{{serieList[serieIndex]}}</text>
+    </view>
+  </picker>
+</view>
+<scroll-view class="shopvList-wrap" scroll-y="true" style="height:calc(100% - 7.5rem)" bindscrolltolower="onWaterFall">
+  <block wx:for="{{shopList}}">
+    <view class="shopvList" data-query="shopID={{item.shopID}}" bindtap="onClickShop">
+      <view class="vLeft">
+        <image src="{{item.shopPhoto}}" class="img defaultImg"></image>
+        <view class="signBlock">
+          <image src="{{item.brandThumb}}" class="sign"></image>
+        </view>
+      </view>
+      <view class="vRight">
+        <text class="vName ellipsis">{{item.shopTitle}}</text>
+        <view class="vNews">
+          <block wx:for="{{item.promotionList}}" wx:for-item="ele" wx:for-index="ele_i">
+            <text class="a {{0 == ele_i ?'hot':''}}">{{ele.title}}</text>
+          </block>
+        </view>
+      </view>
+    </view>
+  </block>
+</scroll-view>

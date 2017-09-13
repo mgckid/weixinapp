@@ -1,0 +1,124 @@
+<view class="myorder_track pagetop">
+  <view class="part_nums">
+    <text>订单号：601014840492903289</text> 
+  </view>
+
+  <!-- 我的订单（订单详情）-->
+
+  <!-- 车辆相关信息 -->
+  <view class="all_info clearfix">
+    <view class="li">
+      <view class="h3">联 系 人： </view>
+      <view class="p"><view class="span">测试</view>  </view>
+    </view>
+    <view class="li">
+      <view class="h3">联系电话： </view>
+      <view class="p"><view class="span">18271907319</view>  </view>
+    </view>
+    <view class="li">
+      <view class="h3">车 牌： </view>
+      <view class="p"><view class="span">鄂B12999</view>  </view>
+    </view>
+    <view class="li">
+      <view class="h3">门 店： </view>
+      <view class="p">
+        <view class="span">武汉星凯凯迪拉克<navigator style="display:inline;"><image src="http://m.hxqc.com/wxapp/index/maintain-map.png" alt="" style="border: none;vertical-align: middle;width: 0.65rem;height:0.9rem;margin-left: .2rem;position: relative;top:-.1rem;"/></navigator> </view> 
+      </view>
+    </view>
+    <view class="li">
+      <view class="h3">下单时间： </view>
+      <view class="p">
+        <view class="span">2017-01-10 19:54</view> 
+      </view>
+    </view>
+    <view class="li">
+      <view class="h3">车辆信息： </view>
+      <view class="p"><view class="span carinfo">凯迪拉克ATS(进口) 2014款 28T 精英型</view>  </view>
+    </view>
+    <view class="li">
+      <view class="h3">预约到店时间： </view>
+      <view class="p">
+        <view class="span">2017-01-14 10:30</view> 
+      </view>
+    </view>
+    <view class="li">
+      <view class="h3">支付方式： </view>
+      <view class="p">
+        <view class="span">到店支付 </view> 
+      </view>
+    </view>
+    <view class="li">
+      <view class="h3">订单状态： </view>
+      <view class="p">
+
+        <!-- 类名： doing进行中 complete完成 -->
+        <view class="doing">订单已取消</view> 
+      </view>
+    </view>
+  </view>
+  <view class="bill_head">本次订单详情共2个项目：</view>
+  <view class="bill_list">
+    <view class="project">
+      <view class="li">
+        <view class="head">
+          <view class="h1">1.机油</view>
+          <view class="p">原厂嘉实多—极护 0W-40 SN级全合成（5升） </view>
+        </view>
+        <view class="inner">
+          <view class="project_list">
+            <view class="text clearfix">
+              <view class="p">材料费 </view>
+              <view class="span">¥780.00</view> 
+            </view>
+            <view class="text clearfix">
+              <view class="p">工时费 </view>
+              <view class="span">¥180.00</view> 
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="li">
+        <view class="head">
+          <view class="h1">2.机油滤清器</view>
+          <view class="p">原厂—机油滤清器（1个） </view>
+        </view>
+        <view class="inner">
+          <view class="project_list">
+            <view class="text clearfix">
+              <view class="p">材料费 </view>
+              <view class="span">¥120.00</view> 
+            </view>
+            <view class="text clearfix">
+              <view class="p">工时费 </view>
+              <view class="span">¥100.00</view> 
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!--<view class="order_total clearfix">
+    <view class="bill_details">
+      <view class="li">
+        <view class="p">工时总额： </view><view class="span">￥280.00</view> 
+        <view class="p">材料总额： </view><view class="span">￥900.00</view> 
+        <view class="p">订单总额： </view><view class="span">￥1,180.00</view> 
+        <view class="p">实付金额： </view><view class="span">￥0.00</view> 
+      </view>
+    </view>
+  </view>-->
+  <view class="order_count clearfix" style="background:#FAFAFA">
+      <view class="bill_details">
+        <view class="li">
+          <view class="p">工时总额：</view>
+          <text class="span">￥280.00</text>
+          <view class="p">材料总额：</view>
+          <text class="span">￥900.00</text>
+          <view class="p">订单总额：</view>
+          <text class="span">￥1,180.00</text>
+          <view class="p">实付金额：</view>
+          <text class="span">￥0.00</text>
+        </view>
+      </view>
+    </view>
+</view>

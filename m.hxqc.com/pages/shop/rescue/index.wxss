@@ -1,0 +1,44 @@
+/*一键救援*/
+page{background-color: #fff;}
+.caritems_wrap{height:100%;}
+.hxrescue-adress{padding: .5rem .8rem;background-color: #f5f5f5;}
+.hxrescue-adress .h5{font-size: 30rpx;color: #e3414a;}
+.hxrescue-adress .handle{clear: both;overflow: hidden;margin-top: .3rem;}
+.hxrescue-adress .handle .a{float:left;width: 100%;line-height: 1.7rem;font-size: 30rpx;color: #fff;text-align: center;background-color: #ff7043;border-radius: .1rem;}
+.hxrescue-adress .title{clear: both;overflow:hidden;line-height: 1.8rem;margin-top: .1rem;}
+.hxrescue-adress .title .text{float: left;}
+.hxrescue-adress .title image{width: .65rem;height: .85rem;float:left;margin-top: .5rem;margin-right: .2rem;}
+.hxrescue-adress .title span{font-size: 28rpx;color: #26a668;float:left;}
+.hxrescue-adress .location{margin-left:3.5rem;font-size: 26rpx;color: #3b404c;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.hxrescue-filter .a{clear:both;overflow:hidden;position:relative; background-color: #fff; padding:0 .8rem;  line-height: 3rem; border-bottom:1px solid #d5d5d5; border-top:1px solid #d5d5d5;font-size: 32rpx;}
+.hxrescue-filter .a.noborderbt{border-bottom: none;}
+.hxrescue-filter .a>.h5{color: #e3414a;font-size: 32rpx;font-weight: bold;}
+.hxrescue-filter .a span{color:#7a7a7a;float:left; font-weight: 600; font-family: "微软雅黑";}
+.hxrescue-filter .a b{color:#979797; font-weight: normal; height:2.7rem; overflow: hidden; display: block; text-align: right; text-overflow: ellipsis; white-space: nowrap;}
+.hxrescue-filter .a image{float:right; height:.8rem;width:.6rem;margin-left: .68rem; margin-top: 1.05rem;}
+.hxrescue-filter .a b.active{color:#ff7043;}
+.hxrescue-distance{background-color: #fff;}
+.hxrescue-distance{clear: both;overflow:hidden;width: 104%;}
+.hxrescue-distance .li{padding:.6rem .75rem;background-color:#fff;border-bottom:1px solid #d5d5d5;clear: both;overflow: hidden;}
+.distance-top{position: relative;width:6.2rem;float: left;}
+.distance-top .a{height: 3.6rem;}
+.distance-top .pic{height: 100%;width: 100%;}
+.distance-top .brandicon{z-index:2;box-sizing:border-box;background-color:#fff;width: 1.2rem;height: 1.2rem;border:1px solid #dadada;position: absolute;left: .2rem;bottom: -.1rem;}
+.distance-top .brandicon image{width: 1.2rem;height: 1.2rem;}
+.distance-top .distance-mask{position:absolute;bottom:0;left:0;width: 100%;height:1rem;line-height: 1rem;background-color: rgba(0,0,0,.4);font-size: 20rpx;color: #fff;}
+.distance-top .distance-mask span{position: absolute;top: 0;right: .2rem;}
+.distance-content{margin-left:6.9rem;background-color: #fff;}
+.distance-content .address{font-size: 28rpx;color: #999;height:1.1rem;line-height:1.1rem;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.hxrescue-distance .li .h5{font-size: 30rpx;color: #666;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;font-weight: bold;}
+.hxrescue-distance .li .text{margin-top: .3rem;}
+.hxrescue-distance .li .text .a{float:left;width:4.1rem;line-height: 1.25rem;border:1px solid #ff7043;color: #ff7043;text-align: center;font-size: 28rpx;}
+.hxrescue-distance .li .text .a:nth-of-type(1){margin-right: .5rem;}
+.hxrescue-mask-w{display:none;position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: rgba(0,0,0,.4);z-index: 998;}
+.hxrescue-mask{padding:1rem .8rem .75rem;box-sizing:border-box;position:absolute;left:10%;top:50%;width: 80%;transform: translateY(-50%);-webkit-transform: translateY(-50%);background-color: #fff;z-index: 999;
+border-radius: .1rem;box-shadow: 0 .1rem .2rem rgba(0,0,0,.4);-webkit-box-shadow: 0 .1rem .2rem rgba(0,0,0,.4);text-align: center;}
+.hxrescue-mask .p{font-size: 30rpx;color: #202020;line-height: 1.3rem;}
+.hxrescue-mask .resmask-close{width: .6rem;height: .6rem;position: absolute;right: .25rem;top: .25rem;}
+.hxrescue-mask input{outline:none;font-size: 30rpx;color: #4f4f4f;border:1px solid #b2b2b2;display: block;width: 100%;margin: .5rem auto .75rem;height: 1.7rem;padding:.4rem .25rem;box-sizing:border-box;line-height: 1.1rem;font-family: '微软雅黑';}
+.hxrescue-mask input::-webkit-input-placeholder{color: #b2b2b2;}
+.hxrescue-mask button,.hxrescue-mask a{display:block;outline:none;width: 100%;margin: 0 auto;line-height: 2rem;color: #fff;background-color: #ff7043;text-align: center;border-radius: .2rem;outline: none;border:none;font-size: 30rpx;font-family: '微软雅黑';}
+.ftr-list .li>view image{height:.8rem;width: .8rem; float:left;position: relative;top: .2rem;}

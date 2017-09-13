@@ -1,0 +1,99 @@
+<view class="aus_wrap">
+  <view class="aus_webtop">{{info.shopInfo.shop_name}}简介</view>
+  <view class="aus_img">
+    <image mode="widthFix" src="{{info.recommendHonorImage}}" width="100%"></image>
+  </view>
+  <view class="aus_text">
+    <block wx:for="{{info.shopInfo.wxml_intro}}">
+        <block wx:if="{{'txt' == item.type}}">
+         <view class="p">{{item.txt}}</view>
+        </block>
+        <block wx:else>
+                <image class="defaultImg" mode="widthFix" src="{{item.src}}"/>
+        </block>
+    </block>
+  </view>
+</view>
+
+<view class="aus_wrap aus_part2">
+    <view class="aus_webtop">荣誉资质</view>
+    <view class="ausp2_list">
+        <view class="dl">
+            <view class="dt"><image src="http://s.t.hxqctest.com/newcar/merchant/d1/c0/d1c0fb59add5923d93d3e03ab8e4f62a.jpg"></image></view>
+            <view class="dd"><text class="span"></text></view>
+        </view>
+    </view>
+</view>
+<view class="aus_wrap aus_part4">
+  <view class="aus_webtop">主营车系</view>
+  <block wx:for="{{info.brandSerie}}">
+  <view class="aus_zycx">
+    <view class="cxLogo">
+      <image src="{{item.brand_image}}"></image>
+    </view>
+    <view class="cxText">{{item.brand_name}}</view>
+  </view>
+  <view class="aus_zycxLi">
+    <block wx:for="{{item.serie}}" wx:for-item="r">
+          <view class="a">{{r.serie_name}}</view>  
+    </block>
+  </view>
+  </block>
+
+</view>
+
+<view class="aus_wrap aus_part3">
+  <view class="ausp3_list">
+    <view class="aus_webtop">店铺展示</view>
+    <view class="mt10 dl">
+      <dd class="dd">
+        <view class="ul">
+          <scroll-view scroll-x="true">
+            <view class="li" style="">
+              <image src="http://s.hxqc.com/newcar/merchant/f8/9c/f89c7aa64ff29f17424d72834eb62cc3.jpg" width="100%"></image>
+            </view>
+            <view class="li" style="">
+              <image src="http://s.hxqc.com/newcar/merchant/f8/9c/f89c7aa64ff29f17424d72834eb62cc3.jpg" width="100%"></image>
+            </view>
+            <view class="li" style="">
+              <image src="http://s.hxqc.com/newcar/merchant/f8/9c/f89c7aa64ff29f17424d72834eb62cc3.jpg" width="100%"></image>
+            </view>
+            <view class="li" style="">
+              <image src="http://s.hxqc.com/newcar/merchant/f8/9c/f89c7aa64ff29f17424d72834eb62cc3.jpg" width="100%"></image>
+            </view>
+          </scroll-view>
+        </view>
+      </dd>
+    </view>
+  </view>
+</view>
+<view class="aus_wrap">
+  <view class="aus_webtop">联系方式</view>
+  <map id="map" longitude="{{lng}}" latitude="{{lat}}" scale="14" markers="{{markers}}" show-location style="width: 100%; height: 300px;"></map>
+  <view class="aus_intos">
+    <view class="li">
+      <image src="http://www.tm.hxqc.com/wxapp/shop/abouts/icon_1.png" class="imgT"></image>
+      <text class="span">公司名称：{{info.shopInfo.shop_name}}</text>
+    </view>
+    <view class="li">
+      <image src="http://www.tm.hxqc.com/wxapp/shop/abouts/icon_2.png" class="imgT"></image>
+      <text class="span">地址：{{info.shopInfo.detail_address}}</text>
+    </view>
+    <view class="li" catchtap="onCall" data-tel="{{info.shopInfo.consult_number}}">
+      <image src="http://www.tm.hxqc.com/wxapp/shop/abouts/icon_3.png" class="imgT"></image>
+      <view class="span">咨询电话：<text class="b">{{info.shopInfo.consult_number}}</text><image src="http://www.tm.hxqc.com/wxapp/shop/abouts/right0.png"></image><image src="http://www.tm.hxqc.com/wxapp/shop/abouts/hour_24.png"></image></view>
+    </view>
+    <view class="li">
+      <image src="http://www.tm.hxqc.com/wxapp/shop/abouts/icon_4.png" class="imgT"></image>
+      <text class="span">传真：{{!!info.shopInfo.fox?info.shopInfo.fox:'暂无'}}</text>
+    </view>
+    <view class="li">
+      <image src="http://www.tm.hxqc.com/wxapp/shop/abouts/icon_5.png" class="imgT"></image>
+      <text class="span">网址：{{info.shopInfo.website}}</text>
+    </view>
+  </view>
+</view>
+
+<view class="maskTel a" catchtap="onCall" data-tel="{{info.shopInfo.consult_number}}">
+  <image src="/wap/images/but_tel1.png"> </image>咨询电话 {{info.shopInfo.consult_number}}
+</view>

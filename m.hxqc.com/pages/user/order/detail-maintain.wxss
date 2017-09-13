@@ -1,0 +1,33 @@
+.clearfix:after{content: '\200B'; display: block; clear: both; height: 0; overflow: hidden; visibility: hidden;}
+.clearfix{zoom: 1;}
+.part_nums{line-height:2.8rem; background:#fafafa; text-indent:.8rem;font-size: 36rpx;font-weight: bold;}
+/* 我的订单（订单详情） */
+/* 车辆相关信息 */
+.all_info {background:#fff; padding:0.6rem 0; }
+.all_info .li { width:100%; line-height: 1.1rem; overflow: hidden;padding: .6rem .8rem;position:relative;}
+.all_info .li .p {font-size:32rpx; float:left; overflow:hidden;  }
+.all_info .li .h3 { width:40%; font-weight:normal; color:#979797;font-size: 32rpx;float: left;overflow: hidden; }
+.all_info .li .p .span { display:block; }
+.all_info .li .p .span.carinfo{position: absolute; top:50%; width:50%; left:0; line-height: 1.1rem; transform:translateY(-50%); -webkit-transform:translateY(-50%); max-height:2.2rem;margin-left: 40%; }
+.all_info .li .p .span:nth-of-type(2) { white-space:pre-line; }
+.all_info .doing { color:#d11522; }
+.all_info .complete { color:#4cae7a; }
+.bill_head{line-height: 2.8rem;background-color: #f5f5f5;font-size: 32rpx;color: #3f3f3f;padding: 0 .8rem;border-bottom: 1px solid #d5d5d5;}
+.project { background:#f5f5f5; border-bottom:1px solid #d5d5d5; overflow:hidden; }
+.project .li { padding:0.6rem 0.7rem; border-bottom:2px dotted #d5d5d5;clear: both;overflow: hidden;}
+.project .li:nth-last-child(1) { border-bottom:none; }
+.project .li .head{float: left;line-height: .9rem;}
+.project .li .head .p{width:12.5rem;font-size: 28rpx;color: #8e8e8e;padding: .3rem 0;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.project .li .h1 { font-size:28rpx;padding: .1rem 0;}
+.project .border_wrap { width:14.5rem; border:1px dashed #b5b5b5; border-radius:0.3rem; }
+.project .project_list { float:right; line-height:.9rem; font-size: 28rpx;}
+.project .project_list .text{padding:.1rem 0;}
+.project .project_list .p {float:left; padding:.1rem .3rem; color:#989898;  }
+.project .project_list .span {float:left; padding:.1rem 0; color:#e12b37; text-align:right;}
+.order_count{background: #fff;}
+.order_count .bill_details { width:10rem; float:right; margin-right:0.8rem; z-index:1; }
+.order_count .bill_details .li { text-align:right; border-bottom:2px dotted #d5d5d5; padding:0.5rem 0; zoom:1; }
+.order_count .bill_details .li:nth-last-child(1) { border:none; }
+.order_count .bill_details .li:after { display:block; content:""; clear:both; }
+.order_count .bill_details .li .p { width:5rem; line-height:1.4rem; float:left;font-size: 30rpx; }
+.order_count .bill_details .li .span {text-align:left; float:left; color:#d11522; margin-left:0.2rem; line-height: 1.4rem;font-size: 34rpx; }

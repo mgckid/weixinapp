@@ -1,0 +1,30 @@
+<view class="artlist pagetop">
+    <view class="top-banner">
+        <image src="http://m.hxqc.com/wxapp/index/memberbook/memberHandbook_top.jpg"></image>
+    </view>
+    <view class="articles">
+        <view class="p">
+            1. 会员在恒信车管家平台或恒信汽车集团下属4S店所进行的现金消费，按规则：常规维修每消费人民币1元，获取积分为1分；保险公司赔付的事故车每消费人民币10元，获取积分为3分；事故车单次积分上限为10000分。
+        </view>
+        <view class="p">
+            2. 消费金额与积分从会员入会之日起开始累积，入会日期以在恒信车管家注册成功的日期为准。
+        </view>
+        <view class="p">
+            3. 两年内未到集团所属品牌4S店产生任何保养或维修消费，则积分清零。积分清零前，恒信车管家将会提前对会员提醒并通知。
+        </view>
+        <view class="p">
+            4. 会员积分或优惠券将绑定至车辆（车牌号），不同车辆（车牌号）所绑定积分或优惠券不能合并在一起使用。</view>
+        <view class="p">
+            5. 为确保积分准确累积至您的会员账户中，请在恒信车管家平台或恒信汽车集团下属4S店接受服务时准确提供您的车牌号及手机号码，并确保车辆车牌号及手机号码与您会员账户中登记的完全一致。
+        </view>
+        <view class="p">
+            6. 会员账户内的优惠券，仅限绑定车辆冲抵现金消费。
+        </view>
+        <view class="p">
+            7. 使用优惠券冲抵的消费金额不再累积积分。
+        </view>
+    </view>
+    <view class="bottom-radius">
+        <image src="http://m.hxqc.com/wxapp/index/memberbook/artical_bottom.jpg"></image>
+    </view>
+</view>

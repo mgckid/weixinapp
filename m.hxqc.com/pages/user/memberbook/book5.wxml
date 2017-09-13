@@ -1,0 +1,25 @@
+<view class="artlist pagetop">
+    <view class="top-banner">
+        <image src="http://m.hxqc.com/wxapp/index/memberbook/memberHandbook_top.jpg"></image>
+    </view>
+    <view class="articles">
+        <view class="p">
+            1.会员须妥善保管自己的手机号，实时推送至手机号的验证码将为会员账户的安全性及私密性提供更加可靠的保证。
+        </view>
+        <view class="p">
+            2. 如因会员个人原因造成账户密码丢失、验证码盗用等情况，导致积分、充值金额及优惠券等被他人使用，恒信车管家不承担责任。
+        </view>
+        <view class="p">
+            3. 如遇不可抗力、计算机黑客袭击、系统故障、通讯故障、网络拥堵、供电系统故障、电脑病毒、恶意程序攻击及其它不可归因于恒信车管家情况时，恒信车管家不承担责任。
+        </view>
+        <view class="p">
+            4. 会员规则以恒信车管家平台公布为准，并保留对相关规则的制定、修订，并拥有其解释权，修订权。
+        </view>
+        <view class="p">
+            5. 如发生法律纠纷，提交武汉仲裁委员会仲裁。
+        </view>
+    </view>
+    <view class="bottom-radius">
+        <image src="http://m.hxqc.com/wxapp/index/memberbook/artical_bottom.jpg"></image>
+    </view>
+</view>

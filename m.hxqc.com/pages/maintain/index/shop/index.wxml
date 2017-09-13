@@ -1,0 +1,73 @@
+
+<!-- 导入loading模板 -->
+<import src="/template/loading.wxml" />
+<template is="pageLoading" data="{{pageLoading}}" />
+<view class="second-menu">
+  <view class="a {{areaShow}}" data-filter="area" bindtap="filter">{{area_i}}
+    <text class="i arrow"></text>
+  </view>
+  <view class="a {{distanceShow}}" data-filter="distance" bindtap="filter">{{sort_mixed[sort_mixed_i].t}}
+    <text class="i arrow"></text>
+  </view>
+</view>
+<view class="second-menu-ul {{maskShow}}">
+  <view class="slist {{areaShow}}" id="sm-brand">
+    <view class="ul menu1">
+      <block wx:for="{{area_ls}}">
+        <view class="li {{ item== area_i?'li_on':''}}" data-area="{{item}}" bindtap="onClickArea">
+           <view calss="a">
+          <text class="span shop_area">{{item}}</text>
+        </view>
+      </view>
+      </block>
+    </view>
+  </view>
+  <view class="slist {{distanceShow}}" id="sm-class">
+    <view class="ul menu1">
+      <block wx:for="{{sort_mixed}}">
+        <view class="li shop_length {{index == sort_mixed_i?'li_on':''}}" data-i="{{index}}" bindtap="onClickSortMixed">
+          <view calss="a">{{item.t}}</view>
+      </view>
+      </block>
+    </view>
+  </view>
+  <view class="lay" catchtap="filterHide"></view>
+</view>
+<view id="list_shops" class="pagetop uitem_list">
+  <block wx:if="{{list.length > 0}}">
+    <view class="ul">
+    <!--wx-for-->
+    <block wx:for="{{list}}">
+      <navigator url="/pages/maintain/index/shop/shop-maintain?shopID={{item.shopID}}&brandID={{brandID}}&serieID={{serieID}}&modelID={{modelID}}&distance={{distance}}&itemsJSON={{itemsJSON}}">
+        <view class="li">
+          <block wx:if="{{0 == index}}"><view class="always_go"></view></block>
+          <block wx:else><view></view></block>
+          
+          <image src="{{item.shopPhoto[0]}}" class="img"></image>
+          <view class="kshop_cell">
+            <view class="p shop_length">
+              <text class="span shop_name">{{item.shopTitle}}</text>
+              <text class="span" class="length ele_distance">{{item.distance}}</text>
+            </view>
+            <view class="evaluate">
+              <text class="span acolor">地址:{{item.address}}</text>
+            </view>
+            <view class="evaluate">
+              <text class="span acolor">价格:</text>
+              <text class="span price">{{item.amount}}元</text>
+            </view>
+          </view>
+        </view>
+      </navigator>
+    </block>
+      <!-- wx-for-end-->
+    </view>
+  </block>
+
+  <!--空模版-->
+  <block wx:else>
+    <view style="text-align:center;padding:1rem;">
+      <text>暂无店铺信息</text>
+    </view>
+  </block>
+</view>

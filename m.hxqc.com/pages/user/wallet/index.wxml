@@ -1,0 +1,15 @@
+<view class="walletMain">
+    <image src="http://m.hxqc.com/wxapp/index/vip_orders/wallet-ico.png" class="xico"></image>
+    <view class="canText">可用现金余额：</view>
+    <view class="numText"><span>￥{{balance}}</span></view>
+    <navigator url="/pages/user/myVehicler/index">
+        <view class="btnText"><text class="yel a">积分查询</text></view>
+    </navigator>
+    <navigator url="/pages/user/wallet/moneyList">
+        <view class="btnText"><text class="a">消费记录</text></view>
+    </navigator>
+    <!--<navigator>
+        <view class="btnText" bindtap="onClickWait"><text class="a">充值</text></view>
+    </navigator>
+    <view class="btnText" bindtap="onClickWait"><text class="useRest a">花余额</text></view>-->
+</view>

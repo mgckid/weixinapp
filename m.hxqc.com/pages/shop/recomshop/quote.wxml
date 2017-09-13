@@ -1,0 +1,143 @@
+<!-- 导入loading模板 -->
+<import src="/template/loading.wxml" />
+<template is="pageLoading" data="{{pageLoading}}" />
+
+<view class="car-detailspage pagetop">
+  <view class="car-topimg">
+    <view class="a">
+      <image mode="widthFix" src="{{info.baseInfo.itemPic}}" width="100%"></image>
+      <view class="span">{{info.baseInfo.itemName}}
+        <!--<image class="imgmore" src="http://m.hxqc.com/wxapp/shop/icon-tupianmore.png"></image>-->
+      </view>
+    </view>
+  </view>
+  <view class="car-price">
+    <view class="lcj">￥{{info.baseInfo.itemPrice}}</view>
+    <view class="ckj">参考总价：{{info.baseInfo.itemTotalPrice}}
+      <!--<image src="http://m.hxqc.com/wxapp/shop/note.png"></image>-->
+    </view>
+  </view>
+  <navigator url="/pages/shop/recomshop/quote-address">
+    <view class="car-cstit">
+      <view class="a" catchtap="onNav" data-lat="{{info.shopInfo.shopLocation.latitude}}" data-lng="{{info.shopInfo.shopLocation.longitude}}">
+        <image src="http://m.hxqc.com/wxapp/shop/icon-area1.png"></image>
+        <text class="span">店铺地址</text>
+        <image src="http://m.hxqc.com/wxapp/shop/icon-rjt.png" class="arrow_right"></image>
+        <text class="b"></text>
+      </view>
+    </view>
+  </navigator>
+  <view class="car-colormain">
+    <view class="car-cstit">
+      <image src="http://m.hxqc.com/wxapp/shop/icon-color1.png"></image>
+      <text class="span">车辆颜色</text>
+    </view>
+    <view class="dd">
+      <view class="car-colorList">
+        <view class="title">车身：</view>
+        <view class="box">
+          <block wx:for="{{info.baseInfo.appearance}}">
+            <text class="span" style="background-color:{{item.color}}"></text>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="car-ptmain {{carImg_on}}" bindtap="carImg_show">
+    <view class="car-cstit">
+      <image src="http://m.hxqc.com/wxapp/shop/icon-tupian.png"></image>
+      <text class="span">图文介绍</text>
+      <image src="http://m.hxqc.com/wxapp/shop/icon-toparrow2.png" class="arrow_top"></image>
+    </view>
+    <view class="dd">
+      <block wx:for="{{info.baseInfo.wxml_introduce}}">
+        <block wx:if="{{ 'txt'=== item.type}}">
+          <view>
+            <view class="p">{{item.txt}} </view>
+          </view>
+        </block>
+        <block wx:elif="{{ 'img'===item.type}}">
+          <view>
+            <image mode="widthFix" src="{{item.src}}" />
+          </view>
+        </block>
+      </block>
+    </view>
+  </view>
+  <!--<navigator url="/pages/shop/recomshop/quote-comment">
+    <view class="car-cstit">
+      <view class="a">
+        <image src="http://m.hxqc.com/wxapp/shop/buy/icon-koub.png"></image>
+        <text class="span">口碑评论</text>
+        <image src="http://m.hxqc.com/wxapp/shop/icon-rjt.png" class="arrow_right"></image>
+        <text class="b"></text>
+      </view>
+    </view>
+  </navigator>-->
+  <navigator url="/pages/shop/recomshop/quote-paramenter?itemID={{info.baseInfo.extID}}">
+    <view class="car-cstit">
+      <view class="a">
+        <image src="http://m.hxqc.com/wxapp/shop/icon-canshu.png"></image>
+        <text class="span">产品参数</text>
+        <image src="http://m.hxqc.com/wxapp/shop/icon-rjt.png" class="arrow_right"></image>
+        <text class="b"></text>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+<!-- footer隐藏 -->
+<!-- <view class="buybottom">
+  <view class="buyshop a">
+    <view>
+      <image src="http://m.hxqc.com/wxapp/shop/buy/i-backshop.png"></image>
+    </view>
+  </view>
+  <view class="buychat a" bindtap="maskShow">
+    <view>
+      <image src="http://m.hxqc.com/wxapp/shop/buy/buy-chat.png"></image>
+    </view>
+  </view>
+  <view class="a">
+    <image src="http://m.hxqc.com/wxapp/shop/b-xunw.png"></image> 询问底价</view>
+  <view class="a">
+    <image src="http://m.hxqc.com/wxapp/shop/b-yuyue.png"></image> 预约试驾</view>
+</view> -->
+
+<!-- 咨询弹出层 -->
+<view class="sideslipMask {{maskShow}}"></view>
+<view class="mychat {{maskShow}}">
+  <view class="mychat-content">
+    <view class="mychat-header">
+      <view class="mychat-close span" bindtap="maskHide"></view>
+      <view class="mychat-title">发表咨询</view>
+    </view>
+    <form action="/wuhan/Quotation/index/consult.html" id="chat-form" name="chat-form" method="post">
+      <view class="hx-chat-box">
+        <view class="alert-content">
+          <view class="alert alert-success">
+            <view>咨询提交后，我们有专人工作人员进行回复，请耐心等待！</view>
+          </view>
+          <view class="alert alert-danger hidden">
+            <view class="span">咨询问题不能为空！</view>
+          </view>
+        </view>
+        <view>
+          <view class="clearfix">
+            <view class="hx-chat-info">咨询内容：</view>
+            <textarea class="textarea" name="question"></textarea>
+          </view>
+          <view id="column_refer_result" style="display:none;">
+            <view class="column_refer_result"></view>
+          </view>
+          <view class="buttons">
+            <button class="hx-chat-submit" type="submit">提交</button>
+            <view class="wordage">剩余字数：
+              <text id="sy" style="color:Red;">250</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>

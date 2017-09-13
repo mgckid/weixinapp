@@ -1,0 +1,11 @@
+/*新闻资讯列表页*/
+.sArticleList{background-color: #fafafa;}
+.sArticleList .a{display: block; padding:.6rem .68rem .4rem; overflow: hidden; border-bottom: 1px solid #d5d5d5;}
+.sArticleList .img{float:left; width:6rem; max-height: 3.5rem;}
+.sArticleList .detail{margin-left: 6.5rem; }
+.sArticleList .name{font-size: 30rpx; color:#3f3f3f; line-height: 1.1rem; margin-bottom: .15rem; overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
+.sArticleList .hname{font-size: 30rpx; color:#000; max-height: 2.6rem; line-height: 1.3rem; margin-bottom: .15rem; overflow: hidden; margin-top: -.15rem;}
+.sArticleList .time{font-size: 24rpx; color:#999;line-height: 1.1rem; margin-bottom: .1rem; overflow: hidden; text-overflow:ellipsis; white-space: nowrap;}
+.sArticleList .time b{color:#e02c36;font-weight: bold;}
+.sArticleList .time span{margin-left: .5rem;}
+.sArticleList .intro{font-size: 24rpx; color:#666; line-height: 1.1rem; overflow: hidden; max-height:2.2rem;}

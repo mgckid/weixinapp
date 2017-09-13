@@ -1,0 +1,32 @@
+/*质保服务*/
+.table {border:1px solid #dadada;border-right:0;border-bottom:0;width:98%;}
+.tr{width:100%;display:flex;justify-content:space-between;}
+.instalment-plan{padding:.2rem .7rem .65rem;}
+.instalment-plan .h5{line-height: 1.9rem;font-size: 36rpx;color: #e02c36;font-weight: bold;}
+.instalment-plan .table{width: 100%;border-collapse:collapse;}
+.instalment-plan .table .tr .td{border: 1px solid #e5e5e5;}
+.instalment-plan .table .tr .td:nth-of-type(1){width: 87%;padding:.4rem .7rem .5rem;box-sizing: border-box;}
+.instalment-plan .table .tr .td:nth-of-type(2){width: 13%;padding-top: 23%;text-align: center;}
+.instalment-plan .table .tr .td .time{color: #333;line-height: 1.4rem;font-size: 32rpx;}
+.instalment-plan .table .tr .td .edu{color: #999;line-height: 1.35rem;font-size: 32rpx;}
+.instalment-plan .table .tr .td .edu .span{color: #e02c36;font-weight: bold;display:inline;}
+.instalment-plan .table .tr .td:nth-of-type(2) .span{display:inline-block;width: .9rem;height: .9rem;background: url('http://www.tm.hxqc.com/wxapp/usedcar/instalment-plan.png') no-repeat 0 0;background-size: .8rem;margin-left: 33%;}
+.instalment-plan .table .tr.select .td:nth-of-type(2) .span{background-position: 0 -1.05rem;}
+.instalment-plan .table .tr.select{background-color: #fafafa;}
+.instalment-tips{border-top: .65rem solid #efefef;padding:.4rem .7rem;}
+.instalment-tips .h4{font-size: 36rpx;line-height: 1.9rem;color: #e2444c;}
+.instalment-tips .h5{font-size: 32rpx;line-height: 1.8rem;color: #444;font-weight: normal;margin-top: .15rem;}
+.instalment-tips .tips{font-size: 28rpx;line-height:1.1rem;color: #e02c36;margin-top: .3rem;}
+.instalment-plan .more{clear: both;overflow:hidden;margin-top: .65rem;}
+.instalment-plan .more .span{float: left;line-height: 1.4rem;font-size: 26rpx;color: #444;}
+.instalment-plan .more .detail{float: right;line-height: 1.4rem;border:1px solid #ff6600;font-size: 25rpx;padding:0 .2rem;color: #ff6600;text-align: center;}
+.extension-title{font-size: 30rpx;color: #444;line-height: 1.55rem;margin-top: .4rem;margin-bottom: .9rem;}
+.extension-desc{clear: both;overflow:hidden;position: relative;margin-bottom: .4rem;}
+.extension-desc .img{position:absolute;left:0;top:50%;margin-top:-.65rem;width: 1.7rem;height:1.7rem;}
+.extension-desc .rtext{margin-left: 2.35rem;font-size: 28rpx;color: #444;line-height: 1.45rem;}
+.talk-qa-wrap{padding-top: .58rem;}
+.talk-qa{clear: both;overflow:hidden;font-size: 30rpx;line-height: 1.4rem;}
+.question-p{color: #e02c36;float: left;}
+.question-t{color: #e02c36;margin-left: 1.9rem;margin-bottom: .45rem;}
+.answer-p{color: #444;float: left;}
+.answer-t{color: #444;margin-left: 1.9rem;margin-bottom: .55rem;}

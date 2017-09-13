@@ -1,0 +1,46 @@
+<view class="body">
+  <view class="orderNewList">
+    <view class="part_nums">
+      <text>订单号：41091704211376888474</text>
+    </view>
+    <view class="detLists dataclear havepay_list">
+      <view class="text clearfix">
+        <view class="yeText">服务类型：</view>
+        <view class="riText">故障检查</view>
+      </view>
+      <view class="text clearfix">
+        <view class="yeText">预约时间：</view>
+        <view class="riText">2017-01-18 13:18:30</view>
+      </view>
+      <view class="text clearfix">
+        <view class="yeText">联系人</view>
+        <view class="riText">测试</view>
+      </view>
+      <view class="text clearfix">
+        <view class="yeText">电话：</view>
+        <view class="riText">18271907319</view>
+      </view>
+      <view class="text clearfix">
+        <view class="yeText">车辆信息：</view>
+        <view class="riText">
+          <text class="span">鄂123456 途观 2016款 300TSI 自动两驱舒适版</text>
+        </view>
+      </view>
+      <view class="text clearfix">
+        <view class="yeText">服务门店：</view>
+        <view class="riText">
+          武汉众和上汽大众
+          <navigator style="display:inline;" url="">
+            <image src="http://m.hxqc.com/wxapp/index/maintain-map.png" style="width: .65rem;margin-left: .2rem;position: relative;top:-.1rem;height:.9rem;vertical-align: middle;" />
+          </navigator>
+        </view>
+      </view>
+      <view class="text clearfix">
+        <view class="yeText">订单状态：</view>
+        <view class="riText">
+          订单待确认
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,101 @@
+<view class="content">
+  <view class="car-top">
+    <view class="a">
+      <image mode="aspectFill" src="{{info.modelInfo.itemPic}}" width="100%"></image>
+      <span class="car-top-title">{{info.modelInfo.modelName}}</span> 
+    </view>
+  </view>
+  <view class="reference-head-wrap">
+    <view class="reference-head boder-bm">
+      <view class="p">
+        <em>经销商参考价：</em> 
+        <span class="price1">￥{{info.modelInfo.priceRange}}</span> 
+      </view>
+      <view class="p">
+        <em>厂商指导价：</em> 
+        <span class="price2">￥{{info.modelInfo.itemOrigPrice}}</span> 
+      </view>
+      <view class="p">
+        <em>车身颜色：</em> 
+        <view class="detail-color">
+          <block wx:for="{{info.modelInfo.appearance}}">
+            <text class="span" style="background-color:{{item.color}}"></text>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 基本信息 -->
+  <view class="car-ptmain {{carInfo_on}}" bindtap="carInfo_show">
+    <view class="car-cstit">
+      <image src="http://m.hxqc.com/wxapp/shop/buy/icon-car.png"></image>
+      <text class="span">基本信息</text>
+      <image src="http://m.hxqc.com/wxapp/shop/icon-toparrow2.png" class="arrow_top"></image>
+    </view>
+    <view class="dd information">
+      <block wx:for="{{info.modelInfo.parameter}}">
+        <view class="p">{{item.label}}： {{item.value}}</view>
+      </block>
+    </view>
+  </view>
+
+  <!--图文介绍-->
+  <view class="car-ptmain {{carImg_on}}" bindtap="carImg_show">
+    <view class="car-cstit">
+      <image src="http://m.hxqc.com/wxapp/shop/buy/icon-pic.png"></image>
+      <text class="span">图文介绍</text>
+      <image src="http://m.hxqc.com/wxapp/shop/icon-toparrow2.png" class="arrow_top"></image>
+    </view>
+    <view class="dd">
+      <block wx:for="{{info.modelInfo.wxml_introduce}}">
+        <block wx:if="{{ 'txt'=== item.type}}">
+          <view>
+            <view class="p">{{item.txt}} </view>
+          </view>
+        </block>
+        <block wx:elif="{{ 'img'===item.type}}">
+          <view>
+            <image mode="widthFix" src="{{item.src}}" />
+          </view>
+        </block>
+      </block>
+    </view>
+  </view>
+
+  <!--产品参数-->
+  <navigator url="/pages/shop/recomshop/quote-paramenter?itemID={{info.modelInfo.extID}}">
+    <view class="car-cstit">
+      <view class="a">
+        <image src="http://m.hxqc.com/wxapp/shop/icon-canshu.png"></image>
+        <text class="span">参数配置</text>
+        <image src="http://m.hxqc.com/wxapp/shop/icon-rjt.png" class="arrow_right"></image>
+        <text class="b"></text>
+      </view>
+    </view>
+  </navigator>
+
+  <!--经销商-->
+  <view class="dealer-info">
+    <view>
+      <view class="h5">为您推荐其他经销商</view>
+      <block wx:for="{{info.shopList}}">
+        <view data-query="shopID={{item.shopID}}" bindtap="onClickShop">
+          <view class="dealer-info-content">
+            <view class="h4">
+              <text class="a">{{item.shopTitle}}</text>
+            </view>
+            <view class="dealer-info-text">
+              <text class="call i"></text>
+              <text class="a" bindtap='onCall' data-tel="{{item.shopTel}}">{{item.shopTel}}</text>
+            </view>
+            <view class="dealer-info-text">
+              <text class="address i"></text>
+              <text class="a">{{item.shopLocation.address}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,238 @@
+/**app.wxss**/
+.body{width: 100%;margin:0px;float: left;font-size: 0.8rem;font-family: 微软雅黑;}
+.container {height: 100%;display: flex;flex-direction: column;align-items: center;justify-content: space-between;padding: 200rpx 0;box-sizing: border-box;} 
+.wrap{font-family: Arial, Helvetica, sans-serif;padding:1rem;font-size:0.8rem;}
+image.defaultImg{background: url(http://www.hxqc.com/wukocar/img/default/nopic_160_160.jpg) no-repeat 50% 50%/cover;}
+/** 修改默认的navigator点击态 **/
+.navigator-hover {color:red;}
+/** 自定义其他点击态样式类 **/
+.other-navigator-hover {color:red;}
+view{font-family: "微软雅黑";font-size: 28rpx}
+/*车型颜色*/
+.detail-color{float: left;width: 66%;margin-top: -.45rem;}
+.detail-color .span{float:left;width: 1.2rem;height: 1.2rem;margin-right: .55rem;margin-top: .45rem;box-shadow: .1rem .1rem .1rem rgba(0,0,0,.1);}
+/*蒙版*/
+.sideslipMask{transition: all 300ms;opacity: 0;z-index: -1; position: fixed; width: 100%; height: 100%; top: 0px; left: 0px;  background-color: rgba(0, 0, 0, 0.6);}
+.sideslipMask.on{opacity: 1; z-index: 9997;}
+.sidesFixed{transition: all 300ms;transform: translateX(0%);-webkit-transform:translateX(0%);opacity: 0;z-index: -1;right: -80%;width: 80%;position: fixed;top: 0rem;bottom: 0px;box-shadow: rgba(0, 0, 0, 0.2) -4px 0px 5px 2px;box-sizing: border-box;
+  background-color: rgb(255, 255, 255);}
+.sidesFixed.on{transform:translateX(-100%);-webkit-transform:translateX(-100%);opacity: 1;z-index: 9998;}
+/*页面loading*/
+.pageLoading {display:block; opacity: 1;z-index:99999999;position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 99999;background: #fff;}
+.pageLoading.hide{opacity: 0;z-index: -1;display:none;}
+.pageLoading .spinner {position: absolute;top: 50%;left: 50%;width: 68px;height: 68px;text-align: center;margin: -34px 0 0 -34px;background: -webkit-gradient(radial, 100% 50%, 0, 100% -38%, 100, from(#bebebe), to(rgba(255, 255, 255, 0)));border-radius: 100%;-webkit-animation: rotate .8s linear 0s infinite;animation: rotate .8s linear 0s infinite;}
+.pageLoading .spinner .spinner-inner {position: relative;top: 3px;left: 3px;width: 62px;height: 62px;background: #fff;border-radius: 100%;}
+.pageLoading .spinner .cutout {position: absolute;top: 34px;left: 35px;border-right: 34px solid #fff;border-bottom: 34px solid #fff;-webkit-border-top-left-radius: 0px;-webkit-border-top-right-radius: 0px;-webkit-border-bottom-right-radius: 34px;-webkit-border-bottom-left-radius: 0px;width: 0em;height: 0em;padding: 0;}
+.pageLoading .spinner .s-circle {width: 3px;height: 3px;background: #bebebe;position: absolute;top: 33px;right: 0;border-radius: 3px;}
+.pageLoading .loading-logo {position: absolute;top: 50%;left: 50%;margin-left: -25px;margin-top: -25px;color: #1DBD8D;width: 50px;height: 50px;line-height: 50px;}
+.pageLoading .loading-logo image{width: 50px;height: 50px;}
+@-webkit-keyframes
+rotate {0% {-webkit-transform:rotate(0)}100% {-webkit-transform:rotate(360deg)}}
+/*筛选*/
+.ftr-list .li{padding:.47rem .68rem; color:#979797; font-size: 32rpx; line-height: .98rem; border-bottom:1px solid #d5d5d5;}
+.ftr-list .li>view{overflow: hidden; padding:.2rem 0;line-height: 1.2rem; font-size: 32rpx; color:#000;}
+.ftr-list .li>view span{margin-left: 1.4rem;}
+.ftr-list .li b{color:#9f9f9f;}
+.ftr-list .li.letter span{color:#373737; margin-left: .8rem;}
+.ftr-list .li.letter {background-color: #f0f0f0;}
+/*推荐店铺详情公共头部*/
+.homeTop2{background: url(http://m.hxqc.com/wxapp/shop/ht_bg.jpg) repeat-y; background-size:100% auto;color:#fff; position:relative;}
+.ht_infos{padding: 0.68rem;}
+.homeTop2 .img{float:left; width:3.2rem; height:3.2rem; text-align: center; background-color: #fff;}
+.homeTop2 .img image{width:80%; height:80%;margin-top: 10%;}
+.homeTop2 .text{margin-left: 3.8rem;}
+.homeTop2 .name{font-size: 32rpx; font-weight: bold; line-height: 1.2rem;margin-bottom: .2rem;}
+.homeTop2 .address{line-height: 1.2rem; font-size: 26rpx; max-height: 2.4rem; overflow: hidden;}
+.homeTop2 .tel{font-size: 26rpx; line-height:1.2rem; font-weight:bold;}
+.ht_handles2{background:rgba(0,0,0,.5);clear: both;overflow: hidden;}
+.ht_handles2>view{ float:right;width: 33.3%;box-sizing:border-box; border-left: 2px solid rgba(0,0,0,.3); text-align: center; color:#fff; font-size: 26rpx; line-height: .7rem; padding: .3rem 0; position:relative;}
+.ht_handles2>view:last-child {border-left: none;}
+.ht_handles2>view:last-child{ border-left:none;}
+.ht_handles2 image{width:1.4rem;height: 1.4rem;margin-bottom: .2rem;}
+.ht_handles2 .hd_tel{display:block; margin-right: 5.2rem; text-indent: .64rem; line-height: 2.4rem; color:#fff; font-size: .6rem;}
+.ht_handles2 .hd_tel image{height:1.3rem; position:relative; top:-.1rem;}
+.icon_open{width:0;height:0;border-left:10px solid transparent;border-bottom:10px solid #fff; position:absolute;right:0.1rem; bottom:0.1rem;}
+/*内店铺菜单列表*/
+.homeTop2 .menu_list{ position: absolute;top: 100%;left: 0;width:100%; background-color:#fff; z-index:10; box-shadow:0px 2px 2px #999;
+transition:all .3s; -webkit-transition:all .3s; z-index: 98; overflow: hidden;max-height: 0;opacity: 0;}
+.homeTop2 .menu_list.open{max-height: 8.2rem;opacity: 1;}
+.homeTop2 .menu_list .a{ display:inline-block; float:left;height:4rem; width:25%; line-height:0.6rem;text-align:center; color:#9b9b9b; font-size:28rpx;border-bottom:1px solid #ccc; border-right:1px solid #ccc; border-top:0.1rem solid #fff;
+transition:all .3s; -webkit-transition:all .3s; box-sizing:border-box;}
+.homeTop2 .menu_list .a.close{opacity: 0;}
+.homeTop2 .menu_list .a .span{display: block;height:1.6rem; width:1.6rem;margin:0.7rem auto 0.2rem;}
+.homeTop2 .menu_list .a .span{background:url(http://m.hxqc.com/wxapp/shop/yp/open_menu_01.png) no-repeat center center/100% 100%;}
+.homeTop2 .menu_list .t1 .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_01.png);}
+.homeTop2 .menu_list .t1.active .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_01_a.png);}
+.homeTop2 .menu_list .t2 .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_02.png);}
+.homeTop2 .menu_list .t2.active .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_02_a.png);}
+.homeTop2 .menu_list .t3 .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_03.png);}
+.homeTop2 .menu_list .t3.active .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_03_a.png);}
+.homeTop2 .menu_list .t4 .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_04.png);}
+.homeTop2 .menu_list .t4.active .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_04_a.png);}
+.homeTop2 .menu_list .t5 .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_05.png);}
+.homeTop2 .menu_list .t5.active .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_05_a.png);}
+.homeTop2 .menu_list .t6 .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_06.png);}
+.homeTop2 .menu_list .t6.active .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_06_a.png);}
+.homeTop2 .menu_list .t7 .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_07.png);}
+.homeTop2 .menu_list .t7.active .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_07_a.png);}
+.homeTop2 .menu_list .t8 .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_08.png);}
+.homeTop2 .menu_list .t8.active .span{background-image: url(http://m.hxqc.com/wxapp/shop/yp/open_menu_08_a.png);}
+.homeTop2 .menu_list .a.active{border-bottom:0.1rem solid #fe6f43; color:#fe6f43;border-top: 1px solid #fff;}
+.homeTop2 .menu_list.show{ display:block; position:static; border-bottom:1rem solid #f0f0f0; box-shadow:none}
+/*经销商公共*/
+.dealer-info{padding: .1rem .55rem .5rem; background-color: #fff; border-bottom: 1px solid #e8e8e8;}
+.dealer-info.border-bt{border-top: 1px solid #eaeaea;}
+.dealer-info .h5{font-size: 32rpx;line-height: 2rem;color: #252525;font-weight: bold; margin:0 -.55rem; border-bottom: 1px solid #e3e3e3; padding:0 .55rem;}
+.dealer-info .th6{height: .7rem; line-height: .7rem; border-left: 3px solid #c73949; color:#c73949; font-size: .65rem; text-indent: .3rem; margin:.4rem 0;}
+.dealer-info-content{border: 1px solid #e4e4e4;margin-top: .65rem;}
+.dealer-info-content .h4{font-size: 30rpx;line-height: 1.5rem;background-color: #f0f0f0;padding-left: .425rem;}
+.dealer-info-content .h4 .a{color: #252525;}
+.dealer-info-text{padding: 0 .45rem;margin: .25rem 0;}
+.dealer-info-text .i{width: .675rem;height: .85rem;display: inline-block;position:relative;top: .08rem;}
+.dealer-info-text .i.call{background: url(http://m.hxqc.com/wxapp/shop/dealer.png) 0 0;background-size: .675rem;}
+.dealer-info-text .i.address{background: url(http://m.hxqc.com/wxapp/shop/dealer.png) 0 -1rem;background-size: .675rem;}
+.dealer-info-text .a{font-size: 28rpx;margin-left: .2rem;color: #525252;}
+.dealer-info-promotion{display:block;font-size: 28rpx;color: #e23841;padding: 0 .55rem;margin: .55rem 0;}
+/*口碑评价公共*/
+.pj-peijianbox {background-color: #fff;border-top: 1px solid #e8e8e8;}
+.pj-peijianbox .atitle {display: block;height: 2rem;line-height: 2rem;background: url(http://m.hxqc.com/wxapp/index/icon-rjt.png) no-repeat 95% center/.4rem auto;padding: 0 .75rem;border-bottom: 1px solid #d9d9d9;margin-bottom: .7rem;}
+.pj-peijianbox .atitle .strong {float: left;font-size: 32rpx;font-weight: normal;color: #252525;}
+.pj-peijianbox .atitle .span {float: right;margin-right: 1.1rem;font-size: 28rpx;font-weight: normal;color: #666;}
+.pingjia_wrap{background-color: #fff; border-bottom: 1px solid #e1e1e1; border-top: 1px solid #e1e1e1;}
+.kb_vlists{padding:0 .75rem .4rem;}
+.kb_vlists .li{box-sizing:border-box; float: left; width: 32%; line-height: 1.5rem; border:1px solid #d9d9d9; font-size: 28rpx; margin-left: 2%; margin-bottom: .4rem; border-radius:.15rem; padding:0 .3rem;}
+.kb_vlists .li:nth-child(3n+1){margin-left: 0;}
+.kb_vlists .strong{float: left; font-weight: normal; color:#666;}
+.kb_vlists .span{float: right; font-weight: normal; color:#ff6f24;}
+.pingjia_list{padding: .5rem .75rem; border-top: 1px solid #ebebeb; background-color: #fff; overflow: hidden;}
+.pingjia_list .pic{float: left; width: 2.1rem; height: 2.1rem; border-radius:50%;}
+.pingjia_list .inner{margin-left: 2.4rem;}
+.pingjia_list .name{display: block; font-size: 26rpx; color:#666; line-height: 1.3rem;}
+.pingjia_list .t{font-size: 24rpx; color:#666; line-height: 1.6rem;overflow: hidden;}
+.pingjia_list .scu{float: left;}
+.pingjia_list .scu .span{color:#ff6200;}
+.pingjia_list .time{float: right;}
+.pingjia_list .d{line-height: 1rem; font-size: 26rpx; color:#666; margin-top: .2rem;word-break:break-all;text-align: left;}
+.pingjia_list .imgs{overflow: hidden;}
+.pingjia_list .imgs image{float: left; width: 3rem; height: 3rem; margin-left: .3rem; margin-top: .3rem;}
+.pingjia_list .imgs image:nth-child(3n+1){margin-left: 0;}
+/*加载*/
+.mas_more{text-align: center;font-size: 28rpx;}
+/*没数据*/
+/*没有数据*/
+.nodata{text-align: center; padding-top: 10%; color:#9a9a9a; }
+.nodata image{width:5rem;height: 5rem;}
+.nodata .h4{font-size: 32rpx; line-height: 1.3rem;font-weight: normal;width: 12rem;margin: .7rem auto;color: #767676;}
+.nodata .p{font-size: 24rpx; line-height: .9rem;width: 12rem;margin: 0 auto;}
+.nodata .a{display:inline-block; padding: 0 .8rem; box-sizing:border-box; border:2px solid #ff7043; line-height: 1.54rem; font-size: 28rpx; color:#ff7043; border-radius:4px; padding:0 .7rem; margin-top: .8rem;}
+/*会员手册*/
+.artlist {width: 100%;height: 100%;position: relative;background: #F0F0F0;}
+.top-banner{width: 100%;height: 12rem;}
+.bottom-radius {width: 100%;height: 1rem;}
+.top-banner image,.bottom-radius image{width: 100%;height: 100%;display: block;}
+.articles {background: url(http://m.hxqc.com/wxapp/index/memberbook/artical_bg.jpg) repeat-y center;background-size: 100% 100%;padding:0 1rem;min-height: 765rpx;}
+.articles > .p {padding-bottom: 1rem;font-weight: normal;font-size: 16px;line-height: 25px;color: #333;text-align: justify;}
+.articles > .p:nth-of-type(1){padding-top: 0.9rem;}
+.articles > .p:nth-last-of-type(1){padding-bottom: 0;}  
+.articles > .p span{display:block;padding-top: 0.25rem;font-weight: normal;font-size: 14px;line-height: 23px;color: #333;text-align: justify;}
+.articles > .p span.super{color: #333;padding-top: 0.4rem;} 
+.block{padding-top: 10px;}
+.block:nth-of-type(1){padding-top: 0.9rem;}
+.block > .h4{width: calc(100% - 5px);width: -webkit-calc(100% - 5px);background-color: #FF8D69;font-size: 17px;line-height: 1.8rem;padding-left: 5px;color: #fff;border-top-left-radius: 5px;border-top-right-radius: 5px;}
+.block > .a,.block > .a:active,.block > .a:visited{display: block;width: 100%;font-size: 14px;color: #666666;line-height: 1.8rem;text-decoration: none;padding-left: 6px;border-width: 0 1px 1px 1px;border-style: solid;border-color: #d5d5d5;box-sizing: border-box;-webkit-tap-highlight-color: rgba(255,0,0,0);}
+.block > .a:nth-last-of-type(1){border-radius: 5px;}
+/*车牌号弹出层*/
+.select_city_wrap {transform: translateY(100%);-webkit-transform: translateY(100%);-moz-transform: translateY(100%);}
+.select_car_wrap, .select_city_wrap {position: fixed;top: 0;left: 0;width: 100%;height: 100%;z-index: 201;transition: all 0.3s;-webkit-transition: all 0.3s;-moz-transition: all 0.3s;}
+.city_show {transform: translateX(0);-webkit-transform: translateX(0);-moz-transform: translateX(0);}
+.select_car_wrap .car_opcti, .select_city_wrap .city_opcti {position: absolute;top: 0;left: 0;width: 100%;height: 100%;background: #000;opacity: 0.3;z-index: 1;}
+.select_city_content {width: 100%;left: 0;bottom: 0;background: #dcdcdc;}
+.select_car_content, .select_city_content {position: absolute;z-index: 2;background-color: #fff;}
+.select_city_list {width: 100%;overflow: hidden;padding: 0;margin: 0;position: relative;}
+.select_city_list .ul {width: 100%;margin-left: 1px;}
+.select_city_list .ul .li {width:10%;box-sizing:border-box;line-height: 1.9rem;background: #fff;text-align: center;float: left;border-right: 1px solid #dcdcdc;border-bottom: 1px solid #dcdcdc;}
+.select_city_list .ul .li.on{background: #ff7143;color: #fff;}
+/*常规保养*/
+/*在线预约*/
+.booking-box .imp {float: left;font-size: .6rem;line-height: 2.75rem;color: #dd454b;}
+.booking-box .ul{clear: both;overflow: hidden;padding-top: .5rem;}
+.booking-box .li {padding:.3rem 1rem;float: left;width: 100%;box-sizing: border-box;}
+.booking-box .li:last-child{margin-bottom: .45rem;}
+.booking-box .li.text{background-color: #fff2e1;color: #ff8f6d;padding: .8rem .75rem;margin: .5rem 0;}
+.booking-box .h3 {width: 32%;font-weight: normal;font-size: 30rpx;line-height: 2.75rem;float: left;color: #5b5b5b;}
+.booking-box .rightText {height: 2.75rem; width:66%; border-bottom: 1px solid #d5d5d5;float: right;position: relative;color: #979797;}
+.booking-box input,.booking-box .input{font-size: 32rpx;outline: none;border: none;height:2.75rem;width:70%;color: #979797;width: 100%;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.booking-box .input{line-height: 2.75rem;}
+.booking-box .rightText.bg{line-height: 2.75rem;background:url(http://www.tm.hxqc.com/wxapp/maintain/icon-rjt.png) no-repeat right center/.5rem;white-space: nowrap;overflow: hidden;text-overflow: ellipsis;}
+.booking-box .rightText.address{line-height: 2.75rem;background: url(http://www.tm.hxqc.com/wxapp/maintain/icon-area1.png) no-repeat right center/1rem;}
+.booking-box .car_city{width: 15%; overflow: visible; height: 2.75rem; border-bottom: 1px solid #d5d5d5; float: right; position: relative;}
+.booking-box .select_city { width: 0.7rem; height: 0.5rem; background: url(http://www.tm.hxqc.com/wxapp/maintain/icon-toparrow1.png) no-repeat; background-size: 0.7rem 0.5rem; margin-top: -0.25rem;display: block;position: absolute;top: 50%;right: 0.2rem; }
+.booking-box .car_city_num{width: 46%; margin-left: .8rem; height: 2.75rem; border-bottom: 1px solid #d5d5d5; float: right; position: relative;}
+.booking-box .car_city_num.rightCheck{border-bottom: 1px solid #E02C37;}
+.booking-box .car_city_num.rightCheck span.check_text{position: absolute; bottom: -1.1rem; right: 0; display:block;z-index: 11; color: #E02C37; font-size: 24rpx;}
+/*常规保养订单*/
+.cart_name{padding: .3rem .8rem;line-height:1.55rem;background-color: #F5F5F5;border-bottom: 1px dashed #D5D5D5;clear: both;overflow: hidden;}
+.cart_name checkbox{float: left;position: relative;top: -.1rem;width: 8%;}
+.cart_name label{float:left;width:100%;}
+.cart_name .type_num{float: left;line-height: 1.3rem;font-size: 31rpx;}
+.cart_name .type_r{float: right;width: 96%;}
+.cart_name .cart_left{float: left;width:50%;text-overflow: ellipsis; white-space: nowrap;}
+.cart_name .cart_left .p{width:100%;overflow: hidden; text-overflow: ellipsis; white-space: nowrap;}
+.cart_name .cart_left .p.type_name{margin-bottom: .3rem;}
+.cart_name .cart_right .p:first-child{margin-bottom: .3rem;}
+.cart_name .cart_right{float: right;width:5.4rem;}
+.cart_name .type_name{float: left; font-size: 30rpx;}
+.cart_name .type_name.order_name{margin-left: 0;}
+.cart_name .type_name .span{font-size: 24rpx;color: #9A9A9A;padding-left: .4rem;}
+.cart_name .type_tip{font-size: 24rpx; color: #9A9A9A; padding-left: .7rem; line-height: 1.3rem;}
+.cart_name .price{float: left;color:#AAAAAA;font-size:28rpx;}
+.cart_name .price .i{color:#E02C37;}
+.cart_name .type_text{white-space: initial !important;float:left;color: #9A9A9A; padding-left: .5rem;width: calc(62% - .5rem);}
+/*保养订单详情*/
+.order_total {background-color: #FFFFFF;clear: both;overflow: hidden;}
+.order_total .bill_details { width:45%; float:right;z-index:1; }
+.order_total .bill_details .li { text-align:right; border-bottom:2px dotted #d5d5d5; padding:0.5rem 0; zoom:1; }
+.order_total .bill_details .li:nth-last-child(1) { border:none; }
+.order_total .bill_details .li:after { display:block; content:""; clear:both; }
+.order_total .bill_details .li .p { /*width:5rem;*/ line-height:1.5rem; float:left; color:#737373;font-size: 30rpx;}
+.order_total .bill_details .li .p.bill_tip{float: right; /*width: 8.7rem;*/ padding-right: 1rem;color:#FF754A;margin-bottom: .2rem;font-size:28rpx;}
+.order_total .bill_details .li .p.bill_tip image{padding-right: .2rem;width: .9rem;height:.9rem;margin-top: .15rem;}
+.order_total .bill_details .li .span { display:block; text-align:left; float:left; color:#E02C36; margin-left:0.2rem; line-height: 1.5rem;font-size: 30rpx; }
+.order_total .bill_details .border-top{border-top: 1px dotted #ccc;}
+.payment_status {font-size:30rpx;position: fixed;left: 0;bottom: 0;background-color: #fff;padding: 0 .8rem;width: 100%;box-sizing: border-box;line-height: 3rem;color: #d11522;box-shadow: 0 -3px 3px rgba(0,0,0,.2);z-index: 200;}
+.payment_status .span {font-weight: bold;}
+.payment_status navigator{float: right;}
+.payment_status .pay_btn {float:right;padding:0 1rem;background-color: #ff7143;color: #fff;text-align: center;line-height: 1.8rem;font-size:30rpx;border: 0;border-radius: 2px;margin-top: .5rem;}
+.indexMask{background-color: #fff;position: fixed;top: 0;left: 0;width: 100%;height: 100%;display: none;}
+.indexMask.on{display: block;z-index: 9999;}
+/*店铺打电话*/
+.maskTel {position: fixed;bottom: 0;left: 0;box-sizing: border-box;border-top: 1px solid #d5d5d5;box-shadow: 0 -3px 3px rgba(0,0,0,.1);width: 100%;line-height: 2.4rem;font-size: 32rpx;font-weight: bold;font-family: "黑体";color: #e02c36;background-color: #fff;text-align: center;z-index: 999;}
+.maskTel image {height: 1.1rem;width: 1.1rem;margin-right: .2rem;position: relative;top: .1rem;}
+/*提交表单*/
+.askTopTip {padding: 0.4rem 0.68rem;line-height: 1rem;font-size: 24rpx;color: #666;background-color: #fff2e1;}
+.askrow {padding: 0.6rem 0.68rem 0;}
+.askrow navigator{display: inline-block;}
+.formrow {padding-top: 1.4rem;position: relative;}
+.formrow:after {content: '\200B';display: block;clear: both;height: 0;overflow: hidden;visibility: hidden;}
+.formrow label {float: left;margin-left: 0.51rem;width: 1.02rem;height: 1.02rem;margin-top: 0.13rem;-webkit-background-size: 100%;background-size: 100%;border: 0;background-repeat: no-repeat;}
+.formrow .inputbox {float: right;width: 12rem;position: relative;}
+.formrow .input, .formrow .square {border: 0;height: 1.5rem;line-height: 1.5rem;border-bottom: 1px solid #d5d5d5;background-color: Transparent;font-size: 28rpx;color: #3f3f3f;width: 100%;outline: none;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.formrow input.lcode {width: 60%;}
+.formrow input#setCarModel {box-sizing: border-box;padding-right: 1rem;overflow: hidden;}
+.formrow.focus label {background-position: 0 100%;}
+.formrow.focus input {border-color: #ff7043;}
+.formrow .rowLeft {float: left;font-size: 28rpx;line-height: 1.5rem;color: #333;width: 20%;}
+.formrow .rowLeft .i {color: #e02c36;}
+.formrow .rowRight {margin-left: 20%;position: relative;}
+.formrow .rowRight .comp_red {font-size: 28rpx;color: #e02c36;line-height: 1.5rem;}
+.inputarrow {position: absolute;right: 0;bottom: 0.5rem;height: 0.75rem;width: 0.5rem;}
+.radiobox-group {overflow: hidden;padding-bottom: 0.2rem;margin-top: 0.2rem;font-size: 28rpx;}
+.radiobox-group radio {margin-right: 0.5rem;}
+.comp_cell {padding: 0.6rem 1rem;border-top: 1px solid #d5d5d5;}
+.comp_cell .ck_display {font-size: 28rpx;font-weight: bold;}
+.comp_cell .p {padding-left: 1.5rem;font-size: 28rpx;color: #252525;}
+.comp_cell p .address {color: #252525;}
+.ck_display {font-size: 28rpx;display: inline-block;height: 1.1rem;}
+.btn_submit {display: block;background-color: #ff7043!important;color: #fff!important;text-align: center;border: none;font-size: 28rpx;width: 100%;line-height: 2rem;border-radius: 4px;box-shadow: 0 2px 5px 1px rgba(0, 0, 0, 0.2);}
+.tac {text-align: center;}
+.urlForDec {color: #2196f3;font-size: 28rpx;}

@@ -1,0 +1,33 @@
+<view class="loginbg">
+    <image src="http://m.hxqc.com/wxapp/index/loginbg.jpg" mode="aspectFill" class="img">
+    </image>
+</view>
+<view class="regform">
+    <form bindsubmit="formSubmit" bindreset="formReset" id="login-form">
+        <view class="layinto">
+            <view class="formrowlogin {{focusType[0].isfocus}}">
+                <label class="icon-luser"><image src="http://m.hxqc.com/wxapp/index/user/icon-user{{focusType[0].isfocus}}.png"></image></label>
+                <view class="inputbox">
+                    <input type="text" name="username" placeholder="请输入用户名" bindfocus="foucsColor" data-id="0">
+                    </input>
+                </view>
+            </view>
+            <view class="formrowlogin {{focusType[1].isfocus}}">
+                <label class="icon-lpassword"><image src="http://m.hxqc.com/wxapp/index/user/icon-password{{focusType[1].isfocus}}.png"></image></label>
+                <view class="inputbox">
+                    <input type="text" password="true" name="password" placeholder="请输入密码" bindfocus="foucsColor" data-id="1">
+                    </input>
+                </view>
+            </view>
+            <view class="row short tac">
+            	<button class="regsub" form-type="submit">登 录</button>
+            </view>
+            <!--<view class="row short tac">
+            	<button class="white-btn">新用户注册</button>
+            </view>
+            <view class="forget tac">
+            	<navigator url="">忘记密码？</navigator>
+            </view>-->
+        </view>
+    </form>
+</view>

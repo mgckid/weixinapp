@@ -1,0 +1,49 @@
+/*支付方式*/
+.goods-pay{}
+.goods-pay .tips{clear: both;overflow: hidden;padding: .3rem 0;background-color: #efefef;}
+.goods-pay .h5{line-height: 1.5rem;font-size: 28rpx;color: #179f61;padding: 0 .8rem;}
+.goods-pay .h5.order-num{color:#000033;font-size: 28rpx;}
+.goods-pay .h5.minheight{line-height: .9rem;font-size: 24rpx;}
+.goods-pay .title{line-height: 1.5rem;font-size: 28rpx;color: #000033;background-color: #fff;padding: 0 .8rem;}
+.goods-pay .title.pay-type{color: #979797;font-size: 28rpx;border-bottom: 1px solid #d5d5d5;}
+.goods-pay .method{padding: 0 .8rem;line-height: 3.1rem;border-bottom: 1px solid #d5d5d5;background-color: #fff;clear: both;overflow: hidden;}
+.goods-pay .method .checkBank{float: left;}
+.goods-pay .method image{width: 1.25rem;height: 1.25rem;margin-right: .4rem;position: relative;top: .2rem;}
+.goods-pay .method .span{color: #3f3f3f;}
+.goods-pay .method .option{float:right;margin-top:.9rem;width: 1rem;height: 1.02rem;background: url(http://www.tm.hxqc.com/wxapp/maintain/goods-pay.png) no-repeat;background-size: 1rem;}
+.goods-pay .method.select .option{background-position: 0 -1.06rem;}
+.goods-pay .method .bala-text{float:left;margin-left:1.2rem;line-height: 3.1rem;color: #979797;font-size: 30rpx;}
+.goods-pay .total{margin: 2rem 0;line-height: 2.1rem;padding: 0 .75rem 0 .8rem;clear: both;overflow: hidden;}
+.goods-pay .total .text{font-size: 32rpx;color: #e02c36;font-weight: bold;float: left;}
+.goods-pay .total .sure{float: right;text-align:center;width: 6.2rem;font-size: 32rpx;color: #fff;background-color: #ff7143;border-radius: .1rem;box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);-webkit-box-shadow: 0 .1rem .3rem rgba(0,0,0,.3);}
+.border_bg{ z-index:9998;top:0;left:0; background-color:rgba(0,0,0,0.4); width:100%; height:100%; position:fixed;display: none;}
+.border_bg.on{display: block;}
+/*支付密码*/
+.pay_pwd{ position:absolute; top:20%; left:10%; width:80%; height:10.8rem;z-index:9999; background-color:#fff; border-radius:2px;display: none;}
+.pay_pwd.on{display: block;}
+.pay_pwd .h5{  border-bottom:1px solid #ccc; text-align:center; font-size:32rpx; line-height:2.4rem;}
+.pay_pwd .pay_password{ padding:1rem 0; text-align:center;}
+.pay_pwd .pay_password .p.price{ font-size:42rpx; line-height:2.4rem;}
+.pay_pwd .pay_password .p{ width:70%; margin:auto;position: relative;clear: both;overflow: hidden;}
+.pay_pwd .pay_password .p input{height:2.4rem; width:100%;box-sizing:border-box;text-align:center; line-height:1.8rem; border:1px solid #ccc; float:left; border-left:none;}
+.pay_pwd .pay_password .p input:first-child{ border-left:1px  solid #ccc;}
+/*数字输入*/
+.keybroad{bottom: auto;left: 0; bottom:0;position:absolute;width: 100%;z-index: 9999;}
+.num_keybroad{width:100%; max-width: 750px;z-index:9999; background-color:#fff;  overflow:hidden; margin:auto;position: relative;}
+.num_keybroad .b{ display:inline-block; float: left; width:33%; text-align:center; line-height:2.2rem;border:1px solid #ccc; margin:0 0 -1px -1px; font-size:32rpx;}
+.num_keybroad .span{ display:inline-block; float: left; width:33%; text-align:center; line-height:2.2rem;border:1px solid #ccc; margin:0 0 -1px -1px; font-size:32rpx;}
+
+.book-success {display:none;position:fixed;top:0;left:0;width:100%;background: url(http://www.tm.hxqc.com/wxapp/maintain/book-success.jpg) no-repeat;height: 100%;background-size: 100% 100%;box-sizing: border-box;}
+.book-success.on{display: block;}
+.book-success-title {padding-top: 43%;}
+.book-success-title .head {height: 1.8rem;line-height: 2.2rem;clear: both;overflow: hidden;display:flex;justify-content:center;}
+.book-success-title .head image {float: left;width: 1.8rem;height: 1.8rem;margin-right: .5rem;}
+.book-success-title .head .h5 {float: left;font-size: 36rpx;color: #17a05e;font-weight: normal;}
+.book-success-title .p {font-size: 28rpx;color: #707070;text-align: center;margin-top: .5rem;}
+.book-success-sec {margin-top: 20%;padding-left: 3rem;}
+.book-success-sec .sec-key {clear: both;overflow: hidden;font-size: 30rpx;margin-bottom: .4rem;}
+.book-success-sec .sec-key .key {float: left;width: 6rem;line-height: 1.3rem;color: #68696a;}
+.book-success-sec .sec-key .info {float: left;width: 10rem;line-height: 1.3rem;max-height: 2.6rem;color: #1e1e1e;}
+.book-success-end {margin: .8rem 1.75rem 0 1.75rem;height: 2.8rem;text-align: center;}
+.book-success-end-a {margin-bottom: 1rem;line-height: 2.1rem;text-align: center;background-color: #ff7143;color: #fff;font-size: 32rpx;box-shadow: 0 .1rem .15rem;display: block;
+box-shadow: 0 .05rem .25rem 0 rgba(0, 0, 0, .3);-webkit-box-shadow: 0 .05rem .25rem 0 rgba(0, 0, 0, .3);}

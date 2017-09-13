@@ -1,0 +1,36 @@
+<view class="homeTop">
+
+  <!-- 已登录 -->
+  <block wx:if="{{isLogin}}">
+    <navigator url="/pages/user/userinfo/index">
+      <form id="imgup">
+        <image class="headImg" src="{{user.avatar}}"></image>
+      </form>
+    </navigator>
+    <view class="userInfo">
+      <view class="welcome">欢迎你 {{user.nickName}}</view>
+      <view class="cardPhone">{{user.tel}}</view>
+      <view class="exit" bindtap="logout">退出</view>
+    </view>
+  </block>
+
+  <!-- 未登录 -->
+  <block wx:if="{{false == isLogin}}">
+    <form id="imgup">
+      <image class="headImg" src="{{user.avatar}}"></image>
+    </form>
+    <view class="userInfo">
+      <navigator url="/pages/user/login/index">
+        <view class="welcome">登录</view>
+      </navigator>
+    </view>
+  </block>
+</view>
+<view class="homeMain">
+  <view class="clearfix">
+    <navigator wx:for="{{userNavList}}" wx:for-index="xid" class="mainCell m{{xid}}" url="{{item.url}}">
+      <image src="{{item.img}}"></image>
+      <text>{{item.text}}</text>
+    </navigator>
+  </view>
+</view>

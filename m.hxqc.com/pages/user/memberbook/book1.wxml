@@ -1,0 +1,16 @@
+<view class="artlist pagetop">
+    <view class="top-banner">
+        <image src="http://m.hxqc.com/wxapp/index/memberbook/memberHandbook_top.jpg"></image>
+    </view>
+    <view class="articles">
+        <view class="p">
+            1.恒信车管家会员指由恒信汽车集团管理和运营的会员。
+        </view>
+        <view class="p">
+            2. 会员在恒信车管家平台或恒信汽车集团下属4S店内消费后，按规则，根据消费金额可获取对应的积分奖励。积分可在恒信车管家平台或恒信汽车集团下属4S店内使用。
+        </view>
+    </view>
+    <view class="bottom-radius">
+        <image src="http://m.hxqc.com/wxapp/index/memberbook/artical_bottom.jpg"></image>
+    </view>
+</view>

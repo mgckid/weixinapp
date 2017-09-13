@@ -1,0 +1,80 @@
+
+<!-- 导入loading模板 -->
+<import src="/template/loading.wxml" />
+<template is="pageLoading" data="{{pageLoading}}" />
+<view class="sArticleDetail pagetop">
+  <view class="sdTitleRe h4">{{info.title}}</view>
+  <view class="sdTitle_cent">促销时间：{{info.startDate}} {{info.endDate}}</view>
+  <view class="sdTitle_down">
+    <text class="span">时间：{{info.publishDate}}</text>
+    <text class="span">经销商:{{info.shopName}}</text>
+  </view>
+  <view class="saContent">
+    <block wx:for="{{info.wxml_body}}">
+      <block wx:if="{{ 'txt'=== item.type}}">
+        <view>
+          <view class="p">{{item.txt}} </view>
+        </view>
+      </block>
+      <block wx:elif="{{ 'img'===item.type}}">
+        <view>
+          <image mode="widthFix" src="{{item.src}}" />
+        </view>
+      </block>
+    </block>
+
+    <block wx:if="{{info.items.length > 0}}">
+    <view class="zx_table">
+      <view class="zx_tableTop">{{info.itemsTableHeader}}</view>
+      <block wx:for="{{info.items}}">
+        <view class="zx_tableLi">
+          <view class="name">{{item.baseInfo.itemName}}</view>
+          <view class="info">
+            <span>店铺优惠价：<i style="color:#e02c36;">¥{{item.baseInfo.itemPrice}}</i> </span> 
+            <span>优惠金额：¥ {{item.baseInfo.itemFall}} </span> 
+            <span>厂商指导价：<s>¥{{item.baseInfo.itemOrigPrice}}</s></span> 
+          </view>
+        </view>
+      </block>
+      <view class="zx_tableFoot">{{info.itemsTableFooter}}</view>
+    </view>
+    </block>
+
+  </view>
+  <view class="saDeclare">免责声明：上述文章内容由经销商自行发布，其真实性、准确性及合法性由经销商负责，恒信汽车，国内领先的汽车生活全生态服务平台不提供任何保证，亦不承担任何法律责任。</view>
+  <view class="sd_comInfos clearfix">
+    <view data-query="shopID={{info.shopInfo.shopID}}" bindtap="onClickShop">
+      <view class="img">
+        <image src="{{info.shopInfo.shopLogoThumb}}"></image>
+      </view>
+      <view class="text">
+        <view class="name ellipsis">{{info.shopInfo.shopName}}</view>
+        <view class="address">地址：{{info.shopInfo.shopLocation.address}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<block wx:if="{{info.items.length>0}}">
+  <view class="xjBtns">
+    <navigator class="a" open-type="redirect" url="/pages/shop/recomshop/askprice?itemName={{info.items[0].baseInfo.itemName}}&itemID={{info.items[0].baseInfo.itemID}}&shopID={{info.shopInfo.shopID}}&askPrice=1">
+      <text>询问底价 </text>
+    </navigator>
+    <navigator class="a" open-type="redirect" url="/pages/shop/recomshop/askprice?itemName={{info.items[0].baseInfo.itemName}}&itemID={{info.items[0].baseInfo.itemID}}&shopID={{info.shopInfo.shopID}}&askPrice=0">
+      <text>预约试驾 </text>
+    </navigator>
+  </view>
+</block>
+
+<view class="maskTel">
+  <view bindtap="onCall" data-tel="{{info.shopInfo.shopTel}}">
+    <image src="http://m.hxqc.com/wxapp/shop/but_tel1.png"></image><text>咨询电话 {{info.shopInfo.shopTel}}</text>
+  </view>
+
+  <block wx:if="{{info.subscription > 0 && !info.expired && 1 == info.shopInfo.priceSupervisionEnable}}">
+  <view class="xjFoot">
+    <text>(*如果未成功交易，订金可退)</text>
+    <navigator class="a" catchtap="onClickPay" url="">预付订金{{info.subscription}}元</navigator>
+  </view>
+  </block>
+</view>

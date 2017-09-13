@@ -1,0 +1,49 @@
+/*特价车详情--产品参数：商城拷贝*/
+
+.car-cfct .dt {
+  padding: 0.64rem 0.68rem 0.64rem;
+  overflow: hidden;
+  line-height: 1rem;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #d5d5d5;
+  font-size: 30rpx;
+  color: #3c3c3c;
+}
+
+.car-cfct .dt image {
+  float: right;
+  height: 0.4rem;
+  width: 0.6rem;
+  margin-top: 0.44rem;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+}
+
+.car-cfct .dd {
+  padding: 0.42rem 0.68rem 0.32rem;
+  border-bottom: 1px solid #d5d5d5;
+  font-size: 28rpx;
+  overflow: hidden;
+  display: none;
+}
+
+.car-cfct .dd .span {
+  float: left;
+  width: 50%;
+  color: #979797;
+}
+
+.car-cfct .dd .em {
+  float: left;
+  width: 50%;
+  color: #3f3f3f;
+}
+
+.car-cfct .dl.on .dt image {
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+.car-cfct .dl.on .dd {
+  display: block;
+}

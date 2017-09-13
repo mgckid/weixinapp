@@ -1,0 +1,6 @@
+/*试乘试驾form*/
+@import "../../../utils/citySlider/slider.wxss";
+page {
+  padding-bottom: 1rem;
+  background-color: #fafafa;
+}

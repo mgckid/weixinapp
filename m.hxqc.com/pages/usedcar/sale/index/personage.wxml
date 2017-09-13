@@ -1,0 +1,38 @@
+<view class="userselling-list">
+    <view class="title person_ul">
+        <text class="span"></text>个人发布
+    </view>
+    <view class="ul" id="person_ul">
+        <block wx:for="{{personList}}">
+            <navigator url="/pages/usedcar/sale/index/pers_describe?car_source_no={{item.car_source_no}}" class="li">
+                <view class="a">
+                    <image src="{{item.images}}" class="img"></image>
+                    <view class="desc">
+                        <view class="h5">{{item.car_name}}</view>
+                        <view class="info">
+                            <text class="span normal">价格：</text>
+                            <text class="span special">{{item.estimate_price}}万</text>
+                        </view>
+                        <view class="info">
+                            <text class="span normal">状态：</text>
+                            <text class="span normal">
+                            <block wx:if="{{item.check_status == 2}}">
+                                <block wx:if="{{item.product_status == 0}}">待上架</block>
+                                <block wx:if="{{item.product_status == 1}}">下架</block>
+                                <block wx:if="{{item.product_status == 2}}">下架</block>
+                                <block wx:if="{{item.product_status == 3}}">上架</block>
+                                <block wx:if="{{item.product_status == 4}}">已售</block>
+                            </block>
+                            <block wx:else>
+                                <block wx:if="{{item.check_status == 1}}">待审核</block>
+                                <block wx:if="{{item.check_status == 3}}">未通过</block>
+                            </block>
+                            </text>
+                        </view>
+                    </view>
+                    <image src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png" class="larrow"></image>
+                </view>
+            </navigator>
+        </block>
+    </view>
+</view>

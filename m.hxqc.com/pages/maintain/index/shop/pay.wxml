@@ -1,0 +1,86 @@
+<view class="goods-pay">
+  <view class="tips">
+    <view class="h5">订单提交成功，请您尽快支付</view>
+    <view class="h5 order-num">订单号：{{orderID}}</view>
+  </view>
+  <view class="title">选择支付方式</view>
+  <view class="title pay-type">您可以选择线上支付，也可以选择到店支付</view>
+  <view class="method {{payTypes.WEIXIN?'select':''}}" data-id="WEIXIN" bindtap="payChooise">
+    <view class="checkBank">
+      <image src="http://pay-interface.hxqc.com//wukocar/img/bankico/WEIXINM.png"></image>
+      <text class="span">微信</text>
+    </view>
+    <view class="option"></view>
+  </view>
+  <view class="method {{payTypes.BALANCE?'select':''}} " data-id="BALANCE" bindtap="payChooise">
+    <view class="checkBank">
+      <image src="http://pay-interface.t.hxqctest.com//wukocar/img/bankico/BALANCEM.png"></image>
+      <text class="span">钱包支付</text>
+    </view>
+    <view class="bala-text">余额：¥ {{wallet.balance}}</view>
+    <view class="option"></view>
+  </view>
+  <view class="method  {{payTypes.INSHOP?'select':''}}" data-id="INSHOP" bindtap="payChooise">
+    <view class="checkBank">
+      <image src="http://pay-interface.t.hxqctest.com//wukocar/img/bankico/INSHOPM.png"></image>
+      <text class="span">到店支付</text>
+    </view>
+    <view class="option"></view>
+  </view>
+  <view class="total pay_order">
+    <view class="text">合计：¥ {{pay}}</view>
+    <view class="sure add_order a" catchtap="onClickPay">确定</view>
+  </view>
+</view>
+
+<!-- 支付弹窗 -->
+<view class="border_bg {{pwdOn}}" catchtap="hidePassPanel"></view>
+<view class="pay_pwd {{pwdOn}}">
+  <view class="h5">请输入支付密码</view>
+  <view class="pay_password">
+    <view class="p">支付金额</view>
+    <view class="p price">￥ {{pay}}</view>
+    <view class="p">
+      <input type="number" focus="{{pwdFocus}}" bindinput="onChangePwd" password value="{{pwd}}" maxlength="6" />
+    </view>
+  </view>
+</view>
+
+<!-- 支付成功 -->
+<view class="book-success {{paySucess}}">
+  <view class="book-success-title">
+    <view class="head">
+      <image src="http://www.tm.hxqc.com/wxapp/maintain/book-right.png" alt=""></image>
+      <view class="h5">{{payTitle}}</view>
+    </view>
+  </view>
+  <view class="book-success-sec">
+    <view class="sec-key">
+      <view class="key">联系人姓名：</view>
+      <view class="info">{{payInfo.userFullname}}</view>
+    </view>
+    <view class="sec-key">
+      <view class="key">手机号码：</view>
+      <view class="info">{{payInfo.userPhoneNumber}}</view>
+    </view>
+    <view class="sec-key">
+      <view class="key">服务门店：</view>
+      <view class="info">{{payInfo.shopPoint.shopName}}</view>
+    </view>
+    <view class="sec-key">
+      <view class="key">支付方式：</view>
+      <view class="info">{{payInfo.paymentType}}</view>
+    </view>
+    <view class="sec-key">
+      <view class="key">金额：</view>
+      <view class="info">¥ {{payInfo.orderAmount}}</view>
+    </view>
+    <view class="sec-key">
+      <view class="key">保养时间：</view>
+      <view class="info">{{payInfo.appointmentDate}}</view>
+    </view>
+  </view>
+  <view class="book-success-end">
+    <view class="book-success-end-a" bindtap="paySucess">完成</view>
+  </view>
+</view>

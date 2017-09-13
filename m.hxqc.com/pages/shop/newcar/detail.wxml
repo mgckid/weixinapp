@@ -1,0 +1,140 @@
+<!-- 导入loading模板 -->
+<import src="/template/loading.wxml" />
+<template is="pageLoading" data="{{pageLoading}}" />
+
+<view class="content">
+  <view class="car-top">
+    <image src="{{serieInfo.seriesInfo.itemPic}}" width="100%" mode="aspectFill"></image>
+  </view>
+  <view class="car-model">
+    <view class="car-model-title">
+      <view class="h3">{{serieInfo.seriesInfo.seriesName}}</view>
+      <view class="p">厂商指导价：
+        <text>￥{{serieInfo.seriesInfo.itemOrigPrice}}</text>({{serieSum}}款车型)
+      </view>
+    </view>
+
+    <!-- 详情 -->
+    <view class="car-model-dw">
+      <view class="car-model-detail">
+        <text class="detail-key">车身颜色：</text>
+        <view class="detail-color">
+          <block wx:for="{{serieInfo.seriesInfo.appearance}}">
+            <text class="span" style="background-color:{{item.color}}"></text>
+          </block>
+        </view>
+      </view>
+      <view class="car-model-detail">
+        <text class="detail-key">车身结构：</text>
+        <text class="em">{{serieInfo.seriesInfo.parameter[1].value}}</text>
+      </view>
+      <view class="car-model-detail">
+        <text class="detail-key">发动机：</text>
+        <text class="em">{{serieInfo.seriesInfo.parameter[0].value}}</text>
+      </view>
+      <view class="car-model-detail">
+        <text class="detail-key">变速箱：</text>
+        <text class="em">{{serieInfo.seriesInfo.parameter[2].value}}</text>
+      </view>
+    </view>
+
+    <!-- 相关文章推荐 -->
+    <view class="car-news-rel">
+      <view class="h5">相关文章推荐</view>
+      <view class="inner">
+        <view wx:for="{{infoList}}" class="a">
+          <block wx:if="{{index <4}}">
+            <navigator  url="/pages/info/index/detail?id={{item.infoID}}">{{item.title}}</navigator>
+          </block>
+        </view>
+      </view>
+    </view>
+
+    <!--车型列表-->
+    <view class="car-model-lw mt5">
+      <view class="car-model-list">
+        <block wx:for="{{serieInfo.modelList}}" wx:for-item="groupList">
+          <view class="h5">{{groupList.modelGroupTag}}</view>
+          <block wx:for="{{groupList.model}}" wx:for-item="r">
+            <view class="reference-head">
+              <navigator url="/pages/shop/newcar/sale?brand={{brand}}&extID={{r.extID}}&model={{r.modelName}}">
+
+                <!--<view class="reference-ask">询价</view>-->
+                <view class="title">{{r.modelName}}</view>
+                <view class="p">
+                  <text class="em">经销商参考价：</text>
+                  <text class="price1">￥{{r.priceRange}}</text>
+                </view>
+                <view class="p">
+                  <text class="em">厂商指导价：</text>
+                  <text class="price2">￥{{r.itemOrigPrice}}</text>
+
+                  <!--<text class="price-bg show_layCkzj" bindtap="onClickShow"></text>-->
+                </view>
+              </navigator>
+              <view class="reference-ask">
+                <navigator  url="/pages/shop/newcar/reply?brand={{brand}}&series={{serie}}&extID={{r.extID}}&model={{r.modelName}}&shopSiteFrom={{serieInfo.shopSiteFrom}}">询价</navigator>
+              </view>
+            </view>
+          </block>
+        </block>
+      </view>
+    </view>
+
+    <!--经销商-->
+    <view class="dealer-info mt5">
+      <view>
+        <view class="h5">{{brand}}-{{serie}}经销商</view>
+        <block wx:for="{{serieInfo.shopList}}">
+          <view  data-query="shopID={{item.shopID}}" catchtap="onClickShop">
+            <view class="dealer-info-content">
+              <view class="h4">
+                <text class="a">{{item.shopName}}</text>
+              </view>
+              <view class="dealer-info-text">
+                <text class="call i"></text>
+                <text class="a" catchtap='onCall' data-tel="{{item.shopTel}}">{{item.shopTel}}</text>
+              </view>
+              <view class="dealer-info-text">
+                <text class="address i"></text>
+                <text class="a">{{item.shopLocation.address}}</text>
+              </view>
+              <view class="dealer-info-promotion">{{item.promotion}}</view>
+            </view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 弹出层 -->
+<view class="sideslipMask" style="{{mask_display}}" bindtap="onClickHide"></view>
+<view class="cansLay" style="{{cansLay_display}}">
+  <view class="cansLay_table">
+    <view class="li">
+      <text class="span">裸车价</text>
+      <text class="em">￥27.98万</text>
+    </view>
+    <view class="li">
+      <text class="span">购置税</text>
+      <text class="em">￥2.39万</text>
+    </view>
+    <view class="li">
+      <text class="span">车船税</text>
+      <text class="em">￥0.00</text>
+    </view>
+    <view class="li">
+      <text class="span">交强险</text>
+      <text class="em">￥950.00</text>
+    </view>
+    <view class="li">
+      <text class="span">上牌费</text>
+      <text class="em">￥500.00</text>
+    </view>
+  </view>
+  <view class="tip">说明：预估费用，仅供参考实际价格以经销商报价为准</view>
+  <view class="total">参考总价：
+    <text class="strong">￥30.52万</text>
+  </view>
+</view>

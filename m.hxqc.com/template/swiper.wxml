@@ -1,0 +1,12 @@
+<!--首页banner-->
+<template name="index_swiper">
+  <block wx:if="{{imgUrls.length >0}}">
+    <swiper indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+      <block wx:for="{{imgUrls}}">
+        <swiper-item>
+          <image mode="aspectFill" src="{{item.slide}}" class="slide-image" width="100%" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </block>
+</template>

@@ -1,0 +1,57 @@
+<view class="body">
+  <view class="instalment-plan">
+    <view class="h5">推荐方案</view>
+    <view class="table">
+    <radio-group name="radio_money">
+      <view class="tr" wx:for="{{instalment.item_insment}}">
+        <view class="td">
+          <view class="time">{{item.year}}年</view>
+          <view class="edu">贷款额度：{{item.limit}}万元</view>
+          <view class="edu">月还款额：
+            <view class="span">{{item.per_month}}元</view>
+          </view>
+        </view>
+        <view class="td">
+          <!--<navigator url="/pages/usedcar/buy/index/detail-auth?car_source_no={{instalment.car_source_no}}" >-->
+          <radio color="red" data-instalment_id="{{index+1}}" class="{{fenqi}}" checked="{{item.select}}" bindtap="onClickRadio"></radio>
+
+            
+          <!--</navigator>-->
+        </view>
+      </view>
+    </radio-group>
+    </view>
+  </view>
+  <view class="instalment-tips">
+    <view class="h4">申请条件及所需资料</view>
+    <view class="h5">申请人：</view>
+    <view class="info">1、18 - 64周岁，央行征信良好无不良信用记录；</view>
+    <view class="info">2、有固定居所、稳定的收入来源</view>
+    <view class="h5">申请车辆：</view>
+    <view class="info">1、车龄6年内（二手车）；</view>
+    <view class="info">2、新车车辆过户手续齐全，无抵押无查封等非法状况（新车）。</view>
+    <view class="h5">申请资料：</view>
+    <view class="info">1、车主双方身份证；</view>
+    <view class="info">2、车主双方户口；</view>
+    <view class="info">3、结婚证；（离异提供离婚证）</view>
+    <view class="info">4、双方收入证明；（单位盖公章）</view>
+    <view class="info">5、双方银行流水；（7个月）</view>
+    <view class="info">6、房产证明。（私房证明、购房合同及发票、房产两证）</view>
+  </view>
+  <view class="instalment-tips">
+    <view class="h4">贷款流程</view>
+    <view class="h5">1.在线预约</view>
+    <view class="text">在线预约看车，申请车贷买车，客服24小时内联系您</view>
+    <view class="h5">2.核查信用</view>
+    <view class="text">权威机构认证数据，确保您的良好信用，助力购车贷款</view>
+    <view class="h5">3.现场签约</view>
+    <view class="text">恒信汽车提供上门签约服务，让您足不出户便捷买车</view>
+    <view class="h5">4.银行审核</view>
+    <view class="text">审核通过后，我们会第一时间通知您</view>
+    <view class="h5">5.提车上牌</view>
+    <view class="text">垫付余款，急速提车不影响您的生活节奏</view>
+    <view class="h5">6.抵押还债</view>
+    <view class="text">抵押车辆，按时还款，财务自由的同时，享受爱车带来 的幸福</view>
+    <view class="tips">温馨提示：以上所需资料均为二手车和新车车贷资料，请与您的顾问确 认，根据您的购车类型提交。</view>
+  </view>
+</view>

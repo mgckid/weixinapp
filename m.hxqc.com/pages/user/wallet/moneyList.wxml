@@ -1,0 +1,47 @@
+<!-- 导入loading模板 -->
+<import src="/template/loading.wxml" />
+<template is="pageLoading" data="{{pageLoading}}" />
+<scroll-view class="listPage" bindscrolltolower="onWaterFall" style="height:100%" scroll-y="true">
+  <view class="ud_listTop">
+    <view class="ud_listMain">
+      <view class="li">累计充值金额：<strong>{{billInfo.prepaidAmount}}</strong> 元</view>
+      <view class="li">累计消费金额：<strong>{{billInfo.expendamount}}</strong> 元</view>
+      <view class="li">账户金额：<strong>{{billInfo.balance}}</strong> 元</view>
+    </view>
+  </view>
+  <view class="listItem" id="listItemWrapper">
+    
+    <view class="listAll" wx:for="{{billList}}" data-requesturl="/User/Currency/moneyList">
+      <!-- 为空 -->
+      <view wx:if="{{item.expendMonth === undefined}}">
+        <view class="nodata">
+          <image src="http://m.hxqc.com/wxapp/index/nodata_c.jpg" alt=""></image>
+          <view class="h4">抱歉，您暂无余额明细</view>
+          <!--<view class="a" catchtap="onClickWait">去添加</view>-->
+        </view>
+      </view>
+      <!-- 不为空 -->
+      <view wx:else>
+        <view class="li">
+          <view class="month" wx:if="{{item.month != ''}}">
+            <view class="monLeft p">{{item.month}}月</view>
+            <view class="monRight p">消费{{item.expendMonth}}元 / 充值{{item.prepaidMonth}}元</view>
+          </view>
+          <view wx:for="{{item.matter}}" class="pointGet " scroll-y style="height: 50px">
+            <navigator url="/pages/user/wallet/moneyDetail?billID={{item.billID}}">
+               <view class="pointDate"><strong>{{item.payWeek}}</strong><span>{{item.payDate}}</span> </view> 
+              <view class="pointTypes">
+                <image src="{{item.typeImgPath}}" alt=""></image>
+              </view>
+              <view class="pointDet">
+                <view class="h4">{{item.money}}元</view>
+                <view class="p">{{item.description}}</view>
+              </view>
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if='{{listEnd}}' style="padding:10px 0; text-align:center">已经是最后一页...</view>
+</scroll-view>

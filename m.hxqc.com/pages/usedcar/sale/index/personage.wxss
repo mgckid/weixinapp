@@ -1,0 +1,10 @@
+.userselling-list .title {line-height: 1.9rem;font-size: 30rpx;color: #343434;padding: 0 .75rem;}
+.userselling-list .title .span {display: inline-block;width: .95rem;height: .95rem;background: url(http://www.tm.hxqc.com/wxapp/usedcar/userselling-list.jpg) no-repeat 0 0/100% 100%;position: relative;top: .2rem;margin-right: .2rem;}
+.userselling-list .ul .li {padding: .7rem;border-top: 1px solid #d5d5d5;}
+.userselling-list .ul .li .a {display: block;clear: both;overflow: hidden;position: relative;}
+.userselling-list .ul .li .a .img {float: left;width: 5.4rem;height: 4rem;}
+.userselling-list .ul .li .a .desc {margin-left: 6.2rem;width: 14.5rem;}
+.userselling-list .ul .li .a .desc .h5 {font-size: 30rpx;color: #5b5b5b;line-height: 1rem;max-height: 2rem;overflow: hidden;margin-bottom: .2rem;}
+.userselling-list .desc .info .normal {font-size: 28rpx;color: #646464;}
+.userselling-list .desc .info .special {font-size: 32rpx;color: #fe0002;}
+.userselling-list .ul .li .a .larrow {width: .55rem;height: .9rem;position: absolute;right: 0;top: 1.6rem;}

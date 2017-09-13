@@ -1,0 +1,10 @@
+.clearfix:after{content: '\200B'; display: block; clear: both; height: 0; overflow: hidden; visibility: hidden;}
+.clearfix{zoom: 1;}
+/*订单详情*/
+.part_nums{line-height:2.8rem; background:#fafafa; text-indent:.8rem;font-size: 36rpx;font-weight: bold;}
+.detLists .text{position:relative;padding: 1rem .75rem; overflow:hidden; line-height: 1.1rem; border-bottom: 1px solid #EBEBEB; font-size: 26rpx;}
+.detLists .text:first-child{border-top: 1px solid #d5d5d5;}
+.detLists .text .yeText{color: #3f3f3f; width: 40%; float: left; font-size: 32rpx;}
+.detLists .text .yeSex{width: 34%;}
+.detLists .text .riText{color: #666; margin-left: 40%; font-size: 32rpx; position:relative; height: 1rem;text-align:left;}
+.detLists .text .riText .span{position: absolute; top:50%; width:100%; left:0; line-height: 1rem; transform:translateY(-50%); -webkit-transform:translateY(-50%); max-height:2rem; }

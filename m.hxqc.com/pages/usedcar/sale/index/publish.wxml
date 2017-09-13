@@ -1,0 +1,635 @@
+  <!-- 导入loading模板 -->
+<import src="/template/loading.wxml" />
+<template is="pageLoading" data="{{pageLoading}}" />
+
+<view class="body" style="background-color: #fff;" catchtap="onClickChoose">
+  <form id="doExchange" bindsubmit="formSubmit">
+    <view class="filter-group1 filter-self filter-platform">
+      <view class="na">
+        <view class="span">
+          <text class="point">*</text>品牌车型</view>
+          <view bindtap="onClickBrand">
+            <text class="tips special" style="width:55%;left:35%;">{{modelname ? modelname : '请选择品牌车型，没有则点击添加即可'}}</text>
+          </view>
+          <text class="add" data-display="#ftr-addbrand" style="position: absolute;right: .68rem;" catchtap="ftrAddbrand">添加</text>
+          <input type="text" class="hidden" name="car_source_no" value="{{car_source_no}}" />
+        </view>
+      <view class="na" catchtap="onClickColor">
+        <view class="span">
+        <text class="point">*</text>车身颜色</view>
+        <text class="tips">{{car_color ?car_color : '请选择'}}</text>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+        <view class="ftr-color {{switch_color_on}}">
+          <view class="colorchoise-head">
+            <block wx:if="{{car_color}}">
+              <view class="clearfix">
+                <view class="span" style="background-color: {{car_colorcode}}"></view>
+                <text class="em">{{car_color}}</text>
+              </view>
+              <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-bottomarrow.png"></image>
+            </block>
+          </view>
+          <scroll-view class="" scroll-y="true">
+            <view class="colorchoise-wrap">
+              <block wx:for="{{saleFilter.color}}">
+                <view class="colorchoise clearfix" data-carcolor="{{item.detail_dic_name}}" data-carcolorcode="{{item.detail_dic_code}}" catchtap="onClickColorSub">
+                  <view class="span" style="background-color: {{item.detail_dic_code}};"></view>
+                  <text class="em">{{item.detail_dic_name}}</text>
+                </view>
+              </block>
+            </view>
+          </scroll-view>
+        </view>
+      </view>
+      <view class="na" catchtap="onClickLevel">
+        <view class="span">
+          <text class="point">*</text>车辆级别
+        </view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+        <text class="tips">{{level ? level : '请选择'}}</text>
+        <text class="tb"></text>
+      </view>
+      <view class="na" catchtap="onClickGearbox">
+        <view class="span">
+          <text class="point">*</text>变速箱
+        </view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+        <text class="tips">{{gearbox ? gearbox : '请选择'}}</text>
+        <text class="tb"></text>
+      </view>
+      <view class="na">
+        <view class="span">
+          <text class="point">*</text>排量
+        </view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-selling.png"></image>
+        <text class="small" style="right: .5rem">L</text>
+        <input type="digit" class="edit text" name="displacement" value="{{displacement}}" disabled="{{dis_disabled}}" placeholder="请输入排量" style="width:59%;" />
+      </view>
+      <view class="na" bindtap="onClickRegion">
+        <view class="span">
+          <text class="point">*</text>车牌所在地
+        </view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+        <text class="tips">{{index_province_name}} {{index_city_name}} </text>
+        <text class="tb"></text>
+        </view>
+      <view class="na">
+        <view class="span">
+          <text class="point">*</text>表显里程</view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-selling.png"></image>
+        <text class="small" style="right: .5rem">万公里</text>
+        <input type="digit" class="edit text" name="car_mileage" value="{{carInfo.car_mileage ? carInfo.car_mileage : car_mileage}}" placeholder="最多两位小数" style="width:49%;" />
+      </view>
+      <view class="na">
+        <view class="span">
+          <text class="point">*</text>首次上牌时间</view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+        <picker class="tb" bindchange="datePickerChange" mode="date" value="{{first_on_card}}" data-type="first_on_card" start="1990-11-11" end="2022-01-11">{{first_on_card ? first_on_card : '请选择'}} </picker>
+      </view>
+      <view class="na">
+        <view class="span">
+          <text class="point"></text>车牌号</view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-selling.png"></image>
+
+        <!--<text class="small" style="right: .5rem">万公里</text>
+        <input type="text" class="edit text" placeholder="请输入车牌号" style="width:49%;"/>-->
+        <view class="car_city" bindtap="onClickCityshow">
+          <view class="input">{{license_area ? license_area : '鄂'}}</view>
+          <input type="text" class="hidden" name="license_area" value="{{license_area}}" />
+          <text class="select_city"></text>
+        </view>
+        <view class="car_city_num">
+          <input type="text" name="license_number" value="{{license_number}}" placeholder="请输入车牌号" onkeyup="this.value = this.value.toUpperCase();" maxlength="6" class="" />
+        </view>
+      </view>
+      <view class="na">
+        <view class="span">
+          <text class="point"></text>新车价</view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-selling.png"></image>
+        <text class="small" style="right: .5rem">万元</text>
+        <input type="digit" class="edit text" name="new_car_price" value="{{new_car_price}}" disabled="{{new_car_price_disabled}}" placeholder="最多两位小数" style="width:49%;" />
+      </view>
+      <view class="na">
+        <view class="span">
+          <text class="point">*</text>预售价格</view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-selling.png"></image>
+        <text class="small" style="right: .5rem">万元</text>
+        <input type="digit" class="edit text" name="estimate_price" value="{{estimate_price}}" placeholder="最多两位小数" style="width:49%;" />
+      </view>
+      <view style="height:.64rem;background-color:#efefef;"></view>
+      <view class="na">
+        <view class="span">
+          <text class="point">*</text>联系人</view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-selling.png"></image>
+        <input type="text" class="edit text"name="contacts" value="{{contacts}}" disabled="{{real_disabled}}" placeholder="请输入" />
+      </view>
+      <view class="na">
+        <view class="span">
+          <text class="point">*</text>手机号码</view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-selling.png"></image>
+        <view class="edit phone">
+          <input type="number" class="phoneInput" name="phone_num" value="{{phone_num ? phone_num : mobile}}" disabled="{{phone_num_disabled}}" placeholder="请输入" maxlength="11" bindinput="mobileBlur" />
+        </view>
+        <view class="sms_verify" id="getmCode" style="right: .5rem" data-sendtype="10" catchtap="onSendVerify">获取验证码</view>
+      </view>
+      <view class="na">
+        <view class="span">
+          <text class="point">*</text>验证码</view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-selling.png"></image>
+        <input type="number" class="edit text" name="verify" placeholder="请输入" />
+      </view>
+      <view class="na" catchtap="showDatePicker">
+        <view class="span">
+          <text class="point">*</text>看车地点</view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+        <text class="tips">{{sliderConfig.value}}</text>
+        <text class="tb"></text>
+      </view>
+      <view class="na">
+        <view class="span">
+          <text class="point"></text></view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-selling.png"></image>
+        <input type="text" class="edit text" name="look_address" value="{{look_address}}" placeholder="请输入详细地址" />
+      </view>
+      <view class="na clearfix" style="height:85px;" catchtap="showSelfSay">
+        <view class="span">
+          <text class="point"></text>车主自述</view>
+        <view style="width:210px;height:75px;line-height:1rem;overflow:scroll;font-size:30rpx;position: absolute;top: 0;left: 35%;">{{owners_text ? owners_text : '请填写车况，维修保养记录等信息'}}</view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-selling.png"></image>
+
+        <!--<input type="text" class="edit text" placeholder="请输入" maxlength="200" />-->
+      </view>
+      <view style="height:.64rem;background-color:#efefef;"></view>
+      <view class="ftr-upload">
+        <view class="na noboder">
+          <view class="span">
+            <text class="point">*</text>车主实拍照片</view>
+        </view>
+        <view class="title">最多可上传5张图，默认第一张为首图，请按背景角度上传图片(请横屏拍摄)</view>
+        <view class="upload-area-wrap">
+          <view class="upload-area" data-image="image1" catchtap="onClickImage">
+            <!--<form enctype="multipart/form-data" method="post">-->
+            <view class="file-control">
+            </view>
+            <view class="displayImg">
+              <image src="http://www.tm.hxqc.com/wxapp/usedcar/data/car-upload01.jpg" class="upload-bg" />
+              <view class="uploading">
+                <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                <span class="text-default">图片上传中...</span> 
+              </view>
+              <view class="process">
+                <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                <span class="text-default">图片处理中...</span> 
+              </view>
+              <view class="pic {{on1}}" data-edit="" catchtap="onClickPic" data-selectnum="select1" data-selectsrc="{{image1}}">
+                <image class="img" src="{{image1}}" />
+                 <view class="span {{select1}}"></view>
+                <i class="upload-delete" catchtap="onClickDelete" data-select="select1" data-img_name="{{carInfo.image[0].name}}"></i>
+              </view>
+            </view>
+
+            <!--</form>-->
+            <view class="text">正45度</view>
+          </view>
+          <view class="upload-area" data-image="image2" catchtap="onClickImage">
+            <!--<form enctype="multipart/form-data" method="post">-->
+            <view class="file-control">
+            </view>
+            <view class="displayImg">
+              <image src="http://www.tm.hxqc.com/wxapp/usedcar/data/car-upload02.jpg" alt="" class="upload-bg" />
+              <view class="uploading">
+                <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                <span class="text-default">图片上传中...</span> 
+              </view>
+              <view class="process">
+                <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                <span class="text-default">图片处理中...</span> 
+              </view>
+              <view class="pic {{on2}}" data-edit="" catchtap="onClickPic" data-selectnum="select2" data-selectsrc="{{image2}}">
+                <image class="img" src="{{image2}}" />
+                 <view class="span {{select2}}"></view>
+                <i class="upload-delete" catchtap="onClickDelete" data-select="select2" data-img_name="{{carInfo.image[1].name}}"></i>
+              </view>
+            </view>
+
+            <!--</form>-->
+            <view class="text">背面</view>
+          </view>
+          <view class="upload-area" data-image="image3" catchtap="onClickImage">
+
+            <!--<form enctype="multipart/form-data" method="post">-->
+            <view class="file-control">
+            </view>
+            <view class="displayImg">
+              <image src="http://www.tm.hxqc.com/wxapp/usedcar/data/car-upload03.jpg" alt="" class="upload-bg" />
+              <view class="uploading">
+                <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                <span class="text-default">图片上传中...</span> 
+              </view>
+              <view class="process">
+                <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                <span class="text-default">图片处理中...</span> 
+              </view>
+              <view class="pic {{on3}}" data-edit="" catchtap="onClickPic" data-selectnum="select3" data-selectsrc="{{image3}}">
+                <image class="img" src="{{image3}}" />
+                 <view class="span {{select3}}"></view>
+                <i class="upload-delete" catchtap="onClickDelete" data-select="select3" data-img_name="{{carInfo.image[2].name}}"></i>
+              </view>
+            </view>
+
+            <!--</form>-->
+            <view class="text">中控</view>
+          </view>
+          <view class="upload-area" data-image="image4" catchtap="onClickImage">
+
+            <!--<form enctype="multipart/form-data" method="post">-->
+            <view class="file-control">
+            </view>
+            <view class="displayImg">
+              <image src="http://www.tm.hxqc.com/wxapp/usedcar/data/car-upload04.jpg" alt="" class="upload-bg" />
+              <view class="uploading">
+                <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                <span class="text-default">图片上传中...</span> 
+              </view>
+              <view class="process">
+                <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                <span class="text-default">图片处理中...</span> 
+              </view>
+              <view class="pic {{on4}}" data-edit="" catchtap="onClickPic" data-selectnum="select4" data-selectsrc="{{image4}}">
+                <image class="img" src="{{image4}}" />
+                 <view class="span {{select4}}"></view>
+                <i class="upload-delete" catchtap="onClickDelete" data-select="select4" data-img_name="{{carInfo.image[3].name}}"></i>
+              </view>
+            </view>
+
+            <!--</form>-->
+            <view class="text">发动机</view>
+          </view>
+          <view class="upload-area" data-image="image5" catchtap="onClickImage">
+
+            <!--<form enctype="multipart/form-data" method="post">-->
+            <view class="file-control">
+            </view>
+            <view class="displayImg">
+              <image src="http://www.tm.hxqc.com/wxapp/usedcar/data/car-upload05.jpg" alt="" class="upload-bg" />
+              <view class="uploading">
+                <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                <span class="text-default">图片上传中...</span> 
+              </view>
+              <view class="process">
+                <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                <span class="text-default">图片处理中...</span> 
+              </view>
+              <view class="pic {{on5}}" data-edit="" catchtap="onClickPic" data-selectnum="select5" data-selectsrc="{{image5}}">
+                <image class="img" src="{{image5}}" />
+                 <view class="span {{select5}}"></view>
+                <i class="upload-delete" catchtap="onClickDelete" data-select="select5" data-img_name="{{carInfo.image[4].name}}"></i>
+              </view>
+            </view>
+
+            <!--</form>-->
+            <view class="text">后备箱</view>
+          </view>
+        </view>
+
+        <!-- 证件照 -->
+        <view class="upload-area-other">
+          <view class="upload-slideup {{switch_upload_on}}">
+            <view class="upload-area" data-image="license" catchtap="onClickImage">
+              <view class="file-control">
+              </view>
+              <view class="displayImg">
+                <image src="http://www.tm.hxqc.com/wxapp/usedcar/upload-add.jpg" alt="" class="upload-bg" />
+                <view class="uploading">
+                  <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                  <span class="text-default">图片上传中...</span> 
+                </view>
+                <view class="process">
+                  <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                  <span class="text-default">图片处理中...</span> 
+                </view>
+                <view class="pic {{license ? 'on' : on6}}" data-type="three" data-edit="">
+                  <image class="img" src="{{license}}" />
+                  <i class="upload-delete" catchtap="onClickDelete" data-select="license" data-img_name="{{carInfo.license}}"></i>
+                </view>
+              </view>
+              <view class="text">行驶证</view>
+            </view>
+            <view class="upload-area" data-image="license1" catchtap="onClickImage">
+              <view class="file-control">
+              </view>
+              <view class="displayImg">
+                <image src="http://www.tm.hxqc.com/wxapp/usedcar/upload-add.jpg" alt="" class="upload-bg" />
+                <view class="uploading">
+                  <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                  <span class="text-default">图片上传中...</span> 
+                </view>
+                <view class="process">
+                  <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                  <span class="text-default">图片处理中...</span> 
+                </view>
+                <view class="pic {{license1 ? 'on' : on7}}" data-type="three" data-edit="">
+                  <image class="img" src="{{license1}}" />
+                  <i class="upload-delete" catchtap="onClickDelete" data-select="license1" data-img_name="{{carInfo.license1}}"></i>
+                </view>
+              </view>
+              <view class="text">登记证</view>
+            </view>
+            <view class="upload-area" data-image="license2" catchtap="onClickImage">
+              <view class="file-control">
+              </view>
+              <view class="displayImg">
+                <!--<image src="{{license2 ? license2 : 'http://www.tm.hxqc.com/wxapp/usedcar/upload-add.jpg'}}" alt="" class="upload-bg" />-->
+                <image src="http://www.tm.hxqc.com/wxapp/usedcar/upload-add.jpg" alt="" class="upload-bg" />
+                <view class="uploading">
+                  <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                  <span class="text-default">图片上传中...</span> 
+                </view>
+                <view class="process">
+                  <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/loading-2.gif" />
+                  <span class="text-default">图片处理中...</span> 
+                </view>
+                <view class="pic {{license2 ? 'on' : on8}}" data-type="three" data-edit="">
+                  <image class="img" src="{{license2}}" />
+                  <i class="upload-delete" catchtap="onClickDelete" data-select="license2" data-img_name="{{carInfo.license2}}"></i>
+                </view>
+              </view>
+              <view class="text">购车发票</view>
+            </view>
+          </view>
+          <view class="upload-slidedown close {{switch_upload_on}}" bindtap="onClickUpload"><text>{{show_text}}</text><view class="i"></view></view>
+        </view>
+      </view>
+      <view style="height:.64rem;background-color:#efefef;"></view>
+      <view class="na">
+        <view class="span">
+          <text class="point"></text>年检有效期</view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+        <picker class="tb" bindchange="datePickerChange" mode="date" value="{{inspection_date}}" data-type="inspection_date" start="1990-11-11" end="2022-01-11">{{inspection_date ? inspection_date : '请选择'}} </picker>
+      </view>
+      <view class="na">
+        <view class="span">
+          <text class="point"></text>交强险到期</view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+        <picker class="tb" bindchange="datePickerChange" mode="date" value="{{sali_date}}" data-type="sali_date" start="1990-11-11" end="2022-01-11">{{sali_date ? sali_date : '请选择'}} </picker>
+      </view>
+      <view class="na">
+        <view class="span">
+          <text class="point"></text>商业保险到期</view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+        <picker class="tb" bindchange="datePickerChange" mode="date" value="{{insurance_date}}" data-type="insurance_date" start="1990-11-11" end="2022-01-11">{{insurance_date ? insurance_date : '请选择'}} </picker>
+      </view>
+      <view class="na">
+        <view class="span">
+          <text class="point"></text>质保有效期</view>
+        <image class="img" src="http://www.tm.hxqc.com/wxapp/usedcar/icon-rjt.png"></image>
+        <picker class="tb" bindchange="datePickerChange" mode="date" value="{{warranty_date}}" data-type="warranty_date" start="1990-11-11" end="2022-01-11">{{warranty_date ? warranty_date : '请选择'}} </picker>
+      </view>
+    </view>
+    <button formType="submit" id="savePlatform" class="eval-begin mg2">发布车源</button>
+  </form>
+  <view class="ubespeak-mask {{switch_slide_on}} {{switch_local_on}} {{switch_level_on}} {{switch_speed_on}} {{switch_chexi_on}} {{switch_region_on}} {{addbrand_show}}" bindtap="onClickHide"></view>
+
+  <!-- 品牌侧滑 -->
+  <view class="caritems {{switch_slide_on}}">
+    <scroll-view class="caritems_wrap" scroll-y="true">
+    <view class="li ">
+        <view class="a clearfix">
+          <view class="info ">
+            <view class="name ">选择品牌</view>
+          </view>
+        </view>
+      </view>
+      <block wx:for="{{brandData}}">
+        <view class="title">{{item.groupTag}}</view>
+        <block wx:for="{{item.group}}" wx:for-item="i">
+          <view class="li " data-brand-id="{{i.id}}" data-brand-name="{{i.brand_name}}" catchtap="onClickChexi">
+            <view class="a clearfix">
+              <image src="{{i.brand_logurl}}" class="carimg " />
+              <view class="info ">
+                <view class="name ">{{i.brand_name}}</view>
+              </view>
+            </view>
+          </view>
+        </block>
+      </block>
+    </scroll-view>
+  </view>
+
+  <!-- 车系侧滑 -->
+  <view class="caritems {{switch_chexi_on}}">
+    <scroll-view class="caritems_wrap" scroll-y="true">
+      <view class="li ">
+        <view class="a clearfix">
+          <view class="info ">
+            <view class="name ">选择车系</view>
+          </view>
+        </view>
+      </view>
+      <!--<view class="title">一汽-大众奥迪</view>-->
+      <block wx:for="{{serieData}}">
+        <view class="li" data-serie-id="{{item.serie_id}}" data-serie-name="{{item.serie_name}}" catchtap="onClickSerie">
+          <view class="a clearfix">
+            <image src="" class="carimg " />
+            <view class="info ">
+              <view class="name ">{{item.serie_name}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <!-- 车型侧滑 -->
+  <view class="caritems {{switch_model_on}}">
+    <scroll-view class="caritems_wrap" scroll-y="true">
+      <view class="li ">
+        <view class="a clearfix">
+          <view class="info ">
+            <view class="name ">选择车型</view>
+          </view>
+        </view>
+      </view>
+      <!--<view class="title">一汽-大众奥迪</view>-->
+      <block wx:for="{{modelData}}">
+        <view class="li" data-model-id="{{item.model_id}}" data-model-name="{{item.model_name}}" catchtap="onClickModel">
+          <view class="a clearfix">
+            <!--<image src="" class="carimg " />-->
+            <view class="info ">
+              <view class="name ">{{item.model_name}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+
+  <!-- 车牌所在地侧滑 -->
+  <view class="caritems ftr-city {{switch_region_on}}">
+    <scroll-view class="caritems_wrap" scroll-y="true">
+      <view class="ul">
+        <view class="content">
+          <picker bindchange="bindPickerChange" data-region_type="province" range-key="name" value="{{index_province}}" range="{{list_provinces}}">
+            <view class="picker">
+              {{list_provinces[index_province].name}}
+            </view>
+          </picker>
+        </view>
+        <view class="content">
+          <picker bindchange="bindPickerChange" data-region_type="city" range-key="name" value="{{index_city}}" range="{{list_citys}}">
+            <view class="picker">
+              {{list_citys[index_city].name}}
+            </view>
+          </picker>
+        </view>
+        <view class="clearfix">
+          <button id="city_ces" class="btn_submit" catchtap="onClickHide">确定</button>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 看车地点侧滑 -->
+  <!--<view class="caritems ftr-city {{switch_local_on}}">
+    <scroll-view class="caritems_wrap" scroll-y="true">
+      <view class="ul">
+        <view class="content">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker">
+              {{array[index]}}
+            </view>
+          </picker>
+        </view>
+        <view class="content">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker">
+              {{array[index]}}
+            </view>
+          </picker>
+        </view>
+        <view class="content">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+            <view class="picker">
+              {{array[index]}}
+            </view>
+          </picker>
+        </view>
+        <view class="clearfix">
+          <button id="city_ces" class="btn_submit" style=" ">确定</button>
+        </view>
+      </view>
+    </scroll-view>
+  </view>-->
+
+</view>
+
+<!-- 车辆级别侧滑 -->
+<view class="caritems {{switch_level_on}}">
+  <scroll-view class="caritems_wrap" scroll-y="true">
+  <block wx:for="{{saleFilter.level}}">
+    <view class="li" data-level="{{item.level_name}}" catchtap="onClickLevelSub">
+      <view class="a clearfix">
+        <view class="info ">
+          <view class="name ">{{item.level_name}}</view>
+        </view>
+      </view>
+    </view>
+  </block>
+  </scroll-view>
+</view>
+
+<!-- 变速箱侧滑 -->
+<view class="caritems {{switch_speed_on}}">
+  <scroll-view class="caritems_wrap" scroll-y="true">
+    <block wx:for="{{saleFilter.gearbox}}">
+    <view class="li" data-gearbox="{{item.gearbox_name}}" catchtap="onClickGearboxSub">
+      <view class="a clearfix">
+        <view class="info ">
+          <view class="name ">{{item.gearbox_name}}</view>
+        </view>
+      </view>
+    </view>
+    </block>
+  </scroll-view>
+</view>
+<view class="select_city_wrap {{switch_cityshow}}">
+  <view class="city_opcti" bindtap="onClickCityhide"></view>
+  <view class="select_city_content">
+    <view class="select_city_list">
+      <view class="choice_city">
+        <view class="ul clearfix">
+          <block wx:for="{{areaList}}">
+            <view class="li" data-license_area="{{item}}" catchtap="onClickCityhide">{{item}}</view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<include src="/utils/citySlider/slider.wxml" />
+
+<view class="common-cover {{switch_cover_show}}">
+    <view>
+        <view class="ul">
+            <view class="li" bindtap="onClickCover" data-select="{{selectnum}}">设为封面</view>
+            <view class="li" bindtap="onClickBig">查看大图</view>
+        </view>
+    </view>
+    <view>
+        <view class="ul">
+            <view class="li" bindtap="onClickHide">取消</view>
+        </view>
+    </view>
+</view>
+<view class="common-mask {{switch_cover_show}}" bindtap="onClickHide"></view>
+
+<!--查看大图-->
+<view class="itemgallery {{gallaryOn}}" bindtap="onClickHide">
+  <image class="img" src="{{gallarySrc}}"></image>
+</view>
+
+<!-- 自定义车型 -->
+<view class="addbrand-w {{addbrand_show}}">
+    <view class="ftr-list" id="ftr-addbrand">
+      <view class="addbrand">
+          <view class="addbrand-list">
+              <view class="text">
+                  <em>品牌</em>
+              </view>
+              <input type="text" placeholder="品牌" bindblur="onClickaddBrand"/>
+          </view>
+          <view class="addbrand-list">
+              <view class="text">
+                  <em>车系</em>
+              </view>
+              <input type="text" value="" placeholder="车系" bindblur="onClickaddSerie" />
+          </view>
+          <view class="addbrand-list">
+              <view class="text">
+                  <em>车型</em>
+              </view>
+              <input type="text" value="" placeholder="车型" bindblur="onClickaddModel" />
+          </view>
+          <button id="city_ces" class="btn_submit" bindtap="onClickaddModelName">确定</button>
+      </view>
+  </view>
+</view>
+
+<!--车主自述-->
+<view class="self-say {{switch_self_on}}">
+  <view style="position:relative;">
+    <textarea name="" id="" placeholder="为您的车辆说几句话吧" maxlength="200" class="edit-textarea" bindinput="onInputClick" value="{{teach_text}}"/>
+    <view class="talengs" style="position: absolute;right: .7rem;bottom: -.5rem;font-size: .68rem;color: #999;">{{input_length}}/200</view>
+  </view>
+  <view class="text">
+        <view class="edit-teach" data-edit="我的这辆车整体车况还不错，全程在4S店保养。全车没有什么大伤,有过一些小磕碰也都已经及时喷漆处理，车身整体比较耐看，驾驶操控性能好，动力够用，起步加速快，平时比较爱惜，上下班代步，市区道路行驶，年平均行驶里程较少，空间还可以，家用能满足各种需求。加装真皮、导航以及倒车影像。如果觉得还不错，就给我打电话看车吧。" bindtap="onClickTeach">教我怎么写</view>
+        <view class="edit-empty" bindtap="onClickClear">清空内容</view>
+    </view>
+    <view class="clearfix" style="text-align:center;margin-top:1rem;">
+        <button class="btn_submit btn_confirm" data-text="{{teach_text}}" bindtap="onTeachConfirm">确定</button>
+        <button class="btn_submit" bindtap="onTeachCancle">取消</button>
+    </view>
+</view>
+
+<view class="newtip">短信验证码已发送，请注意查收</view>

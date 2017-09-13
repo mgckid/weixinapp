@@ -1,0 +1,43 @@
+@import "../../../utils/citySlider/slider.wxss";
+
+.section {
+	font-size: 0.7rem;
+	background-color: #fff;
+	padding: 0.8rem;
+	border-bottom: 1px solid #ccc;
+	overflow: hidden;
+}
+
+.section_title {
+	float: left;
+	width: 20%;
+	line-height:1.2rem;	
+}
+
+.section_content {
+	text-align: right;
+	float: right;
+	width: 70%;
+}
+
+.avatar {
+	width: 2rem;
+	height: 2rem;
+}
+
+.memberSave{
+	margin: 1.5rem auto;
+    height: 3rem;
+    text-align: center;
+}
+
+.btn-save{
+	width:150px;
+	background: #ff7043;
+    color: #fff;
+    padding: 0.1rem;
+    border: none;
+    border-radius: .1rem;
+    outline: medium;
+    box-shadow: 0 0.15rem 0.2rem #bbbbbb;
+}

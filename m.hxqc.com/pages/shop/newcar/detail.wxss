@@ -1,0 +1,50 @@
+.content{background: #f0f0f0;}
+.mt5 {margin-top: 0.5rem;}
+.car-top image{width: 100%;height: 350rpx;}
+/*新车销售*/
+.car-model-title{padding: 0 .5rem;box-shadow: 0 -.05rem .15rem rgba(0,0,0,.1);margin-top: .2rem;background-color: #fff;}
+.car-model-title .h3{font-size: 30rpx;color: #252525;font-weight: bold;padding: .55rem 0 .4rem;}
+.car-model-title .p{font-size: 26rpx;color: #797f85;padding-bottom: .6rem;}
+.car-model-title text{color: #fd0412;padding-right: .2rem;}
+.car-model-detail{background-color: #f9f7f7;font-size: 26rpx;border-top: 1px solid #e5e5e5;padding:.6rem .5rem;clear: both;overflow: hidden;}
+.car-model-detail .detail-key{color: #797f85;float: left;width:20%;}
+.car-model-detail .em{color: #252525;float: left;}
+
+/*相关文章推荐*/
+.car-news-rel {background-color: #fff;margin-top: 0.5rem;}
+.car-news-rel .h5 {font-size: 30rpx;color: #252525;font-weight: bold;line-height: 2.2rem;border-top: 1px solid #e5e5e5;border-bottom: 1px solid #e5e5e5;padding: 0 .55rem;}
+.car-news-rel .inner {padding: .3rem 0;}
+.car-news-rel .inner .a {display: block;font-size: 26rpx;color: #797f85;line-height: 1.4rem;overflow: hidden;text-overflow: ellipsis;white-space: normal;padding: 0 .55rem;}
+.car-model-lw{border-bottom: 1px solid #e8e8e8; background-color: #fff;}
+.car-model-list .reference-head p{font-size: .65rem;}
+.car-model-list .h5 {background-color: #fff;font-size: 32rpx;color: #ff7043;font-weight: bold;line-height: 2rem;border-top: 1px solid #e5e5e5;padding: 0 .55rem;}
+.carPage-bg{background-color: #f0f0f0;height: .74rem;}
+/*经销商移到公共*/
+.reference-head{padding:.4rem .55rem;border-top:1px solid #d5d5d5;position: relative;}
+.reference-head.boder-bm{border-bottom: 1px solid #d5d5d5;}
+.reference-ask{position: absolute;right: .55rem;bottom: .8rem;width: 2.8rem;height: 1.45rem;line-height: 1.45rem;text-align: center;font-size: 26rpx;
+background-color: #ff7043;color: #fff;border-radius: .1rem;}
+.reference-head .title{font-size: 28rpx;color: #3e3e3e;font-weight: normal;padding-top: .4rem;padding-bottom: .15rem;}
+.reference-head .p{line-height: 1.4rem;font-size: 28rpx;}
+.reference-head .p .em{color: #797f85;width: 28%;display: inline-block;}
+.reference-head .p .price1{color: #fd0412;}
+.reference-head .p .price2{color: #252525;}
+.reference-head .p .price-bg{background: url(http://m.hxqc.com/wxapp/shop/note.png) no-repeat center center/100% 100%;display: inline-block;width: .8rem;height: .8rem;position: relative;top: .15rem;margin-left: .2rem;}
+/*口碑评论列表*/
+
+/*这里评价公共部分提炼出去了*/
+
+.sideslipMask{transition: all 300ms; z-index: 9997; position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; opacity: 1; background-color: rgba(0, 0, 0, 0.6);
+}
+/*价格弹窗*/
+.cansLay{background-color:#fff; padding:1rem; box-sizing:border-box; line-height: 1rem; box-shadow: 0 5px 15px 0 rgba(0,0,0,.5);
+left: 10%;width: 80%;z-index: 9998;transition: all 300ms;position: fixed;height: auto;top: 50%;transform: translateY(-50%);box-shadow: rgba(0, 0, 0, 0.2) -4px 0px 5px 2px;box-sizing: border-box;opacity: 1;background-color: rgb(255, 255, 255);}
+.cansLay_table{border:1px solid #d9d9d9; border-radius:4px;}
+.cansLay_table .li{line-height: 1.75rem; border-top: 1px solid #d9d9d9; font-size: 24rpx; padding:0 .68rem; overflow: hidden;}
+.cansLay_table .li:first-child{border:0;}
+.cansLay_table .li .span{color:#3f3f3f;}
+.cansLay_table .li .em{float:right; color:#979797;}
+.cansLay .tip{line-height: 1.2rem; font-size: 24rpx; color:#999; margin:.3rem 0;}
+.cansLay .total{font-size: 28rpx; color:#000033; text-align: right; line-height: 1rem;}
+.cansLay .total .strong{color:#e02c36; font-size: 32rpx; font-weight: normal;}
+.sideslipMask{transition: all 300ms; z-index: 9997; position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; background-color: rgba(0, 0, 0, 0.6);}

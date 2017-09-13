@@ -1,0 +1,22 @@
+<view class="artlist pagetop">
+    <view class="top-banner">
+        <image src="http://m.hxqc.com/wxapp/index/memberbook/memberHandbook_top.jpg"></image>
+    </view>
+    <view class="articles">
+        <view class="p">
+            1.会员注册时，必须使用本人手机号码进行验证，注册成功即表示接受恒信车管家会员的规定和条款。会员资格仅供会员本人使用，不得转让。
+        </view>
+        <view class="p">
+            2. 会员变更手机号码须提供：会员本人有效身份证件原件、复印件，绑定的车辆（车牌号）行驶证原件、复印件，需更换的手机号码。完成身份认证后，方可变更。
+        </view>
+        <view class="p">
+            3. 会员账号可以添加多台车辆，积分或优惠券和会员车牌号绑定。当车牌号发生变更时，该车牌号内的积分、优惠券失效。
+        </view>
+        <view class="p">
+            4. 如因会员过错，损害恒信车管家或其他会员的权益，恒信车管家有权终止会员资格并关闭会员账号，同时作废积分、优惠券等，恒信车管家不承担赔偿责任，并保留法律追究的权利。
+        </view>
+    </view>
+    <view class="bottom-radius">
+        <image src="http://m.hxqc.com/wxapp/index/memberbook/artical_bottom.jpg"></image>
+    </view>
+</view>

@@ -1,0 +1,46 @@
+<view class="koubei_wrap">
+  <view class="pj_title">科鲁兹-口碑评分</view>
+  <view class="kb_vlists clearfix">
+    <view class="li">
+      <text class="strong">空间</text>
+      <text class="span">3.3分</text>
+    </view>
+    <view class="li">
+      <text class="strong">动力</text>
+      <text class="span">4.7分</text>
+    </view>
+    <view class="li">
+      <text class="strong">油耗</text>
+      <text class="span">4.7分</text>
+    </view>
+    <view class="li">
+      <text class="strong">舒适性</text>
+      <text class="span">4.0分</text>
+    </view>
+    <view class="li">
+      <text class="strong">外观</text>
+      <text class="span">5.0分</text>
+    </view>
+    <view class="li">
+      <text class="strong">内饰</text>
+      <text class="span">4.0分</text>
+    </view>
+  </view>
+</view>
+<view class="pingjia_wrap mt5">
+  <view class="pj_title">用户评价</view>
+  <view class="pingjia_list li">
+    <image src="http://m.hxqc.com/wxapp/shop/tou_default.png" class="pic"></image>
+    <view class="inner">
+      <view class="name">小金泽</view>
+      <view class="t">
+        <view class="scu">评分：
+          <text class="span">4.3分</text>
+        </view>
+        <view class="time">2016-11-02 09:45:26</view>
+      </view>
+      <view class="name">动力系统体验很好，市区低速跟车不吃力，autohold解放了右脚，要提速时反应很快，高速时底盘非常的稳，信心十足</view>
+      <view class="imgs"></view>
+    </view>
+  </view>
+</view>

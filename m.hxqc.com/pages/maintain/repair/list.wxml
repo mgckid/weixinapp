@@ -1,0 +1,35 @@
+
+<!-- 导入loading模板 -->
+<import src="/template/loading.wxml" />
+<template is="pageLoading" data="{{pageLoading}}" />
+<view class="choose">
+  <image src="{{default_model.img}}"></image>
+  <view class="right">
+    <view class="h5">{{default_model.serieName}}</view>
+    <view class="p">{{default_model.modelName}}</view>
+  </view>
+  <view class="choose-text">
+    <navigator open-type="redirect" url="/pages/maintain/repair/filter">换车</navigator>
+  </view>
+</view>
+<scroll-view class="shopvList-wrap" scroll-y="true" bindscrolltolower="onWaterFall" style="height:calc(100% - 3.8rem);">
+  <view class="shopbList clearfix">
+
+    <!--list-->
+    <block wx:for="{{shopList}}">
+      <view class="shop_box">
+        <view class="a">
+          <image src="{{item.shopPhoto}}" class="img_top defaultImg"></image>
+          <view class="length">距离 {{item.distance}}</view>
+          <image src="{{item.brandThumb}}" class="img_logo defaultImg"></image>
+        </view>
+        <view class="shop_bottom">
+          <view class="p">{{item.shopTitle}} </view>
+          <navigator url="/pages/maintain/repair/orderform?shopID={{item.shopID}}&autoModel={{default_model.modelID}}&autoModelName={{default_model.modelName}}">
+            <view class="a book_btn">在线预约</view>
+          </navigator>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
