@@ -1,17 +1,11 @@
 <!--index.wxml-->
-<view class="section">
-  <view class="section__title">flex-direction: row</view>
-  <view class="flex-wrp" style="flex-direction:row;">
-    <view class="flex-item bc_green">1</view>
-    <view class="flex-item bc_red">2</view>
-    <view class="flex-item bc_blue">3</view>
-  </view>
-</view>
-<view class="section">
-  <view class="section__title">flex-direction: column</view>
-  <view class="flex-wrp" style="height: 300px;flex-direction:column;">
-    <view class="flex-item bc_green">1</view>
-    <view class="flex-item bc_red">2</view>
-    <view class="flex-item bc_blue">3</view>
-  </view>
+<view class="weui-grids">
+    <view class="weui-grids js_grid">
+        <view class="weui-grid__icon">
+            <image src="/images/icon_tabbar.png"/>
+        </view>
+        <view class="weui-grid__label">
+            Button
+        </view>
+    </view>
 </view>
