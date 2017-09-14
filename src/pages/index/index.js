@@ -1,7 +1,30 @@
 // pages/index/index.js
 var p = 1;
-var getLastestPost = function (p,) {
-
+var getPageList = function (that) {
+  wx.request({
+    url: 'http://api.houduanniu.me/?route=Post/latestPost', //仅为示例，并非真实的接口地址
+    method: 'GET',
+    data: {
+      dictionary_value: 'article',
+      p: p,
+      page_size: 3
+    },
+    header: {
+      'content-type': 'application/json' // 默认值
+    },
+    success: function (res) {
+      if (res.data.code != 200) {
+        return false;
+      }
+      var getData = res.data.data.list;
+      var dataList = that.data.list;
+      for (var i = 0; i < getData.length;i++){
+          dataList.push(getData[i]);
+      }
+      that.setData({ list: getData });
+      p++;  
+    }
+  })
 }
 
 Page({
@@ -10,32 +33,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    "latestPost": []
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var that = this;
-    wx.request({
-      url: 'http://api.houduanniu.me/?route=Post/hotPost', //仅为示例，并非真实的接口地址
-      method: 'GET',
-      data: {
-        dictionary_value: 'Post/latestPost',
-        p: 1,
-        page_size: 3
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success: function (res) {
-        if (res.data.code == 200) {
-          that.setData({ latestPost: res.data.data });
-          console.log(that.data.latestPost);
-        }
-      }
-    })
+      var that = this;
+      getPageList(that)
   },
 
   /**
@@ -70,14 +76,17 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+      p=1;
+      this.setData({list:[]});
+      getPageList(this);
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    var that = this;
+    getPageList(that)
   },
 
   /**
