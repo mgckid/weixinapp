@@ -5,7 +5,8 @@
             <view class="weui-panel__hd">最近更新</view>
             <view class="weui-panel__bd">
               <!-- 列表数据开始 -->
-               <view class="item" wx:for="{{list}}">
+              <scroll-view scroll-y>
+                <view class="item" wx:for="{{list}}">
                   <navigator url="/pages/index/detail?id={{item.post_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
                       <view class="weui-media-box weui-media-box_text">
                           <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
@@ -18,6 +19,7 @@
                       </view>
                   </navigator>
                 </view>
+              </scroll-view>
                 <!-- 列表数据结束 -->
             </view>
         </view>

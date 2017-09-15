@@ -5,14 +5,30 @@ Page({
    * 页面的初始数据
    */
   data: {
-  
+    ietm:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+      var post_id = options.id;
+      var that = this;
+      console.log(options);
+      wx.request({
+        url: 'http://api.houduanniu.com/?route=Post/post',
+        data:{
+          post_id:post_id
+        },
+        success:function(res){
+          console.log(res.data)
+          if(res.data.code ==200){
+              that.setData({
+                item: res.data.data.article
+              })
+          }
+        }
+      });
   },
 
   /**

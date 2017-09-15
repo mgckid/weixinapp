@@ -2,7 +2,7 @@
 var p = 1;
 var getPageList = function (that) {
   wx.request({
-    url: 'http://api.houduanniu.me/?route=Post/latestPost', //仅为示例，并非真实的接口地址
+    url: 'http://api.houduanniu.com/?route=Post/latestPost', //仅为示例，并非真实的接口地址
     method: 'GET',
     data: {
       dictionary_value: 'article',
@@ -18,11 +18,13 @@ var getPageList = function (that) {
       }
       var getData = res.data.data.list;
       var dataList = that.data.list;
-      for (var i = 0; i < getData.length;i++){
-          dataList.push(getData[i]);
+      console.log(dataList);
+      for (var i = 0; i < getData.length; i++) {
+        var item = getData[i];
+        dataList.push({ title: item.title, description: item.description, created: item.created, post_id: item.post_id });
       }
-      that.setData({ list: getData });
-      p++;  
+      that.setData({ list: dataList });
+      p++;
     }
   })
 }
@@ -40,8 +42,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-      var that = this;
-      getPageList(that)
+    var that = this;
+    getPageList(that)
   },
 
   /**
@@ -76,9 +78,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-      p=1;
-      this.setData({list:[]});
-      getPageList(this);
+    p = 1;
+    this.setData({ list: [] });
+    getPageList(this);
   },
 
   /**
