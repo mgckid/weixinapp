@@ -1,27 +1,130 @@
 <!--pages/index/index.wxml-->
+
 <view class="page">
-    <view class="page__bd">
-        <view class="weui-panel weui-panel_access">
-            <view class="weui-panel__hd">最近更新</view>
-            <view class="weui-panel__bd">
-              <!-- 列表数据开始 -->
-              <scroll-view scroll-y>
-                <view class="item" wx:for="{{list}}">
-                  <navigator url="/pages/index/detail?id={{item.post_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
-                      <view class="weui-media-box weui-media-box_text">
-                          <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
-                          <view class="weui-media-box__desc">{{item.description}}</view>
-                          <view class="weui-media-box__info">
-                              <view class="weui-media-box__info__meta">文字来源</view>
-                              <view class="weui-media-box__info__meta">时间:{{item.created}}</view>
-                              <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</view>
-                          </view>
-                      </view>
-                  </navigator>
-                </view>
-              </scroll-view>
-                <!-- 列表数据结束 -->
-            </view>
-        </view>
+  <view class="page__hd">
+    <text class="page__title">image</text>
+    <text class="page__desc">图片</text>
+  </view>
+  <view class="page__bd">
+    <view class="section section_gap" wx:for="{{array}}" wx:for-item="item">
+      <view class="section__title">{{item.text}}</view>
+      <view class="section__ctn">
+        <image style="width: 200px; height: 200px; background-color: #eeeeee;" mode="{{item.mode}}" src="{{src}}"></image>
+      </view>
     </view>
+  </view>
+</view>
+
+<audio poster="{{poster}}" name="{{name}}" author="{{author}}" src="{{src}}" id="myAudio" controls loop></audio>
+
+<button type="primary" bindtap="audioPlay">播放</button>
+<button type="primary" bindtap="audioPause">暂停</button>
+<button type="primary" bindtap="audio14">设置当前播放时间为14秒</button>
+<button type="primary" bindtap="audioStart">回到开头</button>
+
+<navigator url='/pages/index/detail?id=1761430928833934' hover-class='aaa' redirect>
+链接
+</navigator>
+<form>
+  <input type='text' placeholder="最大输入长度10" digit confirm-type="send"/>
+
+<checkbox-group bindchange="checkboxChange">
+  <label class="checkbox" wx:for="{{items}}">
+    <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+  </label>
+</checkbox-group>
+
+<button size='mini' type='primary' plain='plain' disabled='disable' loading='loading'>按钮</button>
+<button open-type='getUserInfo'>信息</button>
+<button form-type='submit'>提交</button>
+
+<button type="default" size="{{defaultSize}}" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="default" hover-class="other-button-hover"> default </button>
+<button type="primary" size="{{primarySize}}" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="primary"> primary </button>
+<button type="warn" size="{{warnSize}}" loading="{{loading}}" plain="{{plain}}"
+        disabled="{{disabled}}" bindtap="warn"> warn </button>
+<button bindtap="setDisabled">点击设置以上按钮disabled属性</button>
+<button bindtap="setPlain">点击设置以上按钮plain属性</button>
+<button bindtap="setLoading">点击设置以上按钮loading属性</button>
+<button open-type="contact">进入客服会话</button>
+
+</form>
+
+
+<progress percent="20" show-info stroke-width="33" activeColor='green' backgroundColor='red' active/>
+
+<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" width="355" height="150" />
+    </swiper-item>
+  </block>
+</swiper>
+<button bindtap="showInfo"> indicator-dots </button>
+
+
+<view class="section">
+  <view class="section__title">movable-view区域小于movable-area</view>
+  <movable-area style="height: 200px;width: 100%;background: red;">
+    <movable-view style="height: 50px; width: 50px; background: blue;" x="{{x}}" y="{{y}}" direction="all">
+    </movable-view>
+  </movable-area>
+  <view class="btn-area">
+    <button size="mini" bindtap="tap">click me to move to (30px, 30px)</button>
+  </view>
+</view>
+
+<view class="group">
+  <block wx:for="{{iconSize}}">
+    <icon type="success" size="{{item}}"/>
+  </block>
+  <block>
+    <icon type="info" color="orange" size="20" />
+  </block>
+</view>
+<view>
+  <text selectable="true">这是测试数据</text>
+</view>
+
+
+<view class="group">
+  <block wx:for="{{iconColor}}">
+    <icon type="success" size="40" color="{{item}}"/>
+  </block>
+</view>
+
+
+<view class="group">
+  <block wx:for="{{iconType}}">
+    <icon type="{{item}}" size="20"/>
+  </block>
+</view>
+
+
+<view class="page">
+  <view class="page__bd">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__hd">最近更新</view>
+      <view class="weui-panel__bd">
+        <!-- 列表数据开始 -->
+        <scroll-view scroll-y>
+          <view class="item" wx:for="{{list}}">
+            <navigator url="/pages/index/detail?id={{item.post_id}}" class="weui-media-box weui-media-box_appmsg" hover-class="weui-cell_active">
+              <view class="weui-media-box weui-media-box_text">
+                <view class="weui-media-box__title weui-media-box__title_in-text">{{item.title}}</view>
+                <view class="weui-media-box__desc">{{item.description}}</view>
+                <view class="weui-media-box__info">
+                  <view class="weui-media-box__info__meta">文字来源</view>
+                  <view class="weui-media-box__info__meta">时间:{{item.created}}</view>
+                  <view class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</view>
+                </view>
+              </view>
+            </navigator>
+          </view>
+        </scroll-view>
+        <!-- 列表数据结束 -->
+      </view>
+    </view>
+  </view>
 </view>

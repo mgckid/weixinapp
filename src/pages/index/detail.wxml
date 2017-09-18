@@ -1,3 +1,4 @@
+<import src="../../wxParse/wxParse.wxml"/> 
 <view class="page">
   <view class="page__hd">
     <view class="page__title">{{item.title}}</view>
@@ -8,7 +9,7 @@
       <!-- <view class="weui-article__h1">大标题</view> -->
       <view class="weui-article__section">
         <view class="weui-article__p">
-         {{item.content}}
+              <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
         </view>
       </view>
     </view>

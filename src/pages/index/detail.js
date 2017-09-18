@@ -1,4 +1,5 @@
 // pages/index/detail.js
+var WxParse = require('../../wxParse/wxParse.js')
 Page({
 
   /**
@@ -21,11 +22,12 @@ Page({
           post_id:post_id
         },
         success:function(res){
-          console.log(res.data)
           if(res.data.code ==200){
               that.setData({
                 item: res.data.data.article
-              })
+              });
+              var content = res.data.data.article.content;
+              WxParse.wxParse('content', 'html', content, that, 5);
           }
         }
       });
