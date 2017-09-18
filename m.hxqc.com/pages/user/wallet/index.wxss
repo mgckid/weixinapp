@@ -1,8 +1,0 @@
-/*我的余额*/
-.walletMain{text-align: center; padding: 2.8rem 1rem 0;}
-.walletMain .xico{width:3.75rem;height:4rem;margin-bottom: 1rem;}
-.walletMain .canText{font-size: 30rpx; color:#252525;}
-.walletMain .numText{font-size: 46rpx; color:#252525; margin : .4rem 0 1.4rem;}
-.walletMain .btnText{margin-top: .8rem;}
-.walletMain .btnText .a{display: block; box-sizing:border-box; letter-spacing: .1rem; line-height: 2.3rem; border:1px solid #dfdfdf; font-size: 30rpx; color:#252525; background-color: #fff;}
-.walletMain .btnText .a.yel{border-color:#dfdfdf; background-color: #ff7143; color:#fff;}

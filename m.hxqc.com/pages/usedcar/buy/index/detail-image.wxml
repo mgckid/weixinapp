@@ -1,6 +1,0 @@
-<view class="ucar-pic">
-  <view wx:for="{{img_list}}" class="ucar-pic-show">
-    <image class="img" src="{{item.small_path}}" data-urls="{{item.small_path}}" bindtap="onclickImage"/>
-    <text>{{item.title}}</text> 
-  </view>
-</view>

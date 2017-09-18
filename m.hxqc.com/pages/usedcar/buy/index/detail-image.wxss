@@ -1,4 +1,0 @@
-.ucar-pic{clear: both;overflow:hidden;position: relative;}
-.ucar-pic-show{position: relative;margin-bottom: .66rem;max-height: 11rem;overflow: hidden;}
-.ucar-pic-show .img{width: 100%;}
-.ucar-pic-show text{position: absolute;left: 0;bottom: 0;width: 100%;height:2rem;line-height:2rem;background-color: rgba(0,0,0,.8);font-size: 32rpx;text-indent: .7rem;color: #fafafa;letter-spacing: 1px;}
